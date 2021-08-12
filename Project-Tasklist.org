@@ -1,0 +1,164 @@
+#+TITLE: Roadmap for Vecternary App
+#+AUTHOR: Songtech-0912 (Yuxuan Song)
+
+* Vecternary Picasso
+** DONE Fix the webkit issues
+** DONE Make the app responsive up to md screen size (should work on screens >=800px in width)
+** DONE Change focus outlines to blue glow for accessiblity
+** DONE Finish design of Vecternary Icon
+** TODO Add in support for themes based on this: [[https://www.youtube.com/watch?v=MAtaT8BZEAo]]
+** TODO Make inputs outlined in red if an invalid input is added
+** TODO Finish the colorpicker dropdown based on TailwindUI's dropdowns
+*** This should NOT use the native ~select~ element, instead it should be made accessible via aria attributes and tabindex
+*** Add in these selection options - prerequisite is full page canvas
+**** TODO Line color
+**** TODO Shadow color
+**** TODO Fill color
+**** TODO Canvas background color - set canvas background color / set canvas background to checkboard background alpha
+** TODO Finish the resizable properties editor and the dragging button for that panel
+** TODO Better-looking placeholders for the canvas, via overlaying a div with z-depth 1 (showing recent files list for instance)
+** DONE Style sliders to look consistent on all browsers
+** DONE Style the range sliders to match Firefox's default style (white entirely) on all browsers
+** DONE Add in the on-focus slide-out dropdown menu (should just use CSS focus and the same menu will be used for all dropdowns in the future)
+** TODO Add ability to import images and adjust their transparency to draw/trace on top of images
+** TODO Add ARIA attributes as well as using semantic HTML as per https://css-tricks.com/why-how-and-when-to-use-semantic-html-and-aria/
+** DONE Finish adding in Canvas drawing with Fabric.js
+** TODO Zoom in/out with scroll wheel and pan with click and drag
+** TODO Full canvas functionality - that is, link the tools button with the actual tools - see http://fabricjs.com/kitchensink
+*** TODO Curve/straight path drawing - reference: [[https://github.com/pegasus1982/fabricjs-image-editor-origin]]
+*** Tools reference: [[https://codepen.io/mflorian/pen/aqmvOJ]] and locally available at ~/home/songtech/CodeSandbox/fabricjs-editor/dist~
+**** Finish add circle tool
+**** Finish add rectangle tool
+**** Finish draw shape by points tool ([[https://github.com/taqimustafa/fabricjs-polygon]])
+**** Finish adding text tool - referece: [[http://redino.net/blog/2014/09/fabric-js-set-text-color/]]
+*** Freehand drawing reference: [[https://codepen.io/songtech-0912/pen/VwmoOEX]]
+*** Erase reference: [[https://codepen.io/songtech-0912/pen/KKWgdaG]] but a better version can be found as the eraser tool on [[https://witeboard.com/]]
+*** Undo and Redo + Snapping + Guides via ~FabricPublisherTools.js~ - see [[https://github.com/mtrudw/fabricPublisherTools]]
+** TODO Full width canvas - left toolbar should be floating via z-index
+** TODO SVG import functionality
+** DONE Be able to delete canvas objects with the ~delete~ key
+** DONE First test with Rust's web-view library
+** TODO Fix bugs
+*** DONE Bug #1: square sliders on webkit and chrome
+*** TODO Bug #2: multiselect is broken due to colorpicker being overwhelmed with multiple objects
+** TODO Undo/Redo capability - reference: [[https://codepen.io/keerotic/pen/yYXeaR]]
+** TODO Copy/duplicate objects capability - see [[https://mpecenin.github.io/draw-maker/samples/main/index.html]]
+** TODO Finish color controls
+*** DONE Let colorpicker's color auto-change to selected object color
+*** DONE Allow selected object color to change via colorpicker
+** DONE Add a custom NoScript tag that is more semantic and better communicates Vecternary Picasso
+** TODO Finish the Rust backend (save/load SVG files, etc.)
+*** TODO Be able to export as PNG image
+*** TODO Import SVG ability via Rust backend engine
+** TODO Implement accesssibility best practices based on [[https://tailwindui.com/documentation#html-accessibility]]
+** DONE Check Vecternary Picasso in Lynx browser to verify accessibiliy and semantic markup
+*** DONE Passing test should just display the ~<noscript>~ tag along with associated javascript symbol
+*** TODO Passing test should also certify compliance with GNU LibreJS
+** TODO Read rust performance guide at [[https://nnethercote.github.io/perf-book/]]
+** TODO Final checks before deployment
+*** TODO Check responsiveness on screens of all sizes and check responsiveness in Lighthouse as well
+**** TODO At all screen sizes less than 800px, hide main application UI and instead show a "screen size too small" alert that encourages the user to resize the window to something bigger
+*** DONE As a production run, create /that/ design with Vecternary Picasso
+[[/home/songtech/Pictures/Screenshot_20210521_172949.png]]
+*** TODO Create example SVG in Inkscape that Vecternary loads at startup to be the default startup file (something like [[https://static.vecteezy.com/system/resources/previews/000/225/476/original/vector-beautiful-landscape-illustration.jpg]])
+*** TODO Run full strength linters to find every possible JS mistake
+*** TODO Run full strength linters on Rust code as well
+*** TODO Code quality checking - see [[https://code.blender.org/2020/11/code-quality-day/]]
+*** TODO Create and run performance tests
+**** TODO Test 1: Profile average memory usage https://rust-analyzer.github.io/blog/2020/12/04/measuring-memory-usage-in-rust.html
+**** TODO Test 2: Profile average heap usage [[https://github.com/KDE/heaptrack]]
+**** TODO Test 3: Check code style and formatting (JS + Rust)
+**** TODO Test 4: Stress-test with 1000 objects on canvas, as well as loading Blender's big SVG icon sheet
+**** TODO Test 5: Multi-metric tests with 5 hours of continuous operation
+*** TODO Do cross-platform testing
+*** TODO Deliver Vecternary Picasso 0.1.0 to Elisa and also send her a video of a design being made in Vecternary
+
+* Vecternary Mondrian
+** TODO Full ability to use the app with only the keyboard for 100% accessibiliy
+** TODO Headless mode for application to be run from command line
+** TODO Add a statusbar (like Blender's status bar) showing canvas object statistics, file sizes, CPU and memory usage, and which mode Vecternary is in (adjust or drawing)
+** TODO Create installer for Vecternary written in Rust and based on SDL2
+*** TODO Add a SDL2 UI that launches before Vecternary does which checks the system to see if it matches these system requirements
+*** A system web browser with EdgeHTML >= 12, Webkit >= 6.1, or Webkit2GTK >= 10.1
+** TODO Finish VBundler with the following functionalities:
+*** TODO Remove unused CSS, like [[https://uncss-online.com/]]
+*** TODO Remove dead code, like [[https://bundlers.tooling.report/transformations/dead-code/]]
+*** TODO Removed unusued JS, like [[https://web.dev/unused-javascript/]]
+*** TODO Lint C++ Code for VBundler based on Cpplint ([[https://github.com/cpplint/cpplint]])
+** TODO Onboarding via [[https://tailwindcomponents.com/component/onboarding-slider]]
+** TODO Responsive - should show a message like "Sorry, please resize your screen to something bigger; learn more about this error" if screen size is under desktop size (700px in width)
+** TODO Add ability to show a light gridline overlay on the canvas - e.g. [[https://vipstone.github.io/drawingboard/drawingboard/index.html]]
+** TODO Preferences and preferences menu - use rustbreak @ [[https://crates.io/crates/rustbreak]] for storing and accessing settings via a database
+** TODO Zoom and Pan
+*** TODO Zoom canvas on scroll
+*** TODO Pan canvas on mouse drag
+** TODO Add spline graphs as per [[http://me.jonathanlurie.fr/canvasSpliner/examples/]]
+** TODO Add brushes!
+*** TODO Exemplar: [[https://sta.sh/muro/]]
+*** TODO Pressure sensitivity: [[https://github.com/arch-inc/fabricjs-psbrush]]
+*** TODO Styled brushes: [[http://perfectionkills.com/exploring-canvas-drawing-techniques/]]
+*** TODO Canvas Brushes: [[https://github.com/tennisonchan/fabric-brush]]
+*** TODO Soft Bruhes: [[https://github.com/keripix/lukis]]
+** TODO Image editing at [[https://github.com/MattKetmo/darkroomjs]]
+** TODO Massively improve performance:
+*** TODO 1) Eliminating render-blocking CSS + JS based on [[https://blog.prototyp.digital/improving-website-performance-by-eliminating-render-blocking-css-and-javascript/]]
+*** TODO 2) Lazy load images on canvas based on [[https://blog.prototyp.digital/best-way-to-lazy-load-images-for-maximum-performance/]]
+*** TODO 3) Optimize canvas as per [[https://blog.prototyp.digital/best-way-to-lazy-load-images-for-maximum-performance/]]
+*** TODO 4) Path simplification and smoothing as per these two examples: [[http://paperjs.org/examples/path-simplification]] [[http://paperjs.org/examples/smoothing/]]
+** TODO Rewrite all custom and main JS in PureScript - [[https://www.purescript.org/]]
+** TODO IMPORTANT! Nodal path editing - that means each point in a shape can be edited independently as per [[http://paperjs.org/examples/path-intersections/]] and [[http://paperjs.org/examples/boolean-operations/]]
+** TODO Add features to match capabilities of floido designer (at [[https://github.com/sandor/floido-designer]])
+** TODO Add features based off of code from [[https://salgum1114.github.io/react-design-editor/]]
+** TODO Add image cropping, import, and scaling abilities based on [[https://nyan.im/posts/2786.html]]
+** TODO Add image vector tracing abilities (convert raster to vector) - this should be implemented with Rust
+** TODO Built-in help system/manual with lightbox effect
+** TODO Layers system, based on [[https://user-images.githubusercontent.com/4484980/103608543-8f023380-4f56-11eb-9504-052722ab4259.png]]
+** TODO Add in microinteractions, transitions, and other CSS animations
+*** TODO Such as buttons having a ripple animation on click like Material Design - reference [[https://github.com/jamessessford/tailwindcss-ripple]]
+*** TODO Transitions follow TailwindUI instruction - see [[https://labs.redantler.com/incredibly-simple-css-vanilla-js-transition-techniques-8c9efb2f8083]] and [[https://sebastiandedeyne.com/javascript-framework-diet/enter-leave-transitions/]]
+*** TODO Animations based on [[https://css-tricks.com/controlling-css-animations-transitions-javascript/]]
+** TODO Click-free drawing and other features inspired by https://witeboard.com
+** TODO Proper UI design in Figma
+*** TODO Pseudo-frameless window, in the same style as Pocket Code's header design in Figma (if possible)
+** TODO Pass [[https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard][WCAG Guidelines]] and check in Firefox for:
+*** DONE Contrast (ratio >=4.5)
+*** TODO Keyboard Navigation (With Tabindex)
+*** TODO Alt-text on everything
+*** TODO Pass Firefox + Lighthouse accessibility checks
+** TODO Use Rust for backend for better performance
+** TODO Artifacts cleaner - cleans points under 2px in size to erase accidental drawing points
+** TODO Graphics library - like an icons repository + illustrations repository + unDraw that also updates to include all objects on canvas
+*** TODO Library should also include the public domain set at [[https://publicdomainvectors.org/]]
+*** TODO Create built-in custom icons set for the Vecternary Library - Vecternary Icons based on Simpleicons
+** TODO Autosaving with Rust backend
+** TODO Switch to using Webrender + embedded Servo for 100x faster rendering
+** TODO Create and set preferences
+*** TODO Preference to auto-exit drawing mode when mouse clicks on any Fabricjs canvas element
+** TODO Finish VBundler with the following features:
+*** Auto-purge unneccesary and unused JavaScript
+*** Auto-purge unused CSS
+*** Merge all assets into 1 HTML file
+** TODO Drag and Drop
+** TODO *MUCH BETTER* UI!
+** TODO Create full grid and snapping system
+** TODO Finish the website and app docs/tutorials with a Tailwind template
+** TODO Auto-saving and backups restore and restore session system
+** TODO Allow zooming in and out
+** TODO Add in preferences menu
+** TODO relese under GPL 3+ on GitHub
+** TODO Make the website
+** TODO Refactor all javascript and replace it with Alpine.js
+** TODO Add more features
+*** Add in tool help like the hover-based examples in the Firebug extension
+*** Add in a home (splash) screen like Atom and VS Code
+*** Add in a custom JSON-based file extension rather than just a svg
+*** Add in a assets toolbar to quickly add in common shapes/icons
+** TODO Make app completely responsive (including for mobile)
+** TODO Add in "reload window" button like VSCode does to reload the UI without restarting the application
+* Vecternary Monet
+** TODO Add in a community templates/plugins marketplace like Figma community
+** TODO add in proper color management
+** TODO Add in keyboard-driven workflow inspired by vim
+** TODO Add in all tools and programmable interface from [[https://github.com/baku89/pentool]]
+** TODO Add in scripting/plugins capability - scripts are in a custom scripting language called VecScript and are designed to be easy to learn and understand. VecScript is based off of Python, but made simpler to understand
+** Vecternary Monet will be the last release that will add a lot of major features. Future updates will only add 1 or 2 updates at a time, and only rarely, to prevent feature bloat

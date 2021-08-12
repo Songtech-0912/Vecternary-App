@@ -1,0 +1,21 @@
+#+TITLE: Vecternary Keybindings paradigm
+
+Vecternary is meant to be highly usable from just the keyboard, as a way of accomadating vissually impaired users and users who do not (or can not) use a mouse. The UI/keyboard shortcuts paradigm will be chosen from one of the following:
+
+* Option 1
+** Keybindings use multiple keys pressed one after the other
+** For example, the union operation with 2 shapes selected is CTRL M CTRL U 
+
+* Option 2
+** First, the user presses the SHIFT + 2 key to activate command mode, which displays a number of keys on the bottom. This is like activating Spacemacs' bottom ribbon menu
+** Now, the keyboard shortcuts are visible
+** For instance, SHIFT + 2 and then S brings the shape tool activated
+** Also, SHIFT 2 and then the ">" key brings the command palette on
+
+* Option 3
+** All keyboard shortcuts are mode-based
+** For example, the fill tool in pen mode has the shortcut "F", but in normal mode it has the shortcut "SHIFT F"
+
+* Option 4 (My favorite)
+** Keybindings use a central user-defined "command key" appended before all commands - like Tmux
+** For instance, if ~SHIFT + V~ is the command key the user chooses, then all commands start with SHIFT + V, so copy might be ~SHIFT + V + C~, paste might be ~SHIFT + V + P~, and changing the fill color of the selected object might be ~SHIFT + V + F~

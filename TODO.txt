@@ -1,0 +1,79 @@
+TODO List for Vecternary
+------------------------
+
+(FYI This list is temporary and overwritable, most items will be moved to Emacs in the permanent tasklist @ Vecternary-Tasklist.org instead)
+
+- Package and send the desktop app (with the default illustration/demo file) soon
+- Write the file specification for the .vect format and for Vecternary to efficiently load/save files
+- For performance - when Vecternary first loads files it will load them as static non-editable, and it will only change the canvas to be editable once the canvas is already loaded
+- Completely overhaul Vecternary UI paradigm!
+	- There should in fact be a separate "select tool" available for adjusting the position of objects instead of the weird "adjust mode" to move stuff method!
+	- Instead of "adjust mode" and "draw mode" which are vaguely defined, instead it should be separated into tool settings and object settings!
+	- So for instance if the "draw tool" is selected, the tool settings define the type of brush used, brush thickness, stroke thickness, etc, while the object settings define the color of the object.
+- Finish seperating the markup to UI components in JavaScript
+	- Learn how to do UI component transitions on that codepen
+	- Separate these UI components:
+		- Menu bar
+		- Sidebar
+		- Dropdowns
+	- Make sure that the UI components retain good performance
+	- Also make sure that enough basic HTML markup remains to make the UI work even without JS enabled
+	- Update the tailwind.config.js file to include tree-shaking styles from all JS files
+	- Make sure that all the code is ES2015 compliant and works with just a <script> tag
+
+- Standard todos:
+	- Work on fixing the multiselect color bug with the new multiselect attribute UI, adding autosaving, and the new rewrite to a state-based UI engine and the full width canvas with a floating left toolbar
+	- Add in a zoom index showing the percent of canvas zoom and updating realtime (e.g. 100%, 150%, etc.)
+	- Also work on adding the draggables and making the UI fully responsive
+	- Open those tabs stored in Tab Stash about implementing a bezier pen
+	- Work on a system built into the Rust engine that continuously monitors CPU usage from another thread and warns the user if Vecternary uses too much system resources
+	- Work making sure the UI thread is separate from the engine thread
+	- Limit Vecternary to use no more than 500 MB of RAM or more than 10% of CPU
+	- And work on a comprehensive solution to store app performance data on the user's machine (in order to 
+		- Flamechart graph (vanilla JS UI component) based on `console.profile[title])` and `console.trace()` to perform app-wide profiling
+		- Line graph based on `window.performance` API to calculate speeds and lag on certain functions
+		- Standard monitoring (htop-style) with CPU usage, memory usage, and FPS which are all measured from the Rust backend engine
+		- Stress tester options (when the developer extras are enabled in the developer menu) in order to perform both benchmark tests on Vecternary and do [performance recordings](https://yonatankra.com/how-to-profile-javascript-performance-in-the-browser/)
+		- All the data is kept on the local computer so it cannot be compromised, and will never be transmitted
+		- However, the user is recommended from time to time to share the performance logging data (though not required to)
+- Make an icon stylesheet so that instead of including complicated markup to embed SVGs directly, I can just use something like `<i class="my-icon" alt="something"></i>`
+- Begin cleaning up markup of UI with vanilla javascript UI components based on [[https://jack.ofspades.com/developing-small-javascript-components-without-frameworks/index.html]]
+	- These components should also support the transition-enter and transition leave methods as per
+	- Make an isolated component for dropdown menus
+		- This allows us to only need the menu items markup instead of all of the complex dropdown markup
+	- Make an isolated component for the state (mode) buttons
+	- Make an isolated component for the sliders (which are already a javascript component but could be simplified)
+- Implement saving files and let Rust backend do the heavy work
+	- Optimize by incremental loading
+		- First, only load parts of the file visible in the canvas
+			- Use javascript to tell Rust the size of the canvs
+			- Then Rust will separate the .vect file into elements
+			- If an element is positioned outside of the canvas, it loads them last
+		- If an element contains large pixmaps, they are loaded into memory by rust
+			- In that way fabricjs doesn't need to convert the image to base64 then load the image back
+			- Instead, fabricjs can directly load the image from memory
+		- Second, do the loading asynchronously
+		- Third, optimize vectors and bitmaps (SVGO/tinypng style but in rust) before loading
+		- Fourth, let rust code handle as much of the loading process as possible
+- Implement loading files
+- Implement auto error/warning logging via javascript communication with rust backend
+	- Use the `window.onerror` event handler to catch all the errors, with this info:
+		- Error name/type
+		- Error content
+		- Error location (line, column)
+		- Stack trace
+	- Use Javascript to write this as a JSON object, and pass it to rust
+	- Then, use Rust to continuously create an error log and save it to ~/vecternary.log
+- Implement auto saving via the "canvas:onmodified" event
+- Implement help system:
+	- Search through menus feature for vecternary - like macos, it searches through menu items
+	- Built-in help which launches another webview for a help UI dashboard - design the help dashboard in Figma, it should be like Onivim's
+	- Vecternary command palette feature for keyboard-centric workflow as well as the keyboard shortcuts system
+
+Later:
+
+- Rewrite the code again based on experience
+- Include a states-based engine for controlling the UI
+- Zooming into canvas/zooming out
+- Make the UI completely responsive (currently it is only partially responsive)
+- Add drag and dropping of images from file browser

@@ -1,0 +1,64 @@
+/* This uses tailwindCSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Extend base layer with custom CSS */
+@layer base {
+
+    /* To prevent elements inside the
+     * sidebar buttons to "steal" the
+     * click event from the button
+     * itself and cause the event
+     * delegation to fail - so instead
+     * we prevent them from receiving
+     * clicks by preventing them from
+     * being able to register "click"
+     * events */
+    [data-sidebar-button="1"] > * {
+        pointer-events: none;
+    }
+
+    /* Fade in page effect */
+    body {
+        width: 100vw;
+        height: 100vh;
+        -webkit-animation: fadeIn ease-in 1s;
+        -moz-animation: fadeIn ease-in 1s;
+        -o-animation: fadeIn ease-in 1s;
+        -ms-animation: fadeIn ease-in 1s;
+        animation: fadeIn ease-in 1s;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /* Apply basic accesibility outlines with some better styles*/
+    .glow-outline {
+        @apply focus:ring focus:ring-opacity-50 focus:ring-indigo-300;
+    }
+
+    .text-menu {
+        font-size: 0.9rem;
+        line-height: 1.25rem;
+    }
+
+    .transform {
+        @apply transition ease-out duration-100;
+    }
+
+    /* Some other basic styles to make tables look nicer by default */
+	th {
+		@apply text-left px-8 py-4;
+	}
+    td {
+        @apply px-8 py-4;
+    }
+}
