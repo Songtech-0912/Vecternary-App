@@ -1,6 +1,6 @@
 <Open>
     <Open recent>
-    <Open file>
+    <Open file label="hi">
         <Open from disk>
         <Open from cloud>
             <Open from google drive>
@@ -12,4 +12,5 @@
 <Save>
 
 let fileMenuElements = [ openFile, saveFile ]
-let openFile = [openFromDisk: {}, openFromCloud]
+let openFile = [openFromDisk, openFromCloud, openLastSession ]
+let openFileAttributes = { id: "openFileAttributes", label: "Open file" }
