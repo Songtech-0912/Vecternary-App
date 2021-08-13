@@ -1,0 +1,161 @@
+<header class="flex shadow-md w-full bg-deepgray">
+  <nav class="ml-4 lg:ml-20 justify-start max-w-7xl">
+    <div class="flex items-center h-12 space-x-3 font-base text-sm text-gray-200 cursor-pointer">
+      <!--Begin file dropdown-->
+      <div class="relative">
+        <!--Dropdown text-->
+        <button id="fileButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">File</button>
+        <!--Dropdown elements panel-->
+        <div id="menuFile" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">New drawing</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Import</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Open file</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Open recent file</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Restore last session</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="javascript:myalert()" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Save</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Save as</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Rename file</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4">Settings</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4">Reload UI</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-6">Quit</a>
+          </div>
+        </div>
+      </div>
+      <!--End file dropdown-->
+
+      <!--Begin edit dropdown-->
+      <div class="relative">
+        <!--Dropdown text-->
+        <button id="editButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Edit</button>
+        <!--Dropdown elements panel-->
+        <div id="menuEdit" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Undo</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Redo</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Cut</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Copy</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Paste</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Autosave ✓</a>
+          </div>
+          <div>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Zoom in</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Zoom out</a>
+          </div>
+        </div>
+      </div>
+      <!--End edit dropdown-->
+
+      <!--Begin format dropdown-->
+      <div class="relative">
+        <!--Dropdown text-->
+        <button id="menuButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Format</button>
+        <!--Dropdown elements panel-->
+        <div id="menuFormat" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Select all</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Select by type</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Send to top</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Send 1 level up</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Send 1 level down</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Send to bottom</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Draw tool</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Eraser tool</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Circle tool</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Rectangle tool</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Spray tool</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Pattern tool</a>
+          </div>
+        </div>
+      </div>
+      <!--End format dropdown-->
+
+      <!--Begin preferences dropdown-->
+      <div class="relative">
+        <!--Dropdown text-->
+        <button id="prefsButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Preferences</button>
+        <!--Dropdown elements panel-->
+        <div id="menuPrefs" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Full screen</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Zen mode</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Show guides</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Show grid</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Enable snapping</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4">Customize keyboard shortcuts...</a>
+          </div>
+        </div>
+      </div>
+      <!--End preferences dropdown-->
+
+      <!--Begin developer dropdown-->
+      <div class="relative">
+        <!--Dropdown text-->
+        <button id="developerButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Developer</button>
+        <!--Dropdown elements panel-->
+        <div id="menudeveloper" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Open inspector</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Debugger</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Error logs</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Dependency info</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">JavaScript licenses</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">App console</a>
+          </div>
+        </div>
+      </div>
+      <!--End developer dropdown-->
+
+      <!--Begin about dropdown-->
+      <div class="relative">
+        <!--Dropdown text-->
+        <button id="aboutButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">About</button>
+        <!--Dropdown elements panel-->
+        <div id="menuAbout" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">About</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Report issue</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Quick start</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Interface guide</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Full documentation</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">GitHub</a>
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">License</a>
+            <!--LibreJS javascript licenses-->
+            <a href="#" data-jslicense="1" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Privacy & Security</a>
+            <a href="#" data-jslicense="1" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Keyboard Shortcuts</a>
+          </div>
+          <div class="py-1" role="none">
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-4">Search help...</a>
+          </div>
+        </div>
+      </div>
+      <!--End about dropdown-->
+    </div>
+  </nav>
+</header>

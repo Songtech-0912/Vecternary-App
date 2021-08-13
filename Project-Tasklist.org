@@ -6,9 +6,63 @@
 ** DONE Make the app responsive up to md screen size (should work on screens >=800px in width)
 ** DONE Change focus outlines to blue glow for accessiblity
 ** DONE Finish design of Vecternary Icon
+** DONE Move the stuff from TODO.txt to here
+** DONE Improve noscript - put the javascript licenses somewhere else, and instead make it a short succint message like CodePen's noscript
+*** TODO The improved noscript should still allow the user to close the noscript warning window and try to use the app with no javascript (it won't work but whatever)
+*** TODO The noscript should also be in a lightbox-style modal window like CodePen's so it does not obscure the UI behind it (the noscript modal can be closed and has a close button, it uses the CSS modal trick)
+** TODO Change the purge options in ~tailwind.config.js~ to purge classes in CSS files as well as HTML markup
+** TODO (Maybe?) Splash screen
+** TODO Begin cleaning up markup of UI with vanilla javascript UI components based on [[https://jack.ofspades.com/developing-small-javascript-components-without-frameworks/index.html]]
+*** TODO These components should also support the transition-enter and transition leave methods as per
+*** TODO Make an isolated component for dropdown menus
+**** TODO This allows us to only need the menu items markup instead of all of the complex dropdown markup
+*** TODO Make an isolated component for the state (mode) buttons
+*** TODO Make an isolated component for the sliders (which are already a javascript component but could be simplified)
+*** TODO Make an icon stylesheet so that instead of including complicated markup to embed SVGs directly, I can just use something like `<button class="my-icon" alt="something"></i>` and it displays the svg icon using CSS ::before
+*** TODO Learn how to do UI component transitions on that codepen
+*** TODO Separate these UI components:
+**** TODO Menu bar
+**** TODO Sidebar
+**** TODO Dropdowns
+*** TODO Make sure that the UI components retain good performance
+*** TODO Also make sure that enough basic HTML markup remains to make the UI work even without JS enabled
+*** TODO Update the tailwind.config.js file to include tree-shaking styles from all JS files
+*** TODO Make sure that all the code is ES2015 compliant and works with just a ~<script>~ tag (i.e. no use of modules or imports)
+** TODO Abstract the menu bar code so that it isn't the mess of convoluted HTML markup
+** TODO Make the items of the menu bar actually work
+** TODO Write the file specification for the .vect format and for Vecternary to efficiently load/save files
+** TODO (Mirrored on Sleek) For the opening/closing file capabilities of Vecternary, use the [[rfd][https://lib.rs/crates/rfd]] crate instead of the default web browser dialogue to read `.vect` files, and while each file is loading display a fun little loading animation and the user is asked whether the current file they have open should be saved
+** TODO Implement saving files and let Rust backend do the heavy work
+*** TODO Optimize by incremental loading
+**** TODO First, only load parts of the file visible in the canvas
+***** Use javascript to tell Rust the size of the canvs
+***** Then Rust will separate the .vect file into elements
+***** If an element is positioned outside of the canvas, it loads them last
+**** TODO If an element contains large pixmaps, they are loaded into memory by rust
+***** In that way fabricjs doesn't need to convert the image to base64 then load the image back
+***** Instead, fabricjs can directly load the image from memory
+**** TODO Second, do the loading asynchronously
+**** TODO Third, optimize vectors and bitmaps (SVGO/tinypng style but in rust) before loading
+**** TODO Fourth, let rust code handle as much of the loading process as possible
+** TODO Implement auto error/warning logging via javascript communication with rust backend
+*** TODO Use the ~window.onerror~ event handler to catch all the errors, with this info:
+**** TODO Error name/type
+**** TODO Error content
+**** TODO Error location (line, column)
+**** TODO Stack trace
+*** TODO Use Javascript to write this as a JSON object, and pass it to rust
+*** TODO Then, use Rust to continuously create an error log and save it to ~/vecternary.log
+*** TODO Let the logs be viewable in the UI through a console
+** TODO A full help system is not yet necessary for Vecternary Picasso but a basic manual like a GitHub README (but rendered in HTML of course) should be viewable offline in Vecternary
+** TODO Implement new UI paradigm - take inspiration from [[React Design Editor][https://salgum1114.github.io/react-design-editor/]] with special emphasis on separating the navigation buttons (zoom, pan, select, preview) from the tool buttons on the left sidebar
+*** TODO There should in fact be a separate "select tool" available for adjusting the position of objects instead of the weird "adjust mode" to move stuff method!
+*** TODO Instead of "adjust mode" and "draw mode" which are vaguely defined, instead it should be separated into tool settings and object settings!
+*** TODO So for instance if the "draw tool" is selected, the tool settings define the type of brush used, brush thickness, stroke thickness, etc, while the object settings define the color of the object.
 ** TODO Add in support for themes based on this: [[https://www.youtube.com/watch?v=MAtaT8BZEAo]]
-** TODO Make inputs outlined in red if an invalid input is added
-** TODO Finish the colorpicker dropdown based on TailwindUI's dropdowns
+*** TODO Package both a default dark and light theme as well as a high-contrast theme by default
+*** TODO Write a few other themes in Vecternary's CSS theme syntax and make them downloadable on Vecternary's website (as well as letting Elisa try them out to see which ones she likes)
+** TODO Make inputs outlined in red if an invalid input is detected and remember the last used input
+** TODO Finish the colorpicker dropdown (for choosing fill color/stroke color) based on TailwindUI's dropdowns
 *** This should NOT use the native ~select~ element, instead it should be made accessible via aria attributes and tabindex
 *** Add in these selection options - prerequisite is full page canvas
 **** TODO Line color
@@ -16,21 +70,23 @@
 **** TODO Fill color
 **** TODO Canvas background color - set canvas background color / set canvas background to checkboard background alpha
 ** TODO Finish the resizable properties editor and the dragging button for that panel
-** TODO Better-looking placeholders for the canvas, via overlaying a div with z-depth 1 (showing recent files list for instance)
+** TODO Better-looking placeholders for the canvas (something like Atom's startup/welcome screen would be nicer), via overlaying a div with z-depth 1 (showing recent files list for instance)
 ** DONE Style sliders to look consistent on all browsers
 ** DONE Style the range sliders to match Firefox's default style (white entirely) on all browsers
 ** DONE Add in the on-focus slide-out dropdown menu (should just use CSS focus and the same menu will be used for all dropdowns in the future)
 ** TODO Add ability to import images and adjust their transparency to draw/trace on top of images
 ** TODO Add ARIA attributes as well as using semantic HTML as per https://css-tricks.com/why-how-and-when-to-use-semantic-html-and-aria/
 ** DONE Finish adding in Canvas drawing with Fabric.js
+** TODO Being able to edit the points of a shape after creating the shape - see [[http://fabricjs.com/custom-controls-polygon]]
+** TODO Full integration of DTP tools via [[https://github.com/mtrudw/fabricPublisherTools]]
 ** TODO Zoom in/out with scroll wheel and pan with click and drag
 ** TODO Full canvas functionality - that is, link the tools button with the actual tools - see http://fabricjs.com/kitchensink
 *** TODO Curve/straight path drawing - reference: [[https://github.com/pegasus1982/fabricjs-image-editor-origin]]
 *** Tools reference: [[https://codepen.io/mflorian/pen/aqmvOJ]] and locally available at ~/home/songtech/CodeSandbox/fabricjs-editor/dist~
-**** Finish add circle tool
-**** Finish add rectangle tool
-**** Finish draw shape by points tool ([[https://github.com/taqimustafa/fabricjs-polygon]])
-**** Finish adding text tool - referece: [[http://redino.net/blog/2014/09/fabric-js-set-text-color/]]
+**** DONE Finish add circle tool
+**** DONE Finish add rectangle tool
+**** DONE Finish draw shape by points tool ([[https://github.com/taqimustafa/fabricjs-polygon]])
+**** DONE Finish adding text tool - referece: [[http://redino.net/blog/2014/09/fabric-js-set-text-color/]]
 *** Freehand drawing reference: [[https://codepen.io/songtech-0912/pen/VwmoOEX]]
 *** Erase reference: [[https://codepen.io/songtech-0912/pen/KKWgdaG]] but a better version can be found as the eraser tool on [[https://witeboard.com/]]
 *** Undo and Redo + Snapping + Guides via ~FabricPublisherTools.js~ - see [[https://github.com/mtrudw/fabricPublisherTools]]
@@ -40,12 +96,16 @@
 ** DONE First test with Rust's web-view library
 ** TODO Fix bugs
 *** DONE Bug #1: square sliders on webkit and chrome
-*** TODO Bug #2: multiselect is broken due to colorpicker being overwhelmed with multiple objects
-** TODO Undo/Redo capability - reference: [[https://codepen.io/keerotic/pen/yYXeaR]]
+*** TODO Bug #2: multiselect is broken due to colorpicker being overwhelmed with multiple objects - fix with the new multiselect attribute UI
+** TODO Adding autosaving via the "canvas:onmodified" event and show an icon and a toast to indicate that autosaving is active to the user
+** TODO Full width canvas with a floating left toolbar
+** TODO True cross-platform support on Mac, Linux, and Windows with correct UI rendering using webview on each
+** TODO Undo/Redo capability via the FabricJS publisher tools extension
 ** TODO Copy/duplicate objects capability - see [[https://mpecenin.github.io/draw-maker/samples/main/index.html]]
 ** TODO Finish color controls
 *** DONE Let colorpicker's color auto-change to selected object color
 *** DONE Allow selected object color to change via colorpicker
+*** TODO Fix the color corrector bug
 ** DONE Add a custom NoScript tag that is more semantic and better communicates Vecternary Picasso
 ** TODO Finish the Rust backend (save/load SVG files, etc.)
 *** TODO Be able to export as PNG image
@@ -55,12 +115,15 @@
 *** DONE Passing test should just display the ~<noscript>~ tag along with associated javascript symbol
 *** TODO Passing test should also certify compliance with GNU LibreJS
 ** TODO Read rust performance guide at [[https://nnethercote.github.io/perf-book/]]
+*** TODO Limit Vecternary to use no more than 500 MB of RAM or more than 10% of CPU (but the user should be able to customize this through a preferences file)
+**** TODO Work on a system built into the Rust engine that continuously monitors CPU usage from another thread and warns the user if Vecternary uses too much system resources
+**** Work making sure the UI thread is separate from the engine thread
 ** TODO Final checks before deployment
 *** TODO Check responsiveness on screens of all sizes and check responsiveness in Lighthouse as well
 **** TODO At all screen sizes less than 800px, hide main application UI and instead show a "screen size too small" alert that encourages the user to resize the window to something bigger
 *** DONE As a production run, create /that/ design with Vecternary Picasso
 [[/home/songtech/Pictures/Screenshot_20210521_172949.png]]
-*** TODO Create example SVG in Inkscape that Vecternary loads at startup to be the default startup file (something like [[https://static.vecteezy.com/system/resources/previews/000/225/476/original/vector-beautiful-landscape-illustration.jpg]])
+*** TODO Create a lightweight but awesome example SVG in Inkscape that Vecternary loads at startup to be the default startup file (something like [[https://static.vecteezy.com/system/resources/previews/000/225/476/original/vector-beautiful-landscape-illustration.jpg]])
 *** TODO Run full strength linters to find every possible JS mistake
 *** TODO Run full strength linters on Rust code as well
 *** TODO Code quality checking - see [[https://code.blender.org/2020/11/code-quality-day/]]
@@ -71,9 +134,24 @@
 **** TODO Test 4: Stress-test with 1000 objects on canvas, as well as loading Blender's big SVG icon sheet
 **** TODO Test 5: Multi-metric tests with 5 hours of continuous operation
 *** TODO Do cross-platform testing
-*** TODO Deliver Vecternary Picasso 0.1.0 to Elisa and also send her a video of a design being made in Vecternary
+*** DONE Deliver Vecternary Picasso 0.1.0 to Elisa and also send her a video of a design being made in Vecternary
 
 * Vecternary Mondrian
+** TODO Implement help system:
+*** TODO Search through menus feature for vecternary - like macos, it searches through menu items
+*** TODO Built-in help which launches another webview for a help UI dashboard - design the help dashboard in Figma, it should be like Onivim's
+*** TODO Vecternary command palette feature for keyboard-centric workflow as well as the keyboard shortcuts system
+** TODO Implement resource saving mode - Vecternary will automatically enter this mode if it detects low performance hardware (e.g. < 4GB of RAM), a high CPU load/memory load (> 15% CPU or > 30% total memory usage) or if the current computer is running on low battery power - this mode will let Vecternary run slower but more reliably and keep the UI responsive
+** TODO If Vecternary is undergoing a very heavy operation, temporarily freeze the UI and display a message to the user that shows the progress of the current operation
+** TODO Work on a comprehensive solution to store app performance data on the user's machine (in order to better optimize Vecternay's performance)
+*** TODO Flamechart graph (vanilla JS UI component) based on `console.profile[title])` and `console.trace()` to perform app-wide profiling
+*** TODO Line graph based on `window.performance` API to calculate speeds and lag on certain functions
+*** TODO Standard monitoring (htop-style) with CPU usage, memory usage, and FPS which are all measured from the Rust backend engine
+*** TODO Stress tester options (when the developer extras are enabled in the developer menu) in order to perform both benchmark tests on Vecternary and do [performance recordings](https://yonatankra.com/how-to-profile-javascript-performance-in-the-browser/)
+*** TODO All the data is kept on the local computer so it cannot be compromised, and will never be transmitted
+*** TODO However, the user is recommended from time to time to share the performance logging data (though not required to)
+** TODO For performance - when Vecternary first loads files it will load them as static non-editable, and it will only change the canvas to be editable once the canvas is already loaded
+** TODO Open those tabs stored in Tab Stash about implementing a bezier pen and actually do implement a bezier pen
 ** TODO Full ability to use the app with only the keyboard for 100% accessibiliy
 ** TODO Headless mode for application to be run from command line
 ** TODO Add a statusbar (like Blender's status bar) showing canvas object statistics, file sizes, CPU and memory usage, and which mode Vecternary is in (adjust or drawing)
@@ -91,8 +169,10 @@
 ** TODO Preferences and preferences menu - use rustbreak @ [[https://crates.io/crates/rustbreak]] for storing and accessing settings via a database
 ** TODO Zoom and Pan
 *** TODO Zoom canvas on scroll
+** TODO Add in a zoom index showing the percent of canvas zoom and updating realtime (e.g. 100%, 150%, etc.) at the bottom status bar
 *** TODO Pan canvas on mouse drag
 ** TODO Add spline graphs as per [[http://me.jonathanlurie.fr/canvasSpliner/examples/]]
+** TODO Add drag and drop support via whatever rust crate supports drag and drop
 ** TODO Add brushes!
 *** TODO Exemplar: [[https://sta.sh/muro/]]
 *** TODO Pressure sensitivity: [[https://github.com/arch-inc/fabricjs-psbrush]]
