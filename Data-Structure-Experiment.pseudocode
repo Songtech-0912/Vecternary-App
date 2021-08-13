@@ -1,0 +1,15 @@
+<Open>
+    <Open recent>
+    <Open file>
+        <Open from disk>
+        <Open from cloud>
+            <Open from google drive>
+            <Open from dropbox>
+            <Connect external web drive>
+                <NextCloud>
+                <OwnCloud>
+    <Open last session>
+<Save>
+
+let fileMenuElements = [ openFile, saveFile ]
+let openFile = [openFromDisk: {}, openFromCloud]
