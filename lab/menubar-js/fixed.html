@@ -1,41 +1,41 @@
 <header class="flex shadow-md w-full bg-deepgray pointer-events-none">
-  <nav class="ml-4 lg:ml-20 justify-start max-w-7xl pointer-events-none" id="menuRoot">
-    <div class="flex items-center h-12 space-x-3 font-base text-sm text-gray-200 cursor-pointer pointer-events-none">
-      <!--Begin file dropdown-->
-      <div class="relative pointer-events-none">
-        <button id="fileButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">File</button>
-      </div>
-      <!--Begin edit dropdown-->
-      <div class="relative pointer-events-none">
-        <button id="editButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Edit</button>
-      </div>
-      <!--Begin format dropdown-->
-      <div class="relative pointer-events-none">
-        <button id="menuButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Format</button>
-      </div>
-      <!--Begin preferences dropdown-->
-      <div class="relative pointer-events-none">
-        <button id="prefsButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Preferences</button>
-      </div>
-      <!--Begin developer dropdown-->
-      <div class="relative pointer-events-none">
-        <button id="developerButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Developer</button>
-      </div>
-      <!--Begin about dropdown-->
-      <div class="relative pointer-events-none">
-        <button id="aboutButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">About</button>
-      </div>
-    </div>
-  </nav>
+    <nav class="ml-4 lg:ml-20 justify-start max-w-7xl pointer-events-none" id="menuRoot">
+        <div class="flex items-center h-12 space-x-3 font-base text-sm text-gray-200 cursor-pointer pointer-events-none">
+            <!--Begin file dropdown-->
+            <div class="relative pointer-events-none">
+                <button id="fileButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">File</button>
+            </div>
+            <!--Begin edit dropdown-->
+            <div class="relative pointer-events-none">
+                <button id="editButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Edit</button>
+            </div>
+            <!--Begin format dropdown-->
+            <div class="relative pointer-events-none">
+                <button id="menuButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Format</button>
+            </div>
+            <!--Begin preferences dropdown-->
+            <div class="relative pointer-events-none">
+                <button id="prefsButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Preferences</button>
+            </div>
+            <!--Begin developer dropdown-->
+            <div class="relative pointer-events-none">
+                <button id="developerButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">Developer</button>
+            </div>
+            <!--Begin about dropdown-->
+            <div class="relative pointer-events-none">
+                <button id="aboutButton" class="rounded px-4 py-1 focus:bg-darkgray focus:outline-none">About</button>
+            </div>
+        </div>
+    </nav>
 </header>
 <script>
-// wrap things in an IIFE to keep them neatly isolated from other code.
-(() => {
-  // strict mode to prevent errors and enable some ES6 features
-  'use strict'
+    // wrap things in an IIFE to keep them neatly isolated from other code.
+    (() => {
+            // strict mode to prevent errors and enable some ES6 features
+            'use strict'
 
-    // Basic markup of the dropdown menus
-    fileMenuMarkup = `<div id="menuFile" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
+            // Basic markup of the dropdown menus
+            fileMenuMarkup = `<div id="menuFile" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
           <div class="py-1" role="none">
             <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">New drawing</a>
             <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Import</a>
@@ -58,7 +58,7 @@
             <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-6">Quit</a>
           </div>
         </div>`
-        editMenuMarkup = `<div id="menuEdit" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
+            editMenuMarkup = `<div id="menuEdit" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300 hidden">
           <div class="py-1" role="none">
             <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Undo</a>
             <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Redo</a>
@@ -77,19 +77,19 @@
           </div>
         </div>
       </div>`
-  
-    // Some event delegation to catch events
-    var menuRoot = document.getElementById("menuRoot");
-    menuRoot.addEventListener("click", function(event) {
-            let target = event.target;
-            let targetID = target.id;
-            let targetParent = target.parentNode;
-            // We now render a different menu dropdown
-            // depending on which menu button was clicked
-            switch(targetID) {
+
+            // Some event delegation to catch events
+            var menuRoot = document.getElementById("menuRoot");
+            menuRoot.addEventListener("click", function(event) {
+                let target = event.target;
+                let targetID = target.id;
+                let targetParent = target.parentNode;
+                // We now render a different menu dropdown
+                // depending on which menu button was clicked
+                switch (targetID) {
                     case "fileButton":
                         // takes the menu title and turns it into a block of markup
-                       targetParent.append(fileMenuMarkup); 
+                        targetParent.append(fileMenuMarkup);
                         break;
                     case "editButton":
                         targetParent.append(editMenuMarkup);
@@ -98,5 +98,5 @@
                         console.log("Not a filebutton")
                 }
 
-})
+            })
 </script>
