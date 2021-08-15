@@ -56,12 +56,12 @@ let createFileDropDown = (function() {
     };
     let importDrawingButton = {
         id: "importDrawing",
-        label: "Import file",
+        label: "Import",
         tooltip: "Imports a SVG file, Fabric.js JSON or PNG"
     };
     let exportDrawingButton = {
         id: "exportDrawing",
-        label: "Export file",
+        label: "Export",
         tooltip: "Exports a PNG, JPG, or SVG"
     };
     let openFileButton = {
@@ -178,9 +178,15 @@ let createFileDropDown = (function() {
         generatedVariable = document.createElement("a");
         generatedVariable.innerText = element["label"];
         generatedVariable.id = element["id"];
+        // TODO This checking for whether the tooltip key
+        // exists should be removed in the future once the tooltips
+        // have all been written down
+        if (element.hasOwnProperty("tooltip")) {
+            generatedVariable.dataset.toolip = element["tooltip"];
+        }
 
         /* TailwindCSS classes to style the menu buttons */
-        generatedVariable.className = "text-gray-100 block pl-8 pr-4 text-sm";
+        generatedVariable.className = "text-gray-100 block pl-8 pr-4 py-2 text-sm";
 
         // This produces the code to generate the dynamic variable
         // E.g. it might produce: let var_quitTrigger_Generated = menuElement;
