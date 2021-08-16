@@ -8,6 +8,7 @@
 ** DONE Finish design of Vecternary Icon
 ** DONE Move the stuff from TODO.txt to here
 ** DONE Improve noscript - put the javascript licenses somewhere else, and instead make it a short succint message like CodePen's noscript
+** TODO Rewrite the Makefile using python and the ~termcolors~ package to ensure that it works equally well on Windows which cannot use ANSI escape sequences
 *** TODO The improved noscript should still allow the user to close the noscript warning window and try to use the app with no javascript (it won't work but whatever)
 *** TODO The noscript should also be in a lightbox-style modal window like CodePen's so it does not obscure the UI behind it (the noscript modal can be closed and has a close button, it uses the CSS modal trick)
 ** TODO Change the purge options in ~tailwind.config.js~ to purge classes in JS files as well as HTML markup
