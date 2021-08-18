@@ -10,6 +10,7 @@
     <title>Vecternary Picasso</title>
     <!--Temp change for debugging-->
     <!-- <link rel="stylesheet" href="css/vendor/range-slider-original.css"> -->
+    <link rel="stylesheet" href="css/vendor/uicons.css">
     <link rel="stylesheet" href="css/vendor/range-slider.css">
     <link rel="stylesheet" href="css/vendor/toasts.css">
     <link rel="stylesheet" href="css/build/tailwind.output.css">
@@ -148,18 +149,12 @@
                 <div class="flex ml-16">
                     <div
                         class="relative z-10 flex flex-col justify-around w-full py-8 m-auto space-y-6 text-gray-300 shadow-md bg-palegray rounded-xl">
-
                         <!--PENCIL BUTTON-->
-                        <button data-sidebar-button="1"
-                            class="w-full px-3 py-3 mx-auto border-r-4 border-gray-400 border-solid rounded glow-outline"
-                            id="draw-button">
+                        <button data-sidebar-button="1" class="sidebar-btn" id="draw-button">
                             <span class="flex flex-col space-y-4">
                                 <span class="flex justify-evenly" id="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path
-                                            d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                                    </svg>
+                                    <!-- Draw icon -->
+                                    <span class="icon drawicon"></span>
                                 </span>
                                 <p class="text-xs">Brush</p>
                             </span>
@@ -170,11 +165,8 @@
                             class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="eraser-button">
                             <span class="flex flex-col space-y-4">
                                 <span class="flex justify-evenly" id="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path
-                                            d="M7.583 16.991a1.183 1.183 0 0 1-.37-.116c-.095-.045-.154-.089-.294-.218-.435-.4-2.391-2.35-3.32-3.305-.4-.414-.457-.49-.531-.705a1.554 1.554 0 0 1-.066-.576 1.07 1.07 0 0 1 .124-.515c.062-.127.094-.17.269-.359.633-.685 6.986-7.04 7.688-7.689.397-.367.506-.44.737-.497.189-.047.494-.047.676-.002.17.042.336.108.436.173.152.099 2.663 2.589 3.59 3.561.285.298.305.322.364.447.035.073.08.195.1.272.033.122.038.17.039.362 0 .196-.004.24-.038.372-.091.353-.053.312-3.884 4.152-2.028 2.033-3.971 3.959-4.303 4.266-.186.172-.226.202-.353.264-.079.038-.185.08-.236.092-.11.027-.494.04-.628.021zm.377-1.122c.04-.027.136-.105.215-.175.182-.16 2.8-2.77 2.8-2.791 0-.02-3.87-3.89-3.889-3.89-.014 0-1.732 1.718-2.407 2.407-.579.59-.65.69-.588.834.03.073.458.517 1.656 1.72 1.326 1.333 1.88 1.87 1.983 1.922.088.045.13.04.23-.027z" />
-                                    </svg>
+                                    <!-- Erase icon -->
+                                    <span class="icon eraseicon"></span>
                                 </span>
                                 <p class="text-xs">Eraser</p>
                             </span>
@@ -185,11 +177,8 @@
                             class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="circle-button">
                             <span class="flex flex-col space-y-4">
                                 <span class="flex justify-evenly" id="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path
-                                            d="M10 3c-3.858 0-7 3.142-7 7s3.142 7 7 7 7-3.142 7-7-3.142-7-7-7zm0 1.273A5.718 5.718 0 0 1 15.727 10 5.718 5.718 0 0 1 10 15.727 5.718 5.718 0 0 1 4.273 10 5.718 5.718 0 0 1 10 4.273z" />
-                                    </svg>
+                                    <!-- Circle icon -->
+                                    <span class="icon circicon"></span>
                                 </span>
                                 <p class="text-xs">Circle</p>
                             </span>
@@ -200,11 +189,8 @@
                             class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="rect-button">
                             <span class="flex flex-col space-y-4">
                                 <span class="flex justify-evenly" id="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path
-                                            d="M4.118 3C3.508 3 3 3.508 3 4.118v11.764C3 16.492 3.508 17 4.118 17h11.764c.61 0 1.118-.508 1.118-1.118V4.118C17 3.508 16.492 3 15.882 3zm0 1.076h11.764c.033 0 .042.01.042.042v11.764c0 .033-.009.042-.042.042H4.118c-.033 0-.042-.009-.042-.042V4.118c0-.033.01-.042.042-.042z" />
-                                    </svg>
+                                    <!-- Rectangle icon -->
+                                    <span class="icon recticon"></span>
                                 </span>
                                 <p class="text-xs">Rectangle</p>
                             </span>
@@ -216,12 +202,8 @@
                             id="triangle-button">
                             <span class="flex flex-col space-y-4">
                                 <span class="flex justify-evenly" id="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path fill-rule="evenodd"
-                                            d="M10.025 3a.574.574 0 00-.538.318L3.061 16.17a.574.574 0 00.513.83h12.852a.574.574 0 00.513-.83L10.513 3.318A.574.574 0 0010.025 3zM10 4.857l5.497 10.997H4.503z"
-                                            clip-rule="evenodd" />
-                                    </svg>
+                                    <!-- Triangle icon -->
+                                    <span class="icon trigicon"></span>
                                 </span>
                                 <p class="text-xs">Triangle</p>
                             </span>
@@ -233,16 +215,12 @@
                             id="textbox-button">
                             <span class="flex flex-col space-y-4">
                                 <span class="flex justify-evenly" id="icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewBox="0 0 20 20"
-                                        fill="currentColor">
-                                        <path
-                                            d="m10.89 4.036 2.292.037c1.745.036 2.182.454 2.236 1l.018.2c.018.254.055.309.146.309.072 0 .127-.073.127-.237 0-.2.055-1.454.055-2 0-.109 0-.218-.091-.218-.073 0-.237.055-.51.091-.29.055-.709.091-1.29.091H7.055c-.219 0-.91-.036-1.437-.09-.49-.037-.673-.219-.8-.219-.073 0-.145.236-.182.345-.036.146-.4 1.71-.4 1.891 0 .11.037.164.091.164.073 0 .128-.036.182-.182.055-.127.11-.254.31-.563.29-.437.726-.564 1.854-.582l2.69-.037v7.691c0 1.746 0 3.182-.09 3.946-.073.527-.164.927-.528 1a2.804 2.804 0 0 1-.545.073c-.11 0-.145.054-.145.109 0 .109.09.145.29.145.546 0 1.691-.055 1.782-.055.091 0 1.237.055 2.237.055.2 0 .29-.055.29-.145 0-.055-.036-.11-.145-.11-.164 0-.564-.036-.818-.072-.546-.073-.655-.473-.71-1-.09-.764-.09-2.2-.09-3.946z" />
-                                    </svg>
+                                    <!-- Text icon -->
+                                    <span class="icon texticon"></span>
                                 </span>
                                 <p class="text-xs">Text</p>
                             </span>
                         </button>
-
                     </div>
                 </div>
             </section>

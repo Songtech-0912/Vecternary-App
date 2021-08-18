@@ -633,6 +633,18 @@ body {
   }
 }
 
+/* Basic enter/leave classes for JavaScript transitions */
+
+.fade-enter,
+    .fade-leave {
+  transition: all 0.15s ease;
+}
+
+.fade-enter-start,
+    .fade-leave-end {
+  opacity: 0;
+}
+
 /* Apply basic accesibility outlines with some better styles*/
 
 .glow-outline:focus {
@@ -674,6 +686,32 @@ td {
   padding-right: 2rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+}
+
+.sidebar-btn:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(165, 180, 252, var(--tw-ring-opacity));
+  --tw-ring-opacity: 0.5;
+}
+
+.sidebar-btn {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 0.25rem;
+  border-right-width: 4px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  --tw-text-opacity: 1;
+  color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
 
 .container {

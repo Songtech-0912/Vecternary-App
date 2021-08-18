@@ -1,0 +1,6 @@
+<!-- Triangle icon -->
+<svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewBox="0 0 20 20" fill="rgb(209, 213, 219)">
+    <path fill-rule="evenodd"
+        d="M10.025 3a.574.574 0 00-.538.318L3.061 16.17a.574.574 0 00.513.83h12.852a.574.574 0 00.513-.83L10.513 3.318A.574.574 0 0010.025 3zM10 4.857l5.497 10.997H4.503z"
+        clip-rule="evenodd" />
+</svg>

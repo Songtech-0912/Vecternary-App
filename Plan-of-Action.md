@@ -16,7 +16,7 @@ The backup plan, assuming all fails, is to simply have a basic app to distribute
 
 - [ ] First thing to fix is the markup - the current markup causes unresponsiveness and is hardly maintainable
     - [ ] Temporarily delete the current `<noscript>` markup because it adds unnecessary clutter and leave it until later
-    - [ ] Use ::before rules to fix the sidebar icons, reference [here](https://icons.getbootstrap.com/#css) for how to do so
+    - [x] Use ::before rules to fix the sidebar icons, reference [here](https://icons.getbootstrap.com/#css) for how to do so
     - [ ] Use Firefox responsive design mode to make the UI completely responsive
     - [ ] Use the responsive canvas method [already present here](https://codepen.io/songtech-0912/pen/wvdpEPz) to make the canvas auto-resize as well
     - [ ] Rewrite the right sidebar code, it is very unclear and causes frequent headaches
