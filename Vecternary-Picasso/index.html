@@ -32,15 +32,15 @@
 
 <body>
     <!--NOSCRIPT-->
-    <noscript class="flex justify-center block w-screen h-screen overflow-y-scroll">
+    <noscript class="flex justify-center block w-2/3 h-auto overflow-y-scroll">
         <style>
             noscript {
                 display: block;
             }
-
-            /* Hide the */
+            /* Main app container */
             #container {
-                display: none;
+                /* Lightbox effect */
+                opacity: 0.8;
             }
         </style>
         <article class="flex flex-col max-w-3xl p-8 divide-y">
@@ -48,8 +48,10 @@
             <section class="py-8 space-y-4 text-base leading-6 text-gray-700 sm:text-lg sm:leading-7">
                 <p>You're seeing this because you've disabled JavaScript.</p>
                 <p>Don't worry, JavaScript used by Vecternary is no draconian surveillance tactic! It's only there to
-                    provide canvas editing functionality. Where possible, as little JavaScript is used as possible, but
-                    I can't guarantee that anything will work correctly without JavaScript.</p>
+                    provide canvas editing functionality. It also runs in a sandbox and it can't access the internet or
+                    collect analytics data. Where possible, as little JavaScript is used as possible, but
+                    because core parts of the user interface are written in JavaScript, I can't guarantee that
+                    <em>anything</em> will work correctly without JavaScript.</p>
                 <p>Vecternary is designed to protect your privacy - that's not an advertising tagline, it's truly
                     designed to be privacy-centric software. For instance, unlike most software, Vecternary has no
                     telemetry or spyware; the only thing it connects to the internet for (and <em>only</em> if you
@@ -92,6 +94,7 @@
                     </tbody>
                 </table>
             </section>
+            <button class="px-6 py-3 font-medium text-base">Close</button>
         </article>
     </noscript>
 

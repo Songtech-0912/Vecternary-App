@@ -5,11 +5,561 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="Vecternary Picasso - create graphical designs without the need for expensive design software">
+    <meta name="Description"
+        content="Vecternary Picasso - create graphical designs without the need for expensive design software">
     <title>Vecternary Picasso</title>
     <!--Temp change for debugging-->
-    <!-- <link rel="stylesheet" href="css/vendor/range-slider-original.css"> -->
-    <style>/* range-slider.css */
+    <!-- <style type="text/css">/* range-slider.css */
+.range-slider {
+    position: relative;
+    box-sizing: border-box;
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.range-slider * {
+    box-sizing: border-box;
+}
+.range-slider .rs-hidden {
+    opacity: 0 !important;
+}
+
+.range-slider .rs-bar {
+    position: relative;
+    width: 100%;
+    height: 3px;
+    background: lightgrey;
+    cursor: pointer;
+}
+.range-slider .rs-progress {
+    width: 0;
+    height: 100%;
+}
+.range-slider .rs-progress::before { /* helper to fill left part of the bar with same color */
+    content: "";
+    display: block;
+    position: relative;
+    left: -7px;
+    width: 8px;
+    min-height: 100%;
+}
+.range-slider .rs-wrap {
+    position: absolute;
+    left: 7px;
+    right: 7px;
+}
+.range-slider > .rs-bar > .rs-wrap {
+    top: 0;
+    bottom: 0;
+    z-index: 9;
+}
+.range-slider .rs-handle {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    margin-left: -7px;
+    margin-top: -7px;
+    left: 0;
+    top: 50%;
+}
+
+/* DESIGNS */
+.range-slider.rs-design-3d .rs-bar {
+    height: 14px;
+    border-radius: 40px;
+    border: 1px solid #ddd;
+    background: #eee;
+}
+.range-slider.rs-design-3d .rs-bar::after {
+    content: "";
+    position: absolute;
+    left: -3px;
+    right: -3px;
+    top: -3px;
+    bottom: -3px;
+    border-radius: 40px;
+    z-index: -1;
+    background: -moz-linear-gradient(top, #ececec 0%, #fefefe 100%) !important;
+    background: -webkit-linear-gradient(top, #ececec 0%, #fefefe 100%) !important;
+    background: -o-linear-gradient(top, #ececec 0%, #fefefe 100%) !important;
+    background: -ms-linear-gradient(top, #ececec 0%, #fefefe 100%) !important;
+    background: linear-gradient(to bottom, #ececec 0%, #fefefe 100%) !important;
+}
+.range-slider.rs-design-3d .rs-progress {
+    border-radius: 0 40px 40px 0;
+}
+.range-slider.rs-design-3d .rs-progress::before {
+    left: -11px;
+    width: 12px;
+    border-radius: 40px 0 0 40px;
+}
+.range-slider.rs-design-3d .rs-handle {
+    width: 22px;
+    height: 22px;
+    margin-left: -11px;
+    margin-top: -11px;
+    border-radius: 5px;
+    background: -moz-linear-gradient(bottom, #e2e2e2 0%, #fefefe 100%) !important;
+    background: -webkit-linear-gradient(bottom, #e2e2e2 0%, #fefefe 100%) !important;
+    background: -o-linear-gradient(bottom, #e2e2e2 0%, #fefefe 100%) !important;
+    background: -ms-linear-gradient(bottom, #e2e2e2 0%, #fefefe 100%) !important;
+    background: linear-gradient(to top, #e2e2e2 0%, #fefefe 100%) !important;
+    -webkit-box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+.range-slider.rs-design-3d.rs-active .rs-handle {
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+.range-slider.rs-design-3d .rs-handle::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    right: 3px;
+    border-radius: 3px;
+    background: -moz-linear-gradient(top, #e2e2e2 0%, #fefefe 100%) !important;
+    background: -webkit-linear-gradient(top, #e2e2e2 0%, #fefefe 100%) !important;
+    background: -o-linear-gradient(top, #e2e2e2 0%, #fefefe 100%) !important;
+    background: -ms-linear-gradient(top, #e2e2e2 0%, #fefefe 100%) !important;
+    background: linear-gradient(to bottom, #e2e2e2 0%, #fefefe 100%) !important;
+}
+.range-slider.rs-design-3d .rs-wrap {
+    left: 11px;
+    right: 11px;
+}
+
+/* SIZES */
+.range-slider.rs-size-medium {
+    font-size: 12px;
+}
+.range-slider.rs-size-small {
+    font-size: 11px;
+}
+.range-slider.rs-size-large {
+    font-size: 14px;
+}
+
+.range-slider.rs-size-small .rs-bar {
+    height: 2px;
+}
+.range-slider.rs-size-small .rs-wrap {
+    left: 5px;
+    right: 5px;
+}
+.range-slider.rs-size-small .rs-handle {
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+}
+
+.range-slider.rs-size-large .rs-bar {
+    height: 4px;
+}
+.range-slider.rs-size-large .rs-wrap {
+    left: 10px;
+    right: 10px;
+}
+.range-slider.rs-size-large .rs-handle {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+}
+
+.range-slider.rs-design-2d.rs-size-small .rs-progress::before {
+    left: -5px;
+    width: 6px;
+}
+.range-slider.rs-design-3d.rs-size-small .rs-bar {
+    height: 9px;
+}
+.range-slider.rs-design-3d.rs-size-small .rs-progress::before {
+    left: -8px;
+    width: 9px;
+}
+.range-slider.rs-design-3d.rs-size-small .rs-handle {
+    width: 16px;
+    height: 16px;
+    margin-left: -8px;
+    margin-top: -8px;
+    border-radius: 3px;
+}
+.range-slider.rs-design-3d.rs-size-small .rs-handle::after {
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    border-radius: 2px;
+}
+.range-slider.rs-design-3d.rs-size-small .rs-wrap {
+    left: 8px;
+    right: 8px;
+}
+
+.range-slider.rs-design-2d.rs-size-large .rs-progress::before {
+    left: -10px;
+    width: 11px;
+}
+.range-slider.rs-design-3d.rs-size-large .rs-bar {
+    height: 21px;
+}
+.range-slider.rs-design-3d.rs-size-large .rs-progress::before {
+    left: -16px;
+    width: 17px;
+}
+.range-slider.rs-design-3d.rs-size-large .rs-bar::after {
+    left: -4px;
+    right: -4px;
+    top: -4px;
+    bottom: -4px;
+}
+.range-slider.rs-design-3d.rs-size-large .rs-handle {
+    width: 32px;
+    height: 32px;
+    margin-left: -16px;
+    margin-top: -16px;
+    border-radius: 6px;
+}
+.range-slider.rs-design-3d.rs-size-large .rs-wrap {
+    left: 16px;
+    right: 16px;
+}
+
+/* THEMES */
+.rs-handle {
+    background: lightgrey;
+}
+.rs-theme-default .rs-progress,
+.rs-theme-default.rs-design-2d .rs-progress::before {
+    background: lightblue;
+}
+.rs-theme-default .rs-handle,
+.rs-theme-default.rs-design-3d .rs-progress,
+.rs-theme-default.rs-design-3d .rs-progress::before {
+    background: deepskyblue;
+}
+
+.rs-theme-positive .rs-progress,
+.rs-theme-positive.rs-design-2d .rs-progress::before {
+    background: lightgreen;
+}
+.rs-theme-positive .rs-handle,
+.rs-theme-positive.rs-design-3d .rs-progress,
+.rs-theme-positive.rs-design-3d .rs-progress::before {
+    background: limegreen;
+}
+
+.rs-theme-attention .rs-progress,
+.rs-theme-attention.rs-design-2d .rs-progress::before {
+    background: #ffbb99;
+}
+.rs-theme-attention .rs-handle,
+.rs-theme-attention.rs-design-3d .rs-progress,
+.rs-theme-attention.rs-design-3d .rs-progress::before {
+    background: orange;
+}
+
+/* HANDLE SHAPE */
+/* round */
+.range-slider.rs-handle-round .rs-handle {
+    border-radius: 50px !important;
+}
+.range-slider.rs-handle-round .rs-handle::after {
+    border-radius: 50px !important;
+}
+/* rect medium 2d */
+.range-slider.rs-handle-rect.rs-design-2d .rs-progress::before {
+    left: -3px;
+    width: 4px;
+}
+.range-slider.rs-handle-rect.rs-design-2d .rs-handle {
+    width: 6px;
+    margin-left: -3px;
+}
+.range-slider.rs-handle-rect.rs-design-2d .rs-wrap {
+    left: 3px;
+    right: 3px;
+}
+/* rect small 2d */
+.range-slider.rs-handle-rect.rs-size-small.rs-design-2d .rs-progress::before {
+    left: -2px;
+    width: 3px;
+}
+.range-slider.rs-handle-rect.rs-size-small.rs-design-2d .rs-handle {
+    width: 4px;
+    margin-left: -2px;
+}
+.range-slider.rs-handle-rect.rs-size-small.rs-design-2d .rs-wrap {
+    left: 2px;
+    right: 2px;
+}
+/* rect large 2d */
+.range-slider.rs-handle-rect.rs-size-large.rs-design-2d .rs-progress::before {
+    left: -3px;
+    width: 4px;
+}
+.range-slider.rs-handle-rect.rs-size-large.rs-design-2d .rs-handle {
+    width: 6px;
+    margin-left: -3px;
+}
+.range-slider.rs-handle-rect.rs-size-large.rs-design-2d .rs-wrap {
+    left: 3px;
+    right: 3px;
+}
+
+/* rect medium 3d */
+.range-slider.rs-handle-rect.rs-design-3d .rs-progress::before {
+    left: -6px;
+    width: 7px;
+}
+.range-slider.rs-handle-rect.rs-design-3d .rs-handle {
+    width: 12px;
+    margin-left: -6px;
+    border-radius: 3px;
+}
+.range-slider.rs-handle-rect.rs-design-3d .rs-handle::after {
+    top: 2px;
+    bottom: 2px;
+    left: 2px;
+    right: 2px;
+    border-radius: 2px;
+}
+.range-slider.rs-handle-rect.rs-design-3d .rs-wrap {
+    left: 6px;
+    right: 6px;
+}
+/* rect small 3d */
+.range-slider.rs-handle-rect.rs-size-small.rs-design-3d .rs-progress::before {
+    left: -5px;
+    width: 6px;
+}
+.range-slider.rs-handle-rect.rs-size-small.rs-design-3d .rs-handle {
+    width: 10px;
+    margin-left: -5px;
+}
+.range-slider.rs-handle-rect.rs-size-small.rs-design-3d .rs-wrap {
+    left: 5px;
+    right: 5px;
+}
+/* rect large 3d */
+.range-slider.rs-handle-rect.rs-size-large.rs-design-3d .rs-progress::before {
+    left: -8px;
+    width: 9px;
+}
+.range-slider.rs-handle-rect.rs-size-large.rs-design-3d .rs-handle {
+    width: 16px;
+    margin-left: -8px;
+    border-radius: 4px;
+}
+.range-slider.rs-handle-rect.rs-size-large.rs-design-3d .rs-handle::after {
+    top: 3px;
+    bottom: 3px;
+    left: 3px;
+    right: 3px;
+    border-radius: 3px;
+}
+.range-slider.rs-handle-rect.rs-size-large.rs-design-3d .rs-wrap {
+    left: 8px;
+    right: 8px;
+}
+
+/* LABELS */
+.range-slider.rs-size-medium.rs-labels-top {
+    padding-top: 19px;
+}
+.range-slider.rs-size-medium.rs-labels-bottom {
+    padding-bottom: 19px;
+}
+.range-slider.rs-size-small.rs-labels-top {
+    padding-top: 16px;
+}
+.range-slider.rs-size-small.rs-labels-bottom {
+    padding-bottom: 16px;
+}
+.range-slider.rs-size-large.rs-labels-top {
+    padding-top: 22px;
+}
+.range-slider.rs-size-large.rs-labels-bottom {
+    padding-bottom: 22px;
+}
+.rs-labels {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: #ccccee;
+}
+.rs-labels div {
+    -moz-transition: opacity .15s;
+    -ms-transition: opacity .15s;
+    -o-transition: opacity .15s;
+    transition: opacity .15s;
+}
+.range-slider.rs-labels-top .rs-labels,
+.range-slider.rs-labels-top .rs-labels div {
+    top: 0;
+}
+.range-slider.rs-labels-bottom .rs-labels,
+.range-slider.rs-labels-bottom .rs-labels div {
+    bottom: 0;
+}
+.rs-labels .rs-label-left,
+.rs-labels .rs-label-right,
+.rs-labels .rs-label-middle {
+    position: absolute;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+}
+.rs-labels > .rs-label-left,
+.rs-labels > .rs-label-right {
+    max-width: 45%;
+    padding: 0 2%;
+    opacity: .7;
+}
+.rs-labels > .rs-label-left {
+    left: 0;
+}
+.rs-labels > .rs-label-right {
+    right: 0;
+}
+.rs-labels .rs-label-middle {
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+
+/* POPUP */
+.range-slider .rs-popup {
+    position: absolute;
+    left: 50%;
+    padding: 8px 14px;
+    text-align: center;
+    background: lightgrey;
+    color: grey;
+    white-space: nowrap;
+    opacity: .9;
+    visibility: visible;
+    z-index: 1000;
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    -moz-transition: visibility .25s, opacity .25s;
+    -ms-transition: visibility .25s, opacity .25s;
+    -o-transition: visibility .25s, opacity .25s;
+    transition: visibility .25s, opacity .25s;
+}
+.range-slider .rs-popup.rs-hidden {
+    visibility: hidden; /* to ignore mouse events on hidden popup */
+}
+.range-slider .rs-popup::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+}
+.range-slider .rs-popup-top::after {
+    top: 100%;
+    border-top: 7px solid lightgrey;
+}
+.range-slider .rs-popup-bottom::after {
+    bottom: 100%;
+    border-bottom: 7px solid lightgrey;
+}
+.range-slider.rs-size-small .rs-popup-top {
+    bottom: 180%;
+}
+.range-slider.rs-size-small .rs-popup-bottom {
+    top: 180%;
+}
+.range-slider.rs-size-medium .rs-popup-top {
+    bottom: 165%;
+}
+.range-slider.rs-size-medium .rs-popup-bottom {
+    top: 165%;
+}
+.range-slider.rs-size-large .rs-popup-top {
+    bottom: 150%;
+}
+.range-slider.rs-size-large .rs-popup-bottom {
+    top: 150%;
+}
+.range-slider.rs-size-small .rs-popup {
+    font-size: 9px;
+}
+.range-slider.rs-size-small .rs-popup::after {
+    margin-left: -6px;
+    border-width: 6px;
+}
+.range-slider.rs-size-medium .rs-popup {
+    font-size: 10px;
+}
+.range-slider.rs-size-medium .rs-popup::after {
+    margin-left: -7px;
+    border-width: 7px;
+}
+.range-slider.rs-size-large .rs-popup {
+    font-size: 11px;
+}
+.range-slider.rs-size-large .rs-popup::after {
+    margin-left: -8px;
+    border-width: 8px;
+}
+</style> -->
+    <style type="text/css">/* 
+    Custom stylesheet and icons for Vecternary
+    Big thanks to the Heroicons team (https://heroicons.com/)
+    for providing many of the icons I used
+*/
+
+.icon {
+    display: block;
+    padding-left: 2rem;
+    width: 2rem;
+    height: 2rem;
+  }
+.icon:before {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    margin-left: -2rem;
+}
+
+.drawicon::before {
+    background: url("data:image/svg+xml;base64,PCEtLSBEcmF3IGljb24gLS0+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InN2ZyIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJyZ2IoMjA5LCAyMTMsIDIxOSkiPg0KICAgIDxwYXRoIGQ9Ik0xMy41ODYgMy41ODZhMiAyIDAgMTEyLjgyOCAyLjgyOGwtLjc5My43OTMtMi44MjgtMi44MjguNzkzLS43OTN6TTExLjM3OSA1Ljc5M0wzIDE0LjE3MlYxN2gyLjgyOGw4LjM4LTguMzc5LTIuODMtMi44Mjh6IiAvPg0KPC9zdmc+");
+}
+
+.eraseicon::before {
+    background: url("data:image/svg+xml;base64,PCEtLSBFcmFzZSBpY29uIC0tPg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJ3LTggaC1mdWxsIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9InJnYigyMDksIDIxMywgMjE5KSI+DQogICAgPHBhdGgNCiAgICAgICAgZD0iTTcuNTgzIDE2Ljk5MWExLjE4MyAxLjE4MyAwIDAgMS0uMzctLjExNmMtLjA5NS0uMDQ1LS4xNTQtLjA4OS0uMjk0LS4yMTgtLjQzNS0uNC0yLjM5MS0yLjM1LTMuMzItMy4zMDUtLjQtLjQxNC0uNDU3LS40OS0uNTMxLS43MDVhMS41NTQgMS41NTQgMCAwIDEtLjA2Ni0uNTc2IDEuMDcgMS4wNyAwIDAgMSAuMTI0LS41MTVjLjA2Mi0uMTI3LjA5NC0uMTcuMjY5LS4zNTkuNjMzLS42ODUgNi45ODYtNy4wNCA3LjY4OC03LjY4OS4zOTctLjM2Ny41MDYtLjQ0LjczNy0uNDk3LjE4OS0uMDQ3LjQ5NC0uMDQ3LjY3Ni0uMDAyLjE3LjA0Mi4zMzYuMTA4LjQzNi4xNzMuMTUyLjA5OSAyLjY2MyAyLjU4OSAzLjU5IDMuNTYxLjI4NS4yOTguMzA1LjMyMi4zNjQuNDQ3LjAzNS4wNzMuMDguMTk1LjEuMjcyLjAzMy4xMjIuMDM4LjE3LjAzOS4zNjIgMCAuMTk2LS4wMDQuMjQtLjAzOC4zNzItLjA5MS4zNTMtLjA1My4zMTItMy44ODQgNC4xNTItMi4wMjggMi4wMzMtMy45NzEgMy45NTktNC4zMDMgNC4yNjYtLjE4Ni4xNzItLjIyNi4yMDItLjM1My4yNjQtLjA3OS4wMzgtLjE4NS4wOC0uMjM2LjA5Mi0uMTEuMDI3LS40OTQuMDQtLjYyOC4wMjF6bS4zNzctMS4xMjJjLjA0LS4wMjcuMTM2LS4xMDUuMjE1LS4xNzUuMTgyLS4xNiAyLjgtMi43NyAyLjgtMi43OTEgMC0uMDItMy44Ny0zLjg5LTMuODg5LTMuODktLjAxNCAwLTEuNzMyIDEuNzE4LTIuNDA3IDIuNDA3LS41NzkuNTktLjY1LjY5LS41ODguODM0LjAzLjA3My40NTguNTE3IDEuNjU2IDEuNzIgMS4zMjYgMS4zMzMgMS44OCAxLjg3IDEuOTgzIDEuOTIyLjA4OC4wNDUuMTMuMDQuMjMtLjAyN3oiIC8+DQo8L3N2Zz4=");
+}
+
+.circicon::before {
+    background: url("data:image/svg+xml;base64,PCEtLSBDaXJjbGUgaWNvbiAtLT4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0idy04IGgtZnVsbCIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJyZ2IoMjA5LCAyMTMsIDIxOSkiPg0KICAgIDxwYXRoDQogICAgICAgIGQ9Ik0xMCAzYy0zLjg1OCAwLTcgMy4xNDItNyA3czMuMTQyIDcgNyA3IDctMy4xNDIgNy03LTMuMTQyLTctNy03em0wIDEuMjczQTUuNzE4IDUuNzE4IDAgMCAxIDE1LjcyNyAxMCA1LjcxOCA1LjcxOCAwIDAgMSAxMCAxNS43MjcgNS43MTggNS43MTggMCAwIDEgNC4yNzMgMTAgNS43MTggNS43MTggMCAwIDEgMTAgNC4yNzN6IiAvPg0KPC9zdmc+");
+}
+
+.recticon::before {
+    background: url("data:image/svg+xml;base64,PCEtLSBSZWN0YW5nbGUgaWNvbiAtLT4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0idy04IGgtZnVsbCIgdmlld0JveD0iMCAwIDIwIDIwIiBmaWxsPSJyZ2IoMjA5LCAyMTMsIDIxOSkiPg0KICAgIDxwYXRoDQogICAgICAgIGQ9Ik00LjExOCAzQzMuNTA4IDMgMyAzLjUwOCAzIDQuMTE4djExLjc2NEMzIDE2LjQ5MiAzLjUwOCAxNyA0LjExOCAxN2gxMS43NjRjLjYxIDAgMS4xMTgtLjUwOCAxLjExOC0xLjExOFY0LjExOEMxNyAzLjUwOCAxNi40OTIgMyAxNS44ODIgM3ptMCAxLjA3NmgxMS43NjRjLjAzMyAwIC4wNDIuMDEuMDQyLjA0MnYxMS43NjRjMCAuMDMzLS4wMDkuMDQyLS4wNDIuMDQySDQuMTE4Yy0uMDMzIDAtLjA0Mi0uMDA5LS4wNDItLjA0MlY0LjExOGMwLS4wMzMuMDEtLjA0Mi4wNDItLjA0MnoiIC8+DQo8L3N2Zz4=");
+}
+
+.trigicon::before {
+    background: url("data:image/svg+xml;base64,PCEtLSBUcmlhbmdsZSBpY29uIC0tPg0KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGNsYXNzPSJ3LTggaC1mdWxsIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9InJnYigyMDksIDIxMywgMjE5KSI+DQogICAgPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIg0KICAgICAgICBkPSJNMTAuMDI1IDNhLjU3NC41NzQgMCAwMC0uNTM4LjMxOEwzLjA2MSAxNi4xN2EuNTc0LjU3NCAwIDAwLjUxMy44M2gxMi44NTJhLjU3NC41NzQgMCAwMC41MTMtLjgzTDEwLjUxMyAzLjMxOEEuNTc0LjU3NCAwIDAwMTAuMDI1IDN6TTEwIDQuODU3bDUuNDk3IDEwLjk5N0g0LjUwM3oiDQogICAgICAgIGNsaXAtcnVsZT0iZXZlbm9kZCIgLz4NCjwvc3ZnPg==");
+}
+
+.texticon::before {
+    background: url("data:image/svg+xml;base64,PCEtLSBUZXh0IGljb24gLS0+DQo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgY2xhc3M9InctOCBoLWZ1bGwiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0icmdiKDIwOSwgMjEzLCAyMTkpIj4NCiAgICA8cGF0aA0KICAgICAgICBkPSJtMTAuODkgNC4wMzYgMi4yOTIuMDM3YzEuNzQ1LjAzNiAyLjE4Mi40NTQgMi4yMzYgMWwuMDE4LjJjLjAxOC4yNTQuMDU1LjMwOS4xNDYuMzA5LjA3MiAwIC4xMjctLjA3My4xMjctLjIzNyAwLS4yLjA1NS0xLjQ1NC4wNTUtMiAwLS4xMDkgMC0uMjE4LS4wOTEtLjIxOC0uMDczIDAtLjIzNy4wNTUtLjUxLjA5MS0uMjkuMDU1LS43MDkuMDkxLTEuMjkuMDkxSDcuMDU1Yy0uMjE5IDAtLjkxLS4wMzYtMS40MzctLjA5LS40OS0uMDM3LS42NzMtLjIxOS0uOC0uMjE5LS4wNzMgMC0uMTQ1LjIzNi0uMTgyLjM0NS0uMDM2LjE0Ni0uNCAxLjcxLS40IDEuODkxIDAgLjExLjAzNy4xNjQuMDkxLjE2NC4wNzMgMCAuMTI4LS4wMzYuMTgyLS4xODIuMDU1LS4xMjcuMTEtLjI1NC4zMS0uNTYzLjI5LS40MzcuNzI2LS41NjQgMS44NTQtLjU4MmwyLjY5LS4wMzd2Ny42OTFjMCAxLjc0NiAwIDMuMTgyLS4wOSAzLjk0Ni0uMDczLjUyNy0uMTY0LjkyNy0uNTI4IDFhMi44MDQgMi44MDQgMCAwIDEtLjU0NS4wNzNjLS4xMSAwLS4xNDUuMDU0LS4xNDUuMTA5IDAgLjEwOS4wOS4xNDUuMjkuMTQ1LjU0NiAwIDEuNjkxLS4wNTUgMS43ODItLjA1NS4wOTEgMCAxLjIzNy4wNTUgMi4yMzcuMDU1LjIgMCAuMjktLjA1NS4yOS0uMTQ1IDAtLjA1NS0uMDM2LS4xMS0uMTQ1LS4xMS0uMTY0IDAtLjU2NC0uMDM2LS44MTgtLjA3Mi0uNTQ2LS4wNzMtLjY1NS0uNDczLS43MS0xLS4wOS0uNzY0LS4wOS0yLjItLjA5LTMuOTQ2eiIgLz4NCjwvc3ZnPg==");
+}</style>
+    <style type="text/css">/* range-slider.css */
 .range-slider {
     position: relative;
     box-sizing: border-box;
@@ -619,7 +1169,7 @@
     margin-left: -8px;
     border-width: 8px;
 }</style>
-    <style>/* Toasts.css */
+    <style type="text/css">/* Toasts.css */
 #toast,
 #toast[hidden] {
     display: block;
@@ -653,7 +1203,9 @@
     color: #FCC;
     background: #511;
 }</style>
-    <style>/*! tailwindcss v2.2.7 | MIT License | https://tailwindcss.com */
+    <style type="text/css">/* This uses tailwindCSS */
+
+/* ! tailwindcss v2.2.7 | MIT License | https://tailwindcss.com */
 
 /*! modern-normalize v1.1.0 | MIT License | https://github.com/sindresorhus/modern-normalize */
 
@@ -1204,6 +1756,123 @@ video {
   border-color: rgba(229, 231, 235, var(--tw-border-opacity));
 }
 
+/* To prevent elements inside the
+     * sidebar buttons to "steal" the
+     * click event from the button
+     * itself and cause the event
+     * delegation to fail - so instead
+     * we prevent them from receiving
+     * clicks by preventing them from
+     * being able to register "click"
+     * events */
+
+[data-sidebar-button="1"] > * {
+  pointer-events: none;
+}
+
+/* Fade in page effect */
+
+body {
+  width: 100vw;
+  height: 100vh;
+  -webkit-animation: fadeIn ease-in 1s;
+  animation: fadeIn ease-in 1s;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Basic enter/leave classes for JavaScript transitions */
+
+
+    .fade-leave {
+  transition: all 0.15s ease;
+}
+
+
+    .fade-leave-end {
+  opacity: 0;
+}
+
+/* Apply basic accesibility outlines with some better styles*/
+
+.glow-outline:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(165, 180, 252, var(--tw-ring-opacity));
+  --tw-ring-opacity: 0.5;
+}
+
+.transform {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  transition-duration: 100ms;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Some other basic styles to make tables look nicer by default */
+
+th {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-align: left;
+}
+
+td {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.sidebar-btn:focus {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgba(165, 180, 252, var(--tw-ring-opacity));
+  --tw-ring-opacity: 0.5;
+}
+
+.sidebar-btn {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  border-radius: 0.25rem;
+  border-right-width: 4px;
+  border-style: solid;
+  --tw-border-opacity: 1;
+  border-color: rgba(156, 163, 175, var(--tw-border-opacity));
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
 .container {
   width: 100%;
 }
@@ -1271,8 +1940,12 @@ video {
   left: 1rem;
 }
 
-.z-20 {
-  z-index: 20;
+.z-10 {
+  z-index: 10;
+}
+
+.z-40 {
+  z-index: 40;
 }
 
 .order-last {
@@ -1315,6 +1988,10 @@ video {
 
 .ml-4 {
   margin-left: 1rem;
+}
+
+.ml-16 {
+  margin-left: 4rem;
 }
 
 .block {
@@ -1706,12 +2383,12 @@ video {
   padding-right: 1rem;
 }
 
-.pl-8 {
-  padding-left: 2rem;
+.pr-8 {
+  padding-right: 2rem;
 }
 
-.pl-16 {
-  padding-left: 4rem;
+.pl-8 {
+  padding-left: 2rem;
 }
 
 .text-center {
@@ -1757,6 +2434,10 @@ video {
 
 .leading-6 {
   line-height: 1.5rem;
+}
+
+.leading-tight {
+  line-height: 1.25;
 }
 
 .text-white {
@@ -1830,6 +2511,8 @@ video {
   transition-duration: 150ms;
 }
 
+/* Extend base layer with custom CSS */
+
 @media (min-width: 640px) {
   .sm\:text-lg {
     font-size: 1.125rem;
@@ -1860,7 +2543,8 @@ video {
 }
 
 @media (min-width: 1536px) {
-}</style>
+}
+</style>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <!--Testing styles for animated menus-->
     <style>
@@ -1879,7 +2563,7 @@ video {
 
 <body>
     <!--NOSCRIPT-->
-    <noscript class="block w-screen h-screen overflow-y-scroll flex justify-center">
+    <noscript class="flex justify-center block w-screen h-screen overflow-y-scroll">
         <style>
             noscript {
                 display: block;
@@ -1890,17 +2574,24 @@ video {
                 display: none;
             }
         </style>
-        <article class="max-w-3xl p-8 flex flex-col divide-y">
-            <h1 class="font-bold text-4xl py-8">Sorry, but Vecternary doesn&apos;t work well without JavaScript!</h1>
-            <section class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
-                <p>You&apos;re seeing this because you&apos;ve disabled JavaScript.</p>
-                <p>Don&apos;t worry, JavaScript used by Vecternary is no draconian surveillance tactic! It&apos;s only there to provide canvas editing functionality. Where possible, as little JavaScript is used as possible, but I can&apos;t guarantee that anything will work correctly without JavaScript.</p>
-                <p>Vecternary is designed to protect your privacy - that&apos;s not an advertising tagline, it&apos;s truly designed to be privacy-centric software. For instance, unlike most software, Vecternary has no telemetry or spyware; the only thing it connects to the internet for (and <em>only</em> if you enable this feature) is syncing the online assets and plugins library.</p>
-                <p>In addition, Vecternary is fully compliant with the Free Software Foundation&apos;s free/libre software guidelines. You can see a list of scripts that are used by Vecternary, along with their licenses, below:</p>
+        <article class="flex flex-col max-w-3xl p-8 divide-y">
+            <h1 class="py-8 text-4xl font-bold">Sorry, but Vecternary doesn't work well without JavaScript!</h1>
+            <section class="py-8 space-y-4 text-base leading-6 text-gray-700 sm:text-lg sm:leading-7">
+                <p>You're seeing this because you've disabled JavaScript.</p>
+                <p>Don't worry, JavaScript used by Vecternary is no draconian surveillance tactic! It's only there to
+                    provide canvas editing functionality. Where possible, as little JavaScript is used as possible, but
+                    I can't guarantee that anything will work correctly without JavaScript.</p>
+                <p>Vecternary is designed to protect your privacy - that's not an advertising tagline, it's truly
+                    designed to be privacy-centric software. For instance, unlike most software, Vecternary has no
+                    telemetry or spyware; the only thing it connects to the internet for (and <em>only</em> if you
+                    enable this feature) is syncing the online assets and plugins library.</p>
+                <p>In addition, Vecternary is fully compliant with the Free Software Foundation's free/libre software
+                    guidelines. You can see a list of scripts that are used by Vecternary, along with their licenses,
+                    below:</p>
             </section>
-            <section class="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7">
+            <section class="py-8 space-y-4 text-base leading-6 text-gray-700 sm:text-lg sm:leading-7">
                 <!--Table with id="jslicense-labels1"-->
-                <table id="jslicense-labels1" class="table-auto my-12">
+                <table id="jslicense-labels1" class="my-12 table-auto">
                     <thead>
                         <tr>
                             <th class="font-medium">Script name</th>
@@ -1924,7 +2615,8 @@ video {
                         </tr>
                         <tr>
                             <td><code>toasts.js</code></td>
-                            <td><a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License 3.0</a></td>
+                            <td><a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License 3.0</a>
+                            </td>
                             <td>Custom JavaScript library; can be found with Vecternary source</td>
                             <td>Required for debugging and user alerts</td>
                         </tr>
@@ -1937,32 +2629,39 @@ video {
     <!--APP UI CONTAINER-->
     <div class="flex flex-col w-screen h-screen bg-deepgray" id="container">
         <!--MENUBAR SECTION-->
-        <header class="flex shadow-md w-full bg-deepgray pointer-events-none">
-            <nav class="ml-4 lg:ml-20 justify-start max-w-7xl pointer-events-none" id="menuRoot">
-                <div class="flex items-center h-12 space-x-3 font-base text-sm text-gray-200 cursor-pointer pointer-events-none">
+        <header class="z-40 flex w-full shadow-md pointer-events-none bg-deepgray">
+            <nav class="justify-start ml-4 pointer-events-none lg:ml-20 max-w-7xl" id="menuRoot">
+                <div
+                    class="flex items-center h-12 space-x-3 text-sm text-gray-200 cursor-pointer pointer-events-none font-base">
                     <!--Begin file dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="fileButton" class="rounded px-4 py-1 focus:bg-darkgray pointer-events-auto">File</button>
+                        <button id="fileButton"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">File</button>
                     </div>
                     <!--Begin edit dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="editButton" class="rounded px-4 py-1 focus:bg-darkgray pointer-events-auto">Edit</button>
+                        <button id="editButton"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">Edit</button>
                     </div>
                     <!--Begin format dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="menuButton" class="rounded px-4 py-1 focus:bg-darkgray pointer-events-auto">Format</button>
+                        <button id="formatButton"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">Format</button>
                     </div>
                     <!--Begin preferences dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="prefsButton" class="rounded px-4 py-1 focus:bg-darkgray pointer-events-auto">Preferences</button>
+                        <button id="prefsButton"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">Preferences</button>
                     </div>
                     <!--Begin developer dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="developerButton" class="rounded px-4 py-1 focus:bg-darkgray pointer-events-auto">Developer</button>
+                        <button id="developerButton"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">Developer</button>
                     </div>
                     <!--Begin about dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="aboutButton" class="rounded px-4 py-1 focus:bg-darkgray pointer-events-auto">About</button>
+                        <button id="aboutButton"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">About</button>
                     </div>
                 </div>
             </nav>
@@ -1971,92 +2670,95 @@ video {
         <!--APP SECTION-->
 
         <!--Need to add min-h-0 here due to an unusual firefox bug that causes the min-height of flex children to default to the content size - which causes the child container to overflow its parent even though we set it to scroll-->
-        <main class="flex flex-row h-full min-h-0 w-full" id="content">
+        <main class="flex flex-row w-full h-full min-h-0" id="content">
 
+            <!--BEGIN AND END DELETED SECTION -->
             <!--SIDEBAR SECTION-->
-
-            <!--This is supposed to float above the canvas like a toolbar-->
-            <!--So it has a higher z-index-->
-            <div class="flex pl-16" id="sidebar">
-                <div class="flex flex-col w-full py-8 m-auto text-gray-300 shadow-md justify-around bg-palegray space-y-6 rounded-xl relative z-20">
-
-                    <!--PENCIL BUTTON-->
-                    <button data-sidebar-button="1" class="px-3 py-3 mx-auto rounded w-full border-solid border-gray-400 border-r-4 glow-outline" id="draw-button">
-                        <span class="flex flex-col space-y-4">
-                            <span class="flex justify-evenly" id="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewbox="0 0 20 20" fill="currentColor">
-                                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"/>
-                                </svg>
+            <section id="sidebar">
+                <!--This is supposed to float above the canvas like a toolbar-->
+                <!--So it has a higher z-index-->
+                <div class="flex ml-16">
+                    <div
+                        class="relative z-10 flex flex-col justify-around w-full py-8 m-auto space-y-6 text-gray-300 shadow-md bg-palegray rounded-xl">
+                        <!--PENCIL BUTTON-->
+                        <button data-sidebar-button="1" class="sidebar-btn" id="draw-button">
+                            <span class="flex flex-col space-y-4">
+                                <span class="flex justify-evenly" id="icon">
+                                    <!-- Draw icon -->
+                                    <span class="icon drawicon"></span>
+                                </span>
+                                <p class="text-xs">Brush</p>
                             </span>
-                            <p class="text-xs">Draw</p>
-                        </span>
-                    </button>
+                        </button>
 
-                    <!--ERASER BUTTON-->
-                    <button data-sidebar-button="1" class="px-3 py-3 mx-auto rounded w-full active:bg-gray-400 glow-outline" id="eraser-button">
-                        <span class="flex flex-col space-y-4">
-                            <span class="flex justify-evenly" id="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewbox="0 0 20 20" fill="currentColor">
-                                    <path d="M7.583 16.991a1.183 1.183 0 0 1-.37-.116c-.095-.045-.154-.089-.294-.218-.435-.4-2.391-2.35-3.32-3.305-.4-.414-.457-.49-.531-.705a1.554 1.554 0 0 1-.066-.576 1.07 1.07 0 0 1 .124-.515c.062-.127.094-.17.269-.359.633-.685 6.986-7.04 7.688-7.689.397-.367.506-.44.737-.497.189-.047.494-.047.676-.002.17.042.336.108.436.173.152.099 2.663 2.589 3.59 3.561.285.298.305.322.364.447.035.073.08.195.1.272.033.122.038.17.039.362 0 .196-.004.24-.038.372-.091.353-.053.312-3.884 4.152-2.028 2.033-3.971 3.959-4.303 4.266-.186.172-.226.202-.353.264-.079.038-.185.08-.236.092-.11.027-.494.04-.628.021zm.377-1.122c.04-.027.136-.105.215-.175.182-.16 2.8-2.77 2.8-2.791 0-.02-3.87-3.89-3.889-3.89-.014 0-1.732 1.718-2.407 2.407-.579.59-.65.69-.588.834.03.073.458.517 1.656 1.72 1.326 1.333 1.88 1.87 1.983 1.922.088.045.13.04.23-.027z"/>
-                                </svg>
+                        <!--ERASER BUTTON-->
+                        <button data-sidebar-button="1"
+                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="eraser-button">
+                            <span class="flex flex-col space-y-4">
+                                <span class="flex justify-evenly" id="icon">
+                                    <!-- Erase icon -->
+                                    <span class="icon eraseicon"></span>
+                                </span>
+                                <p class="text-xs">Eraser</p>
                             </span>
-                            <p class="text-xs">Eraser</p>
-                        </span>
-                    </button>
+                        </button>
 
-                    <!--CIRCLE BUTTON-->
-                    <button data-sidebar-button="1" class="px-3 py-3 mx-auto rounded w-full active:bg-gray-400 glow-outline" id="circle-button">
-                        <span class="flex flex-col space-y-4">
-                            <span class="flex justify-evenly" id="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewbox="0 0 20 20" fill="currentColor">
-                                    <path d="M10 3c-3.858 0-7 3.142-7 7s3.142 7 7 7 7-3.142 7-7-3.142-7-7-7zm0 1.273A5.718 5.718 0 0 1 15.727 10 5.718 5.718 0 0 1 10 15.727 5.718 5.718 0 0 1 4.273 10 5.718 5.718 0 0 1 10 4.273z"/>
-                                </svg>
+                        <!--CIRCLE BUTTON-->
+                        <button data-sidebar-button="1"
+                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="circle-button">
+                            <span class="flex flex-col space-y-4">
+                                <span class="flex justify-evenly" id="icon">
+                                    <!-- Circle icon -->
+                                    <span class="icon circicon"></span>
+                                </span>
+                                <p class="text-xs">Circle</p>
                             </span>
-                            <p class="text-xs">Circle</p>
-                        </span>
-                    </button>
+                        </button>
 
-                    <!--RECTANGLE BUTTON-->
-                    <button data-sidebar-button="1" class="px-3 py-3 mx-auto rounded w-full active:bg-gray-400 glow-outline" id="rect-button">
-                        <span class="flex flex-col space-y-4">
-                            <span class="flex justify-evenly" id="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewbox="0 0 20 20" fill="currentColor">
-                                    <path d="M4.118 3C3.508 3 3 3.508 3 4.118v11.764C3 16.492 3.508 17 4.118 17h11.764c.61 0 1.118-.508 1.118-1.118V4.118C17 3.508 16.492 3 15.882 3zm0 1.076h11.764c.033 0 .042.01.042.042v11.764c0 .033-.009.042-.042.042H4.118c-.033 0-.042-.009-.042-.042V4.118c0-.033.01-.042.042-.042z"/>
-                                </svg>
+                        <!--RECTANGLE BUTTON-->
+                        <button data-sidebar-button="1"
+                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="rect-button">
+                            <span class="flex flex-col space-y-4">
+                                <span class="flex justify-evenly" id="icon">
+                                    <!-- Rectangle icon -->
+                                    <span class="icon recticon"></span>
+                                </span>
+                                <p class="text-xs">Rectangle</p>
                             </span>
-                            <p class="text-xs">Rectangle</p>
-                        </span>
-                    </button>
+                        </button>
 
-                    <!--TRIANGLE BUTTON-->
-                    <button data-sidebar-button="1" class="px-3 py-3 mx-auto rounded w-full active:bg-gray-400 glow-outline" id="triangle-button">
-                        <span class="flex flex-col space-y-4">
-                            <span class="flex justify-evenly" id="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewbox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M10.025 3a.574.574 0 00-.538.318L3.061 16.17a.574.574 0 00.513.83h12.852a.574.574 0 00.513-.83L10.513 3.318A.574.574 0 0010.025 3zM10 4.857l5.497 10.997H4.503z" clip-rule="evenodd"/>
-                                </svg>
+                        <!--TRIANGLE BUTTON-->
+                        <button data-sidebar-button="1"
+                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline"
+                            id="triangle-button">
+                            <span class="flex flex-col space-y-4">
+                                <span class="flex justify-evenly" id="icon">
+                                    <!-- Triangle icon -->
+                                    <span class="icon trigicon"></span>
+                                </span>
+                                <p class="text-xs">Triangle</p>
                             </span>
-                            <p class="text-xs">Triangle</p>
-                        </span>
-                    </button>
+                        </button>
 
-                    <!--TEXT BUTTON-->
-                    <button data-sidebar-button="1" class="px-3 py-3 mx-auto rounded w-full active:bg-gray-400 glow-outline" id="textbox-button">
-                        <span class="flex flex-col space-y-4">
-                            <span class="flex justify-evenly" id="icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-full" viewbox="0 0 20 20" fill="currentColor">
-                                    <path d="m10.89 4.036 2.292.037c1.745.036 2.182.454 2.236 1l.018.2c.018.254.055.309.146.309.072 0 .127-.073.127-.237 0-.2.055-1.454.055-2 0-.109 0-.218-.091-.218-.073 0-.237.055-.51.091-.29.055-.709.091-1.29.091H7.055c-.219 0-.91-.036-1.437-.09-.49-.037-.673-.219-.8-.219-.073 0-.145.236-.182.345-.036.146-.4 1.71-.4 1.891 0 .11.037.164.091.164.073 0 .128-.036.182-.182.055-.127.11-.254.31-.563.29-.437.726-.564 1.854-.582l2.69-.037v7.691c0 1.746 0 3.182-.09 3.946-.073.527-.164.927-.528 1a2.804 2.804 0 0 1-.545.073c-.11 0-.145.054-.145.109 0 .109.09.145.29.145.546 0 1.691-.055 1.782-.055.091 0 1.237.055 2.237.055.2 0 .29-.055.29-.145 0-.055-.036-.11-.145-.11-.164 0-.564-.036-.818-.072-.546-.073-.655-.473-.71-1-.09-.764-.09-2.2-.09-3.946z"/>
-                                </svg>
+                        <!--TEXT BUTTON-->
+                        <button data-sidebar-button="1"
+                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline"
+                            id="textbox-button">
+                            <span class="flex flex-col space-y-4">
+                                <span class="flex justify-evenly" id="icon">
+                                    <!-- Text icon -->
+                                    <span class="icon texticon"></span>
+                                </span>
+                                <p class="text-xs">Text</p>
                             </span>
-                            <p class="text-xs">Text</p>
-                        </span>
-                    </button>
-
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </section>
+
             <!--CANVAS SECTION-->
-            <div class="w-full flex flex-1" id="canvas-container">
-                <!-- <div id="placeholder" class="text-center flex-grow w-full min-w-2/3">
+            <div class="flex flex-1 w-full" id="canvas-container">
+                <!-- <div id="placeholder" class="flex-grow w-full text-center min-w-2/3">
                 <h1 class="text-3xl">Welcome to Vecternary Alpha</h1>
                 <p class="text-sm">Version 0.1.0</p>
                 <p class="m-auto">Use the tools on the left sidebar to begin drawing.</p>
@@ -2067,14 +2769,14 @@ video {
             </div>
 
             <!--PROPERTIES EDITOR SECTION-->
-            <div id="editor" class="flex order-last min-w-1/5 bg-palegray overflow-y-scroll">
+            <div id="editor" class="flex order-last overflow-y-scroll min-w-1/5 bg-palegray">
                 <div class="flex flex-col space-y-6">
                     <!--Resize drag button-->
                     <!--
-                    <div class="relative inset-y-0 left-4 cursor-move pointer-events-auto absolute cursor-grab active:cursor-grabbing right-0" id="resizer top-left transform: translate3d(-119px, 0px, 0px) scale(1);" style=" user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;">
-                        <div class="pointer-events-auto absolute top-1/2 -mt-4 w-8 hidden md:flex items-center justify-center cursor-grab active:cursor-grabbing right-0" style="user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;" draggable="false">
-                            <div class="flex-none rounded bg-palegray shadow flex items-center justify-center px-2 py-3">
-                                <svg viewBox="0 0 14 24" fill="none" stroke-width="2" stroke="currentColor" class="h-4 flex-none text-white">
+                    <div class="absolute relative inset-y-0 right-0 cursor-move pointer-events-auto left-4 cursor-grab active:cursor-grabbing" id="resizer top-left transform: translate3d(-119px, 0px, 0px) scale(1);" style=" user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;">
+                        <div class="absolute right-0 items-center justify-center hidden w-8 -mt-4 pointer-events-auto top-1/2 md:flex cursor-grab active:cursor-grabbing" style="user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;" draggable="false">
+                            <div class="flex items-center justify-center flex-none px-2 py-3 rounded shadow bg-palegray">
+                                <svg viewBox="0 0 14 24" fill="none" stroke-width="2" stroke="currentColor" class="flex-none h-4 text-white">
                                     <path d="M 1 0 V 24 M 7 0 V 24 M 13 0 V 24"></path>
                                 </svg>
                             </div>
@@ -2084,9 +2786,11 @@ video {
 
                     <div id="color-options" class="flex flex-col py-12 mx-auto space-y-8">
                         <div id="modal-button" class="flex flex-row mx-auto space-x-2 text-sm">
-                            <button id="drawing-mode" class="px-6 py-3 text-gray-300 font-medium rounded bg-darkgray">Drawing
+                            <button id="drawing-mode"
+                                class="px-6 py-3 font-medium text-gray-300 rounded bg-darkgray">Drawing
                                 Mode</button>
-                            <button id="adjust-mode" class="px-6 py-3 text-gray-300 font-medium rounded bg-none">Adjust Mode</button>
+                            <button id="adjust-mode" class="px-6 py-3 font-medium text-gray-300 rounded bg-none">Adjust
+                                Mode</button>
                         </div>
                         <div id="picker" class="flex flex-col space-y-8 justify-evenly">
 
@@ -2096,49 +2800,99 @@ video {
                             </div>
 
                             <!--Colorpicker inputs-->
-                            <div id="colorinputs" class="flex flex-row text-sm font-medium text-gray-200 justify-evenly max-w-5/6 ">
-                                <!--Left button for line color-->
-                                <button type="button" class="inline-flex justify-center pl-8 pr-4 py-2 border rounded-md shadow-sm border-deepgray bg-darkgray glow-outline" id="options-menu" aria-haspopup="true" aria-expanded="true">
+                            <div id="colorinputs"
+                                class="flex flex-row text-sm font-medium text-gray-200 justify-evenly max-w-5/6 ">
+                                <!--Left button for choosing the type of color to input-->
+                                <div class="relative">
+                                    <select id="simple" name="colorChooser"
+                                        class="block w-full px-4 py-3 pr-8 leading-tight text-gray-200 border rounded appearance-none border-deepgray bg-darkgray glow-outline">
+                                        <option selected>
+                                            Line color
+                                        </option>
+                                        <option>Fill color</option>
+                                        <option>Brush color</option>
+                                        <option>Canvas color</option>
+
+                                        <!-- block w-full py-2 pl-8 pr-4 border rounded-md shadow-sm appearance-none border-deepgray bg-darkgray glow-outline -->
+                                    </select>
+                                    <div
+                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                                        <!-- Heroicon name: solid/chevron-down -->
+                                        <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" class="w-8"
+                                            viewBox="0 0 20 20" fill="white" aria-hidden="true">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <!-- <button type="button" class="inline-flex justify-center py-2 pl-8 pr-4 border rounded-md shadow-sm border-deepgray bg-darkgray glow-outline" id="options-menu" aria-haspopup="true" aria-expanded="true">
                                     Line color
-                                    <!-- Heroicon name: solid/chevron-down -->
-                                    <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                                    Heroicon name: solid/chevron-down
+                                    <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" class="w-8" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                     </svg>
-                                </button>
+                                </button> -->
                                 <!--Right button for hex color code-->
                                 <div class="w-2/5 xl:w-1/3">
-                                    <input class="w-full h-full px-3 text-center placeholder-gray-400 align-middle rounded shadow-sm appearance-none border-deepgray bg-darkgray  focus:border-purple-500" id="hexColorInputBox" type="text" placeholder="#384858">
+                                    <input
+                                        class="w-full h-full px-3 text-center placeholder-gray-400 align-middle rounded shadow-sm appearance-none border-deepgray bg-darkgray focus:border-purple-500"
+                                        id="hexColorInputBox" type="text" placeholder="#384858">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!--END COLOR OPTIONS-->
 
-                    <div id="sliders" class="flex flex-col p-5 w-full space-y-12">
+                    <div id="sliders" class="flex flex-col w-full p-5 space-y-12">
 
                         <!--Line Width-->
-                        <div class="mx-auto text-gray-200 flex flex-col w-5/6 space-y-6">
+                        <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
                             <!--Slider label-->
-                            <label class="block mb-2 text-md align-left font-medium font-gray-200" for="lineWidthSlider">Line
+                            <label class="block mb-2 font-medium text-md align-left font-gray-200"
+                                for="lineWidthSlider">Line
                                 Width</label>
                             <!--Main slider-->
-                            <div class="mx-auto w-full" id="lineWidthSlider"></div>
+                            <div class="w-full mx-auto" id="lineWidthSlider"></div>
                             <!--Alternative Input box for line width-->
                             <div>
-                                <input class="h-10 w-20 float-right rounded text-center placeholder-gray-400 shadow-sm border-deepgray bg-darkgray glow-outline" id="lineWidthInput" type="text" placeholder="50" oninput="linewidthInput(value)">
+                                <input
+                                    class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline"
+                                    id="lineWidthInput" type="text" placeholder="50" oninput="linewidthInput(value)">
                             </div>
                         </div>
 
                         <!--Shadow width-->
-                        <div class="mx-auto text-gray-200 flex flex-col w-5/6 space-y-6" id="shadow">
+                        <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
                             <!--Slider label-->
-                            <label class="block mb-2 text-md align-left font-medium font-gray-200" for="shadowWidthSlider">Shadow
+                            <label class="block mb-2 font-medium text-md align-left font-gray-200"
+                                for="shadowWidthSlider">Shadow
                                 Width</label>
                             <!--Main slider-->
-                            <div class="mx-auto w-full" id="shadowWidthSlider"></div>
+                            <div class="w-full mx-auto" id="shadowWidthSlider"></div>
                             <!--Alternative Input box for shadow width-->
                             <div>
-                                <input class="h-10 w-20 float-right rounded text-center placeholder-gray-400 shadow-sm border-deepgray bg-darkgray glow-outline" id="shadowWidthInput" type="text" placeholder="10" oninput="shadowWidthInput(value)">
+                                <input
+                                    class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline"
+                                    id="shadowWidthInput" type="text" placeholder="10"
+                                    oninput="shadowWidthInput(value)">
+                            </div>
+                        </div>
+
+                        <!--Shadow width-->
+                        <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
+                            <!--Slider label-->
+                            <label class="block mb-2 font-medium text-md align-left font-gray-200"
+                                for="shadowOffsetSlider">Shadow
+                                Offset</label>
+                            <!--Main slider-->
+                            <div class="w-full mx-auto" id="shadowOffsetSlider"></div>
+                            <!--Alternative Input box for shadow width-->
+                            <div>
+                                <input
+                                    class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline"
+                                    id="shadowOffsetInput" type="text" placeholder="10"
+                                    oninput="shadowOffsetInput(value)">
                             </div>
                         </div>
                     </div>
@@ -2668,7 +3422,18 @@ function _classCallCheck(instance, Constructor) {
     <!--Uses a custom micro-library for app menu functions-->
     <script>// strict mode to prevent errors and enable some ES6 features
 "use strict";
-// Dropdown menu, show/hide based on menu state.
+// Dropdown menu handling, show/hide based on menu state, and other things
+
+/* 
+ * Note to the lucky soul reading this comment - the utter existence
+ * of this library is a procurement of the dark arts. It took me ages
+ * to finish this, likely selling half of my soul to the developers of
+ * javascript in the process. Everything in here was crafted, then destroyed,
+ * then rewritten, then perfected, and then destroyed again in an endless
+ * cycle of fire and blood. I pity you, for I shall hope you need not ever
+ * repeat this experience. Good luck.
+*/
+
 
 // Entering: "transition ease-out duration-100"
 //   From: "transform opacity-0 scale-95"
@@ -2677,104 +3442,114 @@ function _classCallCheck(instance, Constructor) {
 //   From: "transform opacity-100 scale-100"
 //   To: "transform opacity-0 scale-95"
 
-// toggleMenu function
-// item is the header menu item
-// dropdown is the dropdown menu associated with the menu item
-// function toggleMenu(item, dropdown) {
-//     document.getElementById(item).onclick = function() {
-//         var el = document.getElementById(dropdown);
-//         // If the dropdown menu is not visible
-//         if (el.classList.contains("hidden")) {
-//             // Then we make it visible
-//             el.classList.remove("hidden");
-//             // If the dropdown menu is visible
-//         } else {
-//             // Then we hide it and make it invisible
-//             el.classList.add("hidden")
-//         }
-//         // If focus to the dropdown menu is lost
-//         document.getElementById(item).onblur = function() {
-//             // Then we hide the dropdown menu as well
-//             el.classList.add("hidden")
-//         }
-//     }
-// 
-// }
 
-// File menu implementation
-// wrap things in an IIFE to keep them neatly isolated from other code.
-let createFileDropDown = (function() {
+// API should be like this:
+// createMenuDropDown("fileMenu", "newDrawing", "New illustration")
+// ==> Creates a dropdown for 
 
+// Create list of top-level menus
+// Here the list is of the IDs not of the actual labels
+let topLevelMenuIDs = ["fileButton", "editButton", "formatButton", "prefsButton", "developerButton", "aboutButton"];
+
+// Create definitions for each menu item
+//  Menu bar elements are the buttons/items in a dropdown
+// In the file menu there are 12 of them! And in total
+// there might be thirty or more!
+
+// Each menu bar element has an id as well as a label, represented as an object
+// The ID is the unique JavaScript id of the element, while the label is the the text displayed for that particular element on the user interface
+// These have to be kept separate because ID names are often short for verbose code
+// while label names have spaces for readability
+let newDrawingButton = {
+    menu: "fileMenu",
+    id: "newDrawing",
+    label: "New illustration",
+    tooltip: "Creates a blank new drawing",
+    keybinding: "CTRL N"
+};
+let importDrawingButton = {
+    menu: "fileMenu",
+    id: "importDrawing",
+    label: "Import",
+    tooltip: "Imports a SVG file, Fabric.js JSON or PNG"
+};
+let exportDrawingButton = {
+    menu: "fileMenu",
+    id: "exportDrawing",
+    label: "Export",
+    tooltip: "Exports a PNG, JPG, or SVG"
+};
+let openFileButton = {
+    menu: "fileMenu",
+    id: "openFile",
+    label: "Open file"
+};
+let openRecentFileButton = {
+    menu: "fileMenu",
+    id: "openRecentFile",
+    label: "Open recent file"
+};
+let restoreLastSessionButton = {
+    menu: "fileMenu",
+    id: "restoreLastSession",
+    label: "Restore last session"
+};
+let saveFileButton = {
+    menu: "fileMenu",
+    id: "saveFile",
+    label: "Save file"
+};
+let saveFileAsButton = {
+    menu: "fileMenu",
+    id: "saveFileAs",
+    label: "Save file as"
+};
+let renameFileButton = {
+    menu: "fileMenu",
+    id: "renameFile",
+    label: "Rename file"
+};
+let settingsButton = {
+    menu: "fileMenu",
+    id: "adjustSettings",
+    label: "Settings"
+};
+let reloadUIButton = {
+    menu: "fileMenu",
+    id: "reloadUITrigger",
+    label: "Reload UI"
+};
+let quitButton = {
+    menu: "fileMenu",
+    id: "quitTrigger",
+    label: "Quit"
+};
+let forceQuitButton = {
+    menu: "fileMenu",
+    id: "forceQuitTrigger",
+    label: "Force quit"
+};
+let tempOtherButton = {
+    menu: "otherMenu",
+    id: "tempOther",
+    label: "Random menu item"
+}
+
+// Usage: createMenuDropDown(id of menu: str) => returns HTML element
+function createMenuDropDown(menuID) {
     // The dropDownContainer is the top-level div that
     // houses all of the rest of the dropdown code
     let dropDownContainer = document.createElement("div");
-    dropDownContainer.className = "absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border"
-
-    // Menu bar elements are the buttons/items in a dropdown
-    // In the file menu there are 12 of them!
-
-    // Each menu bar element has an id as well as a label, represented as an object
-    // The ID is the unique JavaScript id of the element, while the label is the the text displayed for that particular element on the user interface
-    // These have to be kept separate because ID names are often short for verbose code
-    // while label names have spaces for readability
-    let newDrawingButton = {
-        id: "newDrawing",
-        label: "New illustration",
-        tooltip: "Creates a blank new drawing"
-    };
-    let importDrawingButton = {
-        id: "importDrawing",
-        label: "Import",
-        tooltip: "Imports a SVG file, Fabric.js JSON or PNG"
-    };
-    let exportDrawingButton = {
-        id: "exportDrawing",
-        label: "Export",
-        tooltip: "Exports a PNG, JPG, or SVG"
-    };
-    let openFileButton = {
-        id: "openFile",
-        label: "Open file"
-    };
-    let openRecentFileButton = {
-        id: "openRecentFile",
-        label: "Open recent file"
-    };
-    let restoreLastSessionButton = {
-        id: "restoreLastSession",
-        label: "Restore last session"
-    };
-    let saveFileButton = {
-        id: "saveFile",
-        label: "Save file"
-    };
-    let saveFileAsButton = {
-        id: "saveFileAs",
-        label: "Save file as"
-    };
-    let renameFileButton = {
-        id: "renameFile",
-        label: "Rename file"
-    };
-    let settingsButton = {
-        id: "adjustSettings",
-        label: "Settings"
-    };
-    let reloadUIButton = {
-        id: "reloadUITrigger",
-        label: "Reload UI"
-    };
-    let quitButton = {
-        id: "quitTrigger",
-        label: "Quit"
-    };
-    let forceQuitButton = {
-        id: "forceQuitTrigger",
-        label: "Force quit"
-    };
+    dropDownContainer.className = "absolute z-50 mt-2 text-sm origin-top-left border divide-y rounded-md shadow-lg w-60 -left-8 top-6 font-base divide-darkgray bg-deepgray border-darkgray"
 
     // The 12 file dropdown menu items are combined here
     // into one big array called menuBarElements
+    switch(menuID) {
+        case "fileButton":
+            // Do something
+            break;
+    };
+    
     let menuBarElements = [
         newDrawingButton,
         importDrawingButton,
@@ -2854,7 +3629,7 @@ let createFileDropDown = (function() {
         }
 
         /* TailwindCSS classes to style the menu buttons */
-        generatedVariable.className = "text-gray-100 block pl-8 pr-4 py-2 text-sm";
+        generatedVariable.className = "block py-2 pl-8 pr-4 text-sm text-gray-100";
 
         // This produces the code to generate the dynamic variable
         // E.g. it might produce: let var_quitTrigger_Generated = menuElement;
@@ -2888,10 +3663,41 @@ let createFileDropDown = (function() {
         // Append the completed group to the top-level dropdown container
         dropDownContainer.appendChild(groupMarkup);
 
+        // Finish!
+        return dropDownContainer;
+
         // E.g. append the completed file dropdown to the "file" menu
-        document.getElementById("fileButton").parentNode.appendChild(dropDownContainer);
+        // document.getElementById("fileButton").parentNode.appendChild(dropDownContainer);
     });
-})();
+};
+
+// toggleMenu function
+// item is the header menu item
+// dropdown is the dropdown menu associated with the menu item
+// function toggleMenu(item, dropdown) {
+//     document.getElementById(item).onclick = function() {
+//         var el = document.getElementById(dropdown);
+//         // If the dropdown menu is not visible
+//         if (el.classList.contains("hidden")) {
+//             // Then we make it visible
+//             el.classList.remove("hidden");
+//             // If the dropdown menu is visible
+//         } else {
+//             // Then we hide it and make it invisible
+//             el.classList.add("hidden")
+//         }
+//         // If focus to the dropdown menu is lost
+//         document.getElementById(item).onblur = function() {
+//             // Then we hide the dropdown menu as well
+//             el.classList.add("hidden")
+//         }
+//     }
+// 
+// }
+
+// for (buttonID in topLevelMenuIDs) {
+//     createFileDropDown(buttonID);
+// }
 
 // Note that the force quit button shows you a dialogue asking you if you really want to force quit
 // For the "true" instant kill switch for Vecternary, use the keyboard command CTRL + B + K + F and hold for 3 seconds
@@ -2906,152 +3712,28 @@ menuRoot.addEventListener("click", function(event) {
     let target = event.target;
     let targetID = target.id;
     let targetParent = target.parentNode;
-    console.log(targetID);
-    // We now render a different menu dropdown
-    // depending on which menu button was clicked
-
-    // switch (targetID) {
-    //     case "fileButton":
-    //         // takes the menu title and turns it into a block of markup
-    //         targetParent.append(fileMenuMarkup);
-    //         break;
-    //     case "editButton":
-    //         targetParent.append(editMenuMarkup);
-    //         break;
-    //     default:
-    //         console.log("Not a filebutton")
-    // }
-
-
-
-
+    // Though this is not entirely necessary,
+    // I set it to verify that the returned ID would
+    // be one of the 6 menus hard-coded in the HTML
+    // and to warn by a toast if that isn't the case
+    if (targetID in topLevelMenuIDs === false) {
+        // The error names are based on the dates they were made
+        // Error 815 was created on August 15, 2021 which gives it that name
+        log("Error 815: invalid dropdown ID received!")
+        throw new console.warn(`Dropdown id ${targetID} is invalid!`);
+    };
+    // Creates the menu markup BUT we don't show that markup yet!
+    let dropDownMarkup = createMenuDropDown(targetID);
+    // Handle the logic of opening, closing, and enter/leave transitions
+    // They show on both hover and focus
+    targetParent.appendChild(dropDownMarkup);
 });</script>
-    <!--Setup colorpickers for iro.js; this goes FIRST-->
-    <script>
-        // Setup colorpicker UI
-        var colorPicker = new iro.ColorPicker("#colorpicker", {
-            layout: [{
-                    component: iro.ui.Box,
-                    options: {}
-                },
-                {
-                    component: iro.ui.Slider,
-                    options: {
-                        // can also be 'saturation', 'value', 'red', 'green', 'blue', 'alpha' or 'kelvin'
-                        sliderType: 'hue'
-                    }
-                },
-            ],
-            // Set default color to #384858
-            color: "#384858",
-            layoutDirection: "horizontal",
-            width: "200",
-        });
+    <!--Script used for modifying the DOM and setting variables for debugging-->
+    <script>// This script is for making temporary changes, it is not
+// distributed in Vecternary release versions
 
-        // Add color picker events to detect change in color
-        // Code shamelessly copied from https://codepen.io/rakujira/pen/WZOeNq?editors=1010 :)
-        // Credit: James Daniel
-
-        var hexColorInputBox = document.getElementById("hexColorInputBox");
-        // listen to a color picker's color:change event
-        // color:change callbacks receive the current color
-        colorPicker.on(["color:init", "color:change"], function(color) {
-            hexColorInputBox.value = color.hexString;
-        });
-
-        hexColorInputBox.addEventListener('change', function() {
-            colorPicker.color.hexString = this.value;
-        });
-    </script>
-    <script>
-        // Setup script for all variable names
-        var lw_input = document.getElementById("lineWidthInput");
-        var sw_input = document.getElementById("shadowWidthInput");
-    </script>
-
-
-    <!--Setup script for sliders and inputs-->
-    <script>
-        // Create line width slider via JS
-        var lw_slider = new RangeSlider(
-            document.getElementById("lineWidthSlider"), {
-                design: "2d",
-                theme: "custom",
-                size: "medium",
-                handle: "round",
-                popup: null,
-                showMinMaxLabels: false,
-                min: 0,
-                max: 100,
-                value: 50,
-                onmove: function(x) {
-                    lw_input.value = x;
-                }
-            });
-
-        // Connect line width input box to slider
-        function linewidthInput(width) {
-            // Check that input is a number
-            if (isNumber(width) == true) {
-                width = parseInt(width);
-                // Checks if width is between 0 and 100
-                if (width.between(0, 100)) {
-                    // If input is number within bounds we set it as slider value
-                    lw_slider.setValue(width);
-                } else {
-                    // We log the error
-                    log("Error! Value exceeds range.")
-                    // Reset value
-                    lw_slider.setValue(50);
-                }
-            } else {
-                // If input is not number we don't change slider value
-                log("Error: Incorrect type! Inputted type " + typeof(width));
-                // Reset value
-                lw_slider.setValue(50);
-            }
-        }
-
-        // Create shadow width slider via JS
-        var sw_slider = new RangeSlider(
-            document.getElementById("shadowWidthSlider"), {
-                design: "2d",
-                theme: "custom",
-                size: "medium",
-                handle: "round",
-                popup: null,
-                showMinMaxLabels: false,
-                min: 0,
-                max: 100,
-                value: 10,
-                onmove: function(x) {
-                    sw_input.value = x;
-                }
-            });
-
-        // Connect shadow width input box to slider
-        function shadowWidthInput(width) {
-            // Check that input is a number
-            if (isNumber(width) == true) {
-                width = parseInt(width);
-                // Checks if width is between 0 and 100
-                if (width.between(0, 100)) {
-                    // If input is number within bounds we set it as slider value
-                    sw_slider.setValue(width);
-                } else {
-                    // We log the error
-                    log("Error! Value exceeds range.")
-                    // Reset value
-                    sw_slider.setValue(50);
-                }
-            } else {
-                // If input is not number we don't change slider value
-                log("Error: Incorrect type! Inputted type " + typeof(width));
-                // Reset value
-                sw_slider.setValue(50);
-            }
-        }
-    </script>
+let sidebar = document.getElementById("sidebar");
+// sidebar.style.display = "none";</script>
     <!--Uses a custom resize script for resizable properties panel-->
     <script>/* Resize.js 
 This provides the custom resizing function for allowing users to expand the properties editor with a simple mouse drag
@@ -3102,198 +3784,6 @@ function log(value) {
         toast.hidden = true;
     }, 1000);
 }</script>
-    <!--Setup script for initializing Canvas.js and running CanvasJS functions-->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Setup container of canvas
-            canv_parent = document.getElementById("canvas-container");
-            var canvas = new fabric.Canvas("app-canvas", {
-                // Set drawing mode to true on start
-                isDrawingMode: true
-            });
-
-            // Connect free drawing brush width and color controls
-            canvas.freeDrawingBrush.color = 'rgba(255,255,255,.8)'
-
-            // Create function for inserting new objects
-            function insert(object) {
-                // Finish this later
-            }
-
-            // Draw polygon tool
-            // Nice functionality would be to actually use bezier curves
-            // and to be able to edit each point node
-            // but this is good enough
-            // also nice would be the ability to use the enter key to
-            // auto-complete the current polygon
-            // making it possible to draw straight lines using this
-            // (Source: https://github.com/WilliamEddy/fabricjs-pen-tool)
-
-            // Add text and rectangle to canvas (this is just for testing)
-            var text = new fabric.Textbox('Hello world from Vecternary Picasso', {
-                left: 250,
-                top: 200,
-                fill: "white",
-                width: 250,
-                cursorColor: "white",
-                fontSize: 24,
-                fontFamily: "Inter"
-            });
-            var rect = new fabric.Rect({
-                left: 100,
-                top: 100,
-                fill: '#54616f',
-                width: 100,
-                height: 100
-            });
-
-            // Make canvas visually fill the positioned parent
-            var canv_width = canv_parent.offsetWidth;
-            var canv_height = canv_parent.offsetHeight;
-            canvas.setWidth(canv_width);
-            canvas.setHeight(canv_height);
-
-            // Make sure that when the screen changes size, the canvas also scales
-            // This does not work at all at the moment
-            window.addEventListener('resize', function() {
-                var canv_width = canv_parent.offsetWidth;
-                var canv_height = canv_parent.offsetHeight;
-                console.log("Width: " + canv_width + " Height: " + canv_height);
-                canvas.setWidth(canv_width);
-                canvas.setHeight(canv_height);
-            });
-
-            // Add elements to canvas
-            canvas.add(rect);
-            canvas.add(text);
-            canvas.renderAll();
-
-            /* FabricJS canvas logic begins here */
-            var adjustModeButton = document.getElementById("adjust-mode"),
-                drawModeButton = document.getElementById("drawing-mode");
-
-            // Toggle the active class when modes change
-            function toggleModes(activeBtn, inactiveBtn) {
-                // Whevenever either button is clicked, we toggle the mode
-                canvas.isDrawingMode = !canvas.isDrawingMode;
-                // The active button should be inactivated
-                // So we remove the bg-darkgray class
-                activeBtn.classList.remove("bg-darkgray");
-                // The other button doesn't have the bg-darkgray class
-                // So we add it!
-                inactiveBtn.classList.add("bg-darkgray");
-            }
-
-            adjustModeButton.onclick = function() {
-                toggleModes(drawModeButton, adjustModeButton)
-            };
-            drawModeButton.onclick = function() {
-                toggleModes(adjustModeButton, drawModeButton)
-            };
-
-            // When object is selected, choose color via colorpicker
-            // var selected = canvas.getActiveObject()
-            // colorPicker.color.hexString = selected.fillStyle;
-
-            /* This section makes the toolbar buttons work */
-
-            function activateTool(button) {
-                var button = document.getElementById(button);
-                button.onclick = function() {
-                    if (button.classList.contains("border-solid", "border-gray-400", "border-r-4") != true) {
-                        button.classList.add("border-solid", "border-gray-400", "border-r-4");
-                    }
-                }
-                // If the user clicks on another other element in the toolbar
-                // we want to deactivate the button
-                "#sidebar button:not(#draw-button)"
-                var queryOthers = "#sidebar button" + ":not(#" + button.id + ")";
-                var otherButtons = document.querySelectorAll(queryOthers);
-                for (i = 0; i < otherButtons.length; i++) {
-                    otherButtons[i].onclick = function() {
-                        button.classList.remove("border-solid", "border-gray-400", "border-r-4");
-                    }
-                }
-            }
-
-            activateTool("draw-button");
-            // activateTool("eraser-button");
-
-            // Randomly adjust position of newly added elements
-            // This is to prevent elements from stacking over each other too much
-            // When you add e.g. 20 circles
-            function changePosRandom(shape) {
-                var newX = shape.left + randInt(50, 350);
-                var newY = shape.top + randInt(50, 350);
-                shape.set('left', newX).setCoords();
-                shape.set('top', newY).setCoords();
-                canvas.requestRenderAll();
-            }
-
-            // Add circle button
-            document.getElementById("circle-button").onclick = function() {
-                log("Circle added!")
-                var newCircle = new fabric.Circle({
-                    left: 100,
-                    top: 100,
-                    fill: "#457f87",
-                    radius: 50
-                });
-                canvas.add(newCircle);
-                newCircle.center();
-                changePosRandom(newCircle);
-                canvas.renderAll();
-            }
-
-            // Add rectangle/square button
-            document.getElementById("rect-button").onclick = function() {
-                log("Rectangle added!")
-                var newRect = new fabric.Rect({
-                    left: 100,
-                    top: 100,
-                    fill: "#9f6e41",
-                    width: 100,
-                    height: 100
-                });
-                canvas.add(newRect);
-                changePosRandom(newRect);
-                canvas.renderAll();
-            }
-
-            // Add triangle button
-            document.getElementById("triangle-button").onclick = function() {
-                log("Triangle added!")
-                var newTrig = new fabric.Triangle({
-                    left: 100,
-                    top: 100,
-                    fill: "#457f87",
-                    width: 100,
-                    height: 100
-                });
-                canvas.add(newTrig);
-                changePosRandom(newTrig);
-                canvas.renderAll();
-            }
-
-            // Add text button
-            document.getElementById("textbox-button").onclick = function() {
-                log("Text box added!")
-                var newTextBox = new fabric.Textbox('Write something...', {
-                    left: 100,
-                    top: 100,
-                    fill: "white",
-                    width: 100,
-                    height: 100,
-                    cursorColor: "white",
-                    fontSize: 24,
-                    fontFamily: "Inter"
-                });
-                canvas.add(newTextBox);
-                changePosRandom(newTextBox);
-                canvas.renderAll();
-            }
-        })
-    </script>
     <!--Script for managing color conversions-->
     <script>// Convert any HTML color name (such as "white")
 // to the equivalent HEX color code (such as "#ffffff")
@@ -3499,11 +3989,6 @@ function colourNameToHex(colour) {
     }
 }, false);
 </script>
-    <!--Script for keyboard shortcuts-->
-    <!--This may or may not be removed in the future;
-    that depends on how good VBundler is at purging unusued
-    JS. Because this library, although small, is still 30KB 
-    which may impact performance on large scenes-->
     <script>/*global define:false */
 /**
  * Copyright 2012-2017 Craig Campbell
@@ -4563,31 +5048,387 @@ function colourNameToHex(colour) {
     }
 }) (typeof window !== 'undefined' ? window : null, typeof  window !== 'undefined' ? document : null);
 </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function load() {
-            if (typeof canvas === "undefined") return setTimeout(load, 50);
-            /* Delete function - bound to both del and backspace keys */
-            Mousetrap.bind(['del', 'backspace'], function() {
-                canvas.getActiveObjects().forEach((obj) => {
-                    canvas.remove(obj)
-                });
-                canvas.discardActiveObject().renderAll()
-            });
-            /* Undo + Redo functions - bound to cmd/ctrl (shift) z */
+    <!--Entry point for app-->
+    <script>// Setup colorpickers for iro.js; this goes FIRST
+var colorPicker = new iro.ColorPicker("#colorpicker", {
+    layout: [{
+        component: iro.ui.Box,
+        options: {}
+    },
+    {
+        component: iro.ui.Slider,
+        options: {
+            // can also be 'saturation', 'value', 'red', 'green', 'blue', 'alpha' or 'kelvin'
+            sliderType: 'hue'
+        }
+    },
+    ],
+    // Set default color to #384858
+    color: "#384858",
+    layoutDirection: "horizontal",
+    width: "200",
+});
 
-            var isRedoing = false;
-            var h = [];
-            Mousetrap.bind(['command+z', 'ctrl+z'], function() {
-                // Finish code here
-                log("Undo success!")
-            });
+// Add color picker events to detect change in color
+// Code shamelessly copied from https://codepen.io/rakujira/pen/WZOeNq?editors=1010 :)
+// Credit: James Daniel
 
-            Mousetrap.bind(['command+shift+z', 'ctrl+shift+z'], function() {
-                // Finish code here
-                log("Redo success!")
-            });
+var hexColorInputBox = document.getElementById("hexColorInputBox");
+// listen to a color picker's color:change event
+// color:change callbacks receive the current color
+colorPicker.on(["color:init", "color:change"], function (color) {
+    hexColorInputBox.value = color.hexString;
+});
+
+hexColorInputBox.addEventListener('change', function () {
+    colorPicker.color.hexString = this.value;
+});
+
+// Setup script for all variable names
+var lw_input = document.getElementById("lineWidthInput");
+var sw_input = document.getElementById("shadowWidthInput");
+var so_input = document.getElementById("shadowOffsetInput")
+
+// Setup script for sliders and inputs
+// Create line width slider via JS
+var lw_slider = new RangeSlider(
+    document.getElementById("lineWidthSlider"), {
+    design: "2d",
+    theme: "custom",
+    size: "medium",
+    handle: "round",
+    popup: null,
+    showMinMaxLabels: false,
+    min: 0,
+    max: 100,
+    value: 30,
+    onmove: function (x) {
+        lw_input.value = x;
+    }
+});
+
+// Connect line width input box to slider
+function linewidthInput(width) {
+    // Check that input is a number
+    if (isNumber(width) == true) {
+        width = parseInt(width);
+        // Checks if width is between 0 and 100
+        if (width.between(0, 100)) {
+            // If input is number within bounds we set it as slider value
+            lw_slider.setValue(width);
+        } else {
+            // We log the error
+            log("Error! Value exceeds range.")
+            // Reset value
+            lw_slider.setValue(50);
+        }
+    } else {
+        // If input is not number we don't change slider value
+        log("Error: Incorrect type! Inputted type " + typeof (width));
+        // Reset value
+        lw_slider.setValue(50);
+    }
+}
+
+// Create shadow width slider via JS
+var sw_slider = new RangeSlider(
+    document.getElementById("shadowWidthSlider"), {
+    design: "2d",
+    theme: "custom",
+    size: "medium",
+    handle: "round",
+    popup: null,
+    showMinMaxLabels: false,
+    min: 0,
+    max: 100,
+    value: 10,
+    onmove: function (x) {
+        sw_input.value = x;
+    }
+});
+
+// Connect shadow width input box to slider
+function shadowWidthInput(width) {
+    // Check that input is a number
+    if (isNumber(width) == true) {
+        width = parseInt(width);
+        // Checks if width is between 0 and 100
+        if (width.between(0, 100)) {
+            // If input is number within bounds we set it as slider value
+            sw_slider.setValue(width);
+        } else {
+            // We log the error
+            log("Error! Value exceeds range.")
+            // Reset value
+            sw_slider.setValue(50);
+        }
+    } else {
+        // If input is not number we don't change slider value
+        log("Error: Incorrect type! Inputted type " + typeof (width));
+        // Reset value
+        sw_slider.setValue(10);
+    }
+}
+
+// Create shadow offset slider via JS
+var sw_slider = new RangeSlider(
+    document.getElementById("shadowOffsetSlider"), {
+    design: "2d",
+    theme: "custom",
+    size: "medium",
+    handle: "round",
+    popup: null,
+    showMinMaxLabels: false,
+    min: 0,
+    max: 100,
+    value: 10,
+    onmove: function (x) {
+        so_input.value = x;
+    }
+});
+
+// Connect shadow offset input box to slider
+function shadowOffsetInput(width) {
+    // Check that input is a number
+    if (isNumber(width) == true) {
+        width = parseInt(width);
+        // Checks if width is between 0 and 100
+        if (width.between(0, 100)) {
+            // If input is number within bounds we set it as slider value
+            so_slider.setValue(width);
+        } else {
+            // We log the error
+            log("Error! Value exceeds range.")
+            // Reset value
+            so_slider.setValue(50);
+        }
+    } else {
+        // If input is not number we don't change slider value
+        log("Error: Incorrect type! Inputted type " + typeof (width));
+        // Reset value
+        so_slider.setValue(10);
+    }
+}
+
+// Setup script for initializing Canvas.js and running CanvasJS functions
+document.addEventListener("DOMContentLoaded", function () {
+    // Setup container of canvas
+    canv_parent = document.getElementById("canvas-container");
+    var canvas = new fabric.Canvas("app-canvas", {
+        // Set drawing mode to true on start
+        isDrawingMode: true
+    });
+
+    // Connect free drawing brush width and color controls
+    canvas.freeDrawingBrush.color = 'rgba(255,255,255,.8)'
+
+    // Create function for inserting new objects
+    function insert(object) {
+        // Finish this later
+    }
+
+    // Draw polygon tool
+    // Nice functionality would be to actually use bezier curves
+    // and to be able to edit each point node
+    // but this is good enough
+    // also nice would be the ability to use the enter key to
+    // auto-complete the current polygon
+    // making it possible to draw straight lines using this
+    // (Source: https://github.com/WilliamEddy/fabricjs-pen-tool)
+
+    // Add text and rectangle to canvas (this is just for testing)
+    var text = new fabric.Textbox('Hello world from Vecternary Picasso', {
+        left: 250,
+        top: 200,
+        fill: "white",
+        width: 250,
+        cursorColor: "white",
+        fontSize: 24,
+        fontFamily: "Inter"
+    });
+    var rect = new fabric.Rect({
+        left: 100,
+        top: 100,
+        fill: '#54616f',
+        width: 100,
+        height: 100
+    });
+
+    // Make canvas visually fill the positioned parent
+    var canv_width = canv_parent.offsetWidth;
+    var canv_height = canv_parent.offsetHeight;
+    canvas.setWidth(canv_width);
+    canvas.setHeight(canv_height);
+
+    // Make sure that when the screen changes size, the canvas also scales
+    // This does not work at all at the moment
+    window.addEventListener('resize', function () {
+        var canv_width = canv_parent.offsetWidth;
+        var canv_height = canv_parent.offsetHeight;
+        console.log("Width: " + canv_width + " Height: " + canv_height);
+        canvas.setWidth(canv_width);
+        canvas.setHeight(canv_height);
+    });
+
+    // Add elements to canvas
+    canvas.add(rect);
+    canvas.add(text);
+    canvas.renderAll();
+
+    /* FabricJS canvas logic begins here */
+    var adjustModeButton = document.getElementById("adjust-mode"),
+        drawModeButton = document.getElementById("drawing-mode");
+
+    // Toggle the active class when modes change
+    function toggleModes(activeBtn, inactiveBtn) {
+        // Whevenever either button is clicked, we toggle the mode
+        canvas.isDrawingMode = !canvas.isDrawingMode;
+        // The active button should be inactivated
+        // So we remove the bg-darkgray class
+        activeBtn.classList.remove("bg-darkgray");
+        // The other button doesn't have the bg-darkgray class
+        // So we add it!
+        inactiveBtn.classList.add("bg-darkgray");
+    }
+
+    adjustModeButton.onclick = function () {
+        toggleModes(drawModeButton, adjustModeButton)
+    };
+    drawModeButton.onclick = function () {
+        toggleModes(adjustModeButton, drawModeButton)
+    };
+
+    // When object is selected, choose color via colorpicker
+    // var selected = canvas.getActiveObject()
+    // colorPicker.color.hexString = selected.fillStyle;
+
+    /* This section makes the toolbar buttons work */
+
+    function activateTool(button) {
+        var button = document.getElementById(button);
+        button.onclick = function () {
+            if (button.classList.contains("border-solid", "border-gray-400", "border-r-4") != true) {
+                button.classList.add("border-solid", "border-gray-400", "border-r-4");
+            }
+        }
+        // If the user clicks on another other element in the toolbar
+        // we want to deactivate the button
+        "#sidebar button:not(#draw-button)"
+        var queryOthers = "#sidebar button" + ":not(#" + button.id + ")";
+        var otherButtons = document.querySelectorAll(queryOthers);
+        for (i = 0; i < otherButtons.length; i++) {
+            otherButtons[i].onclick = function () {
+                button.classList.remove("border-solid", "border-gray-400", "border-r-4");
+            }
+        }
+    }
+
+    activateTool("draw-button");
+    // activateTool("eraser-button");
+
+    // Randomly adjust position of newly added elements
+    // This is to prevent elements from stacking over each other too much
+    // When you add e.g. 20 circles
+    function changePosRandom(shape) {
+        var newX = shape.left + randInt(50, 350);
+        var newY = shape.top + randInt(50, 350);
+        shape.set('left', newX).setCoords();
+        shape.set('top', newY).setCoords();
+        canvas.requestRenderAll();
+    }
+
+    // Add circle button
+    document.getElementById("circle-button").onclick = function () {
+        log("Circle added!")
+        var newCircle = new fabric.Circle({
+            left: 100,
+            top: 100,
+            fill: "#457f87",
+            radius: 50
         });
-    </script>
+        canvas.add(newCircle);
+        newCircle.center();
+        changePosRandom(newCircle);
+        canvas.renderAll();
+    }
+
+    // Add rectangle/square button
+    document.getElementById("rect-button").onclick = function () {
+        log("Rectangle added!")
+        var newRect = new fabric.Rect({
+            left: 100,
+            top: 100,
+            fill: "#9f6e41",
+            width: 100,
+            height: 100
+        });
+        canvas.add(newRect);
+        changePosRandom(newRect);
+        canvas.renderAll();
+    }
+
+    // Add triangle button
+    document.getElementById("triangle-button").onclick = function () {
+        log("Triangle added!")
+        var newTrig = new fabric.Triangle({
+            left: 100,
+            top: 100,
+            fill: "#457f87",
+            width: 100,
+            height: 100
+        });
+        canvas.add(newTrig);
+        changePosRandom(newTrig);
+        canvas.renderAll();
+    }
+
+    // Add text button
+    document.getElementById("textbox-button").onclick = function () {
+        log("Text box added!")
+        var newTextBox = new fabric.Textbox('Write something...', {
+            left: 100,
+            top: 100,
+            fill: "white",
+            width: 100,
+            height: 100,
+            cursorColor: "white",
+            fontSize: 24,
+            fontFamily: "Inter"
+        });
+        canvas.add(newTextBox);
+        changePosRandom(newTextBox);
+        canvas.renderAll();
+    }
+})
+
+// Keybindings execution script
+// This may or may not be removed in the future;
+// that depends on how good VBundler is at purging unusued
+// JS. Because this library, although small, is still 30KB 
+// which may impact performance on large scenes
+document.addEventListener("DOMContentLoaded", function load() {
+    if (typeof canvas === "undefined") return setTimeout(load, 50);
+    /* Delete function - bound to both del and backspace keys */
+    Mousetrap.bind(['del', 'backspace'], function () {
+        canvas.getActiveObjects().forEach((obj) => {
+            canvas.remove(obj)
+        });
+        canvas.discardActiveObject().renderAll()
+    });
+    /* Undo + Redo functions - bound to cmd/ctrl (shift) z */
+
+    var isRedoing = false;
+    var h = [];
+    Mousetrap.bind(['command+z', 'ctrl+z'], function () {
+        // Finish code here
+        log("Undo success!")
+    });
+
+    Mousetrap.bind(['command+shift+z', 'ctrl+shift+z'], function () {
+        // Finish code here
+        log("Redo success!")
+    });
+});</script>
     <!--Script for error-logging (this integrates with Rust for detailed backtraces)-->
     <!-- <script>
         window.onerror = function(msg, url, line) {

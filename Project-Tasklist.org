@@ -14,7 +14,7 @@
 ** TODO Change the purge options in ~tailwind.config.js~ to purge classes in JS files as well as HTML markup
 ** TODO (Maybe?) Splash screen
 ** TODO Begin cleaning up markup of UI with vanilla javascript UI components based on [[https://jack.ofspades.com/developing-small-javascript-components-without-frameworks/index.html]]
-*** TODO These components should also support the transition-enter and transition leave methods as per
+*** TODO These components should also support the transition-enter and transition leave methods as per the vanilla enter/leave transitions
 *** TODO Make an isolated component for dropdown menus
 **** TODO This allows us to only need the menu items markup instead of all of the complex dropdown markup
 *** TODO Make an isolated component for the state (mode) buttons
