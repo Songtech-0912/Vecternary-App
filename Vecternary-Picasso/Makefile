@@ -1,28 +1,37 @@
+# ANSI escape sequences for colors
+COLOR = \033[
+BOLD = 1;
+MAGENTA = 35m
+CYAN = 36m
+GREEN = 32m
+END_COLOR = \033[0m
+ENDL = \n
+
 help:
 	@echo Options for make:
-	@echo -e "\t make build"
-	@echo -e "\t make serve"
-	@echo -e "\t make dist"
-	@echo -e "\t make bundle"
+	@printf "%b" "\t $(COLOR)$(CYAN) make build $(END_COLOR)$(ENDL)";
+	@printf "%b" "\t $(COLOR)$(CYAN) make serve $(END_COLOR)$(ENDL)"
+	@printf "%b" "\t $(COLOR)$(CYAN) make dist $(END_COLOR)$(ENDL)"
+	@printf "%b" "\t $(COLOR)$(CYAN) make bundle $(END_COLOR)$(ENDL)"
 build:
-	@echo -e "\033[1;35m• Preparing CSS assets...\033[0m"
+	@printf "%b" "$(COLOR)$(BOLD)$(MAGENTA)• Preparing CSS assets... $(END_COLOR)$(ENDL)"
 	@npx tailwindcss-cli@latest -i ./css/raw/tailwind.css -o ./css/build/tailwind.output.css
-	@echo -e "\033[32m(✓) Compilation finished successfully\033[0m"
+	@printf "%b" "$(COLOR)$(GREEN)(✓) Compilation finished successfully! $(END_COLOR)$(ENDL)"
 
 serve:
-	@echo -e "\033[1;36m• Starting live development server...\033[0m"
+	@printf "%b" "$(COLOR)$(BOLD)$(CYAN)• Starting live development server... $(END_COLOR)$(ENDL)"
 	@npx live-server
 
 dist:
-	@echo -e "\033[1;35m• Bundling CSS assets...\033[0m"
-	@echo -e "\033[1;32m• Tree-shaking unused styles...\033[0m"
+	@printf "%b" "$(COLOR)$(BOLD)$(MAGENTA)• Bundling CSS assets... $(END_COLOR)$(ENDL)"
+	@printf "%b" "$(COLOR)$(BOLD)$(GREEN)• Tree-shaking unused styles... $(END_COLOR)$(ENDL)"
 	@export NODE_ENV='production' && npx tailwindcss-cli@latest build ./css/raw/tailwind.css -o ./css/build/tailwind.output.css
-	@echo -e "\033[32m(✓) Done! Preparing live server to serve assets.\033[0m"
+	@printf "%b" "$(COLOR)$(BOLD)$(GREEN)(✓) Done! Preparing live server to serve assets. $(END_COLOR)$(ENDL)"
 	@read -p "Press ENTER to start server, or CTRL C to stop: "
 	@npx live-server
 bundle:
-	@echo -e "\033[1;35m• Bundling assets into one file...\033[0m"
+	@printf "%b" "$(COLOR)$(BOLD)$(MAGENTA)• Bundling assets into one file... $(END_COLOR)$(ENDL)"
 	@npx html-onefile ./index.html ./app/src/index.html
-	@echo -e "\033[1;32m• Running \`cargo build --release\` in directory 'app'...\033[0m"
+	@printf "%b" "$(COLOR)$(BOLD)$(GREEN)• Running \`cargo build --release\` in directory 'app'... $(END_COLOR)$(ENDL)"
 	@make -C app build
-	@echo -e "\033[32m(✓) Done! Compiled app at ./app/target/release/app\033[0m"
+	@printf "%b" "$(COLOR)$(GREEN)(✓) Done! Compiled app at ./app/target/release/app $(END_COLOR)$(ENDL)"
