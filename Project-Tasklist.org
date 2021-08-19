@@ -138,6 +138,7 @@
 *** DONE Deliver Vecternary Picasso 0.1.0 to Elisa and also send her a video of a design being made in Vecternary
 
 * Vecternary Mondrian
+** TODO Add a button to disable/enable javascript in the menubar
 ** TODO Implement help system:
 *** TODO Search through menus feature for vecternary - like macos, it searches through menu items
 *** TODO Built-in help which launches another webview for a help UI dashboard - design the help dashboard in Figma, it should be like Onivim's

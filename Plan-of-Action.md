@@ -14,15 +14,15 @@ The backup plan, assuming all fails, is to simply have a basic app to distribute
 
 ## Plan
 
-- [ ] First thing to fix is the markup - the current markup causes unresponsiveness and is hardly maintainable
-    - [ ] Temporarily delete the current `<noscript>` markup because it adds unnecessary clutter and leave it until later
+- [x] First thing to fix is the markup - the current markup causes unresponsiveness and is hardly maintainable
+    - [x] Temporarily delete the current `<noscript>` markup because it adds unnecessary clutter and leave it until later
     - [x] Use ::before rules to fix the sidebar icons, reference [here](https://icons.getbootstrap.com/#css) for how to do so
-      - [ ] Find a way to fix the issue of the icon SVGs not being embedded because they are externally linked
-    - [ ] Use Firefox responsive design mode to make the UI completely responsive
-    - [ ] Use the responsive canvas method [already present here](https://codepen.io/songtech-0912/pen/wvdpEPz) to make the canvas auto-resize as well
-    - [ ] Rewrite the right sidebar code, it is very unclear and causes frequent headaches
+      - [x] Find a way to fix the issue of the icon SVGs not being embedded because they are externally linked
+- [ ] Use Firefox responsive design mode to make the UI completely responsive
+  - [ ] Use the responsive canvas method [already present here](https://codepen.io/songtech-0912/pen/wvdpEPz) to make the canvas auto-resize as well
+- [ ] (Optional) Rewrite the right sidebar code, it is very unclear and causes frequent headaches
 - [ ] Then work on the multiselect color picker
-- [ ] Then make all of/ the UI actually work and implement all basic functionality of the original freehand draw demo at <https://fabricjs.com/demos/freedrawing> - this is also going to be the time to add the new UI paradigm, see Project-Tasklist.org:57 for implementation details
+- [ ] Then make all of/ the UI actually work and implement all basic functionality of the original freehand draw demo at <https://fabricjs.com/demos/freedrawing> - this is also going to be the time to add the new UI paradigm, see `Project-Tasklist.org:57` for implementation details
 - [ ] Full width canvas as well
 - [ ] Delete, copy, paste, and duplicate objects should be implemented
 - [ ] Next work on the menu and menu dropdowns as well as their enter-leave transitions

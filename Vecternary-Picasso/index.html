@@ -26,78 +26,25 @@
         .fade-leave-end {
             opacity: 0;
         }
+
+        #modal-closing-trick {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #modal-closing-trick:checked {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        #modal-closing-trick:checked ~ noscript {
+            display: none;
+        }
     </style>
     <!--Code formatted with beautify and classes sorted with Headwind-->
 </head>
 
 <body>
-    <!--NOSCRIPT-->
-    <noscript class="flex justify-center block w-2/3 h-auto overflow-y-scroll">
-        <style>
-            noscript {
-                display: block;
-            }
-            /* Main app container */
-            #container {
-                /* Lightbox effect */
-                opacity: 0.8;
-            }
-        </style>
-        <article class="flex flex-col max-w-3xl p-8 divide-y">
-            <h1 class="py-8 text-4xl font-bold">Sorry, but Vecternary doesn't work well without JavaScript!</h1>
-            <section class="py-8 space-y-4 text-base leading-6 text-gray-700 sm:text-lg sm:leading-7">
-                <p>You're seeing this because you've disabled JavaScript.</p>
-                <p>Don't worry, JavaScript used by Vecternary is no draconian surveillance tactic! It's only there to
-                    provide canvas editing functionality. It also runs in a sandbox and it can't access the internet or
-                    collect analytics data. Where possible, as little JavaScript is used as possible, but
-                    because core parts of the user interface are written in JavaScript, I can't guarantee that
-                    <em>anything</em> will work correctly without JavaScript.</p>
-                <p>Vecternary is designed to protect your privacy - that's not an advertising tagline, it's truly
-                    designed to be privacy-centric software. For instance, unlike most software, Vecternary has no
-                    telemetry or spyware; the only thing it connects to the internet for (and <em>only</em> if you
-                    enable this feature) is syncing the online assets and plugins library.</p>
-                <p>In addition, Vecternary is fully compliant with the Free Software Foundation's free/libre software
-                    guidelines. You can see a list of scripts that are used by Vecternary, along with their licenses,
-                    below:</p>
-            </section>
-            <section class="py-8 space-y-4 text-base leading-6 text-gray-700 sm:text-lg sm:leading-7">
-                <!--Table with id="jslicense-labels1"-->
-                <table id="jslicense-labels1" class="my-12 table-auto">
-                    <thead>
-                        <tr>
-                            <th class="font-medium">Script name</th>
-                            <th class="font-medium">License</th>
-                            <th class="font-medium">Source Code</th>
-                            <th class="font-medium">Usage rationale</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>iro.min.js</code></td>
-                            <td><a href="https://www.mozilla.org/en-US/MPL/2.0/">Mozilla Public License 2.0</a></td>
-                            <td>Available at <a href="https://iro.js.org/">https://iro.js.org/</a></td>
-                            <td>Required for colorpicker functionalities</td>
-                        </tr>
-                        <tr>
-                            <td><code>fabric.min.js</code></td>
-                            <td><a href="http://www.jclark.com/xml/copying.txt">MIT/Expat License</a></td>
-                            <td>Available at <a href="http://fabricjs.com/">http://fabricjs.com/</a></td>
-                            <td>Required for drawing/modifying objects and all interactivity</td>
-                        </tr>
-                        <tr>
-                            <td><code>toasts.js</code></td>
-                            <td><a href="http://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License 3.0</a>
-                            </td>
-                            <td>Custom JavaScript library; can be found with Vecternary source</td>
-                            <td>Required for debugging and user alerts</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-            <button class="px-6 py-3 font-medium text-base">Close</button>
-        </article>
-    </noscript>
-
     <!--APP UI CONTAINER-->
     <div class="flex flex-col w-screen h-screen bg-deepgray" id="container">
         <!--MENUBAR SECTION-->
@@ -376,6 +323,28 @@
     </div>
     <!--Toast div is for showing toasts dynamically using JavaScript-->
     <div id="toast" hidden></div>
+    <!--For checkbox hack-->
+    <input type="checkbox" name="modal-close-button" id="modal-closing-trick">
+    <!--NOSCRIPT-->
+    <!-- Uses TailwindUI modal with modifcations, 
+        source available at https://tailwindui.com/components/application-ui/overlays/modals 
+    -->
+    <noscript class="fixed bottom-0 left-0 z-50 flex items-center justify-center w-full h-full">
+        <div class="w-1/2 bg-white rounded-lg shadow-xl">
+            <div class="flex flex-col items-start p-4">
+                <p>JavaScript seems to be disabled. Unfortunately, Vecternary may not work
+                    as well without it, so we suggest you keep it enabled. For more information
+                    on why and how Vecternary uses JavaScript, see <a id="js-info" class="underline" href="doc/javascript-info.html" target="_blank">its JavaScript responsible use page</a>.
+                </p>
+            </div>
+            <div class="flex justify-end px-4 py-3 rounded-b-lg bg-gray-50">
+                <label for="modal-closing-trick" type="button"
+                    class="inline-flex w-full px-4 py-2 mt-3 text-base font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                    Close this, use anyway
+                </label>
+            </div>
+        </div>
+    </noscript>
 
     <!--Essential JavaScript for the UI is placed here-->
     <!--Uses iro.js as a dependency for the colorpicker, so this must go first-->

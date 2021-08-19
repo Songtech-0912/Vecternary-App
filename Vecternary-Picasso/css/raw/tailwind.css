@@ -28,6 +28,7 @@
         -o-animation: fadeIn ease-in 1s;
         -ms-animation: fadeIn ease-in 1s;
         animation: fadeIn ease-in 1s;
+        overflow: hidden;
     }
 
     @keyframes fadeIn {
