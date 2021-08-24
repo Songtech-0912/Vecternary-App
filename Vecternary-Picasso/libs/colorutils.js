@@ -149,6 +149,7 @@ function colourNameToHex(colour) {
 
     if (typeof colours[colour.toLowerCase()] != 'undefined')
         return colours[colour.toLowerCase()];
-
-    return false;
+    else {
+        throw new Error(`E822: Fatal undefined color '${colour}'`)
+    }
 }

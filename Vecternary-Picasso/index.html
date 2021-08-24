@@ -54,33 +54,33 @@
                     class="flex items-center h-12 space-x-3 text-sm text-gray-200 cursor-pointer pointer-events-none font-base">
                     <!--Begin file dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="fileButton"
-                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">File</button>
+                        <button id="fileMenu"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-palegray">File</button>
                     </div>
                     <!--Begin edit dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="editButton"
-                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">Edit</button>
+                        <button id="editMenu"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-palegray">Edit</button>
                     </div>
-                    <!--Begin format dropdown-->
+                    <!--Begin arrange dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="formatButton"
-                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">Format</button>
+                        <button id="arrangeMenu"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-palegray">Arrange</button>
                     </div>
                     <!--Begin preferences dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="prefsButton"
-                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">Preferences</button>
+                        <button id="prefsMenu"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-palegray">Preferences</button>
                     </div>
                     <!--Begin developer dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="developerButton"
-                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">Developer</button>
+                        <button id="developerMenu"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-palegray">Developer</button>
                     </div>
                     <!--Begin about dropdown-->
                     <div class="relative pointer-events-none">
-                        <button id="aboutButton"
-                            class="px-4 py-1 rounded pointer-events-auto focus:bg-darkgray">About</button>
+                        <button id="aboutMenu"
+                            class="px-4 py-1 rounded pointer-events-auto focus:bg-palegray">About</button>
                     </div>
                 </div>
             </nav>
@@ -93,28 +93,28 @@
 
             <!--BEGIN AND END DELETED SECTION -->
             <!--SIDEBAR SECTION-->
-            <section id="sidebar">
+            <section id="sidebar" class="flex flex-col justify-center pointer-events-none">
                 <!--This is supposed to float above the canvas like a toolbar-->
                 <!--So it has a higher z-index-->
-                <div class="flex ml-16">
+                <div class="flex my-auto ml-16 pointer-events-none">
                     <div
-                        class="relative z-10 flex flex-col justify-around w-full py-8 m-auto space-y-6 text-gray-300 shadow-md bg-palegray rounded-xl">
+                        class="relative z-10 flex flex-col justify-around w-full py-8 m-auto space-y-6 text-gray-300 shadow-md pointer-events-none bg-palegray rounded-xl">
                         <!--PENCIL BUTTON-->
-                        <button data-sidebar-button="1" class="sidebar-btn" id="draw-button">
+                        <button data-sidebar-button="1" class="pointer-events-auto sidebar-btn" id="draw-button">
                             <span class="flex flex-col space-y-4">
-                                <span class="flex justify-evenly" id="icon">
+                                <span class="flex justify-evenly">
                                     <!-- Draw icon -->
                                     <span class="icon drawicon"></span>
                                 </span>
-                                <p class="text-xs">Brush</p>
+                                <p class="text-xs">Draw</p>
                             </span>
                         </button>
 
                         <!--ERASER BUTTON-->
                         <button data-sidebar-button="1"
-                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="eraser-button">
+                            class="w-full px-3 py-3 mx-auto rounded pointer-events-auto active:bg-gray-400 glow-outline" id="eraser-button">
                             <span class="flex flex-col space-y-4">
-                                <span class="flex justify-evenly" id="icon">
+                                <span class="flex justify-evenly">
                                     <!-- Erase icon -->
                                     <span class="icon eraseicon"></span>
                                 </span>
@@ -124,9 +124,9 @@
 
                         <!--CIRCLE BUTTON-->
                         <button data-sidebar-button="1"
-                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="circle-button">
+                            class="w-full px-3 py-3 mx-auto rounded pointer-events-auto active:bg-gray-400 glow-outline" id="circle-button">
                             <span class="flex flex-col space-y-4">
-                                <span class="flex justify-evenly" id="icon">
+                                <span class="flex justify-evenly">
                                     <!-- Circle icon -->
                                     <span class="icon circicon"></span>
                                 </span>
@@ -136,9 +136,9 @@
 
                         <!--RECTANGLE BUTTON-->
                         <button data-sidebar-button="1"
-                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline" id="rect-button">
+                            class="w-full px-3 py-3 mx-auto rounded pointer-events-auto active:bg-gray-400 glow-outline" id="rect-button">
                             <span class="flex flex-col space-y-4">
-                                <span class="flex justify-evenly" id="icon">
+                                <span class="flex justify-evenly">
                                     <!-- Rectangle icon -->
                                     <span class="icon recticon"></span>
                                 </span>
@@ -148,10 +148,10 @@
 
                         <!--TRIANGLE BUTTON-->
                         <button data-sidebar-button="1"
-                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline"
+                            class="w-full px-3 py-3 mx-auto rounded pointer-events-auto active:bg-gray-400 glow-outline"
                             id="triangle-button">
                             <span class="flex flex-col space-y-4">
-                                <span class="flex justify-evenly" id="icon">
+                                <span class="flex justify-evenly">
                                     <!-- Triangle icon -->
                                     <span class="icon trigicon"></span>
                                 </span>
@@ -161,10 +161,10 @@
 
                         <!--TEXT BUTTON-->
                         <button data-sidebar-button="1"
-                            class="w-full px-3 py-3 mx-auto rounded active:bg-gray-400 glow-outline"
+                            class="w-full px-3 py-3 mx-auto rounded pointer-events-auto active:bg-gray-400 glow-outline"
                             id="textbox-button">
                             <span class="flex flex-col space-y-4">
-                                <span class="flex justify-evenly" id="icon">
+                                <span class="flex justify-evenly">
                                     <!-- Text icon -->
                                     <span class="icon texticon"></span>
                                 </span>
@@ -176,148 +176,97 @@
             </section>
 
             <!--CANVAS SECTION-->
-            <div class="flex flex-1 w-full" id="canvas-container">
+            <section class="flex flex-1 w-full overflow-auto" id="canvas-container">
                 <!-- <div id="placeholder" class="flex-grow w-full text-center min-w-2/3">
                 <h1 class="text-3xl">Welcome to Vecternary Alpha</h1>
                 <p class="text-sm">Version 0.1.0</p>
                 <p class="m-auto">Use the tools on the left sidebar to begin drawing.</p>
               </div> -->
-                <canvas id="app-canvas">
-
-                </canvas>
-            </div>
+                <canvas id="app-canvas"></canvas>
+            </section>
 
             <!--PROPERTIES EDITOR SECTION-->
-            <div id="editor" class="flex order-last overflow-y-scroll min-w-1/5 bg-palegray">
-                <div class="flex flex-col space-y-6">
-                    <!--Resize drag button-->
-                    <!--
-                    <div class="absolute relative inset-y-0 right-0 cursor-move pointer-events-auto left-4 cursor-grab active:cursor-grabbing" id="resizer top-left transform: translate3d(-119px, 0px, 0px) scale(1);" style=" user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;">
-                        <div class="absolute right-0 items-center justify-center hidden w-8 -mt-4 pointer-events-auto top-1/2 md:flex cursor-grab active:cursor-grabbing" style="user-select: none; touch-action: pan-y; transform-origin: 50% 50% 0px;" draggable="false">
-                            <div class="flex items-center justify-center flex-none px-2 py-3 rounded shadow bg-palegray">
-                                <svg viewBox="0 0 14 24" fill="none" stroke-width="2" stroke="currentColor" class="flex-none h-4 text-white">
-                                    <path d="M 1 0 V 24 M 7 0 V 24 M 13 0 V 24"></path>
-                                </svg>
-                            </div>
-                        </div>
+            <section id="editor" class="flex order-last w-1/3 overflow-y-scroll xl:w-1/4 xl:min-w-editor 2xl:w-1/5 bg-palegray">
+                <div class="flex flex-col w-5/6 m-auto space-y-6">
+                  <!--Resize drag button will be added here later-->
+
+                  <!--START COLOR OPTIONS-->
+                  <div id="color-options" class="flex flex-col w-full py-12 mx-auto space-y-8">
+                    <div id="modal-button" class="flex flex-row mx-auto space-x-2 text-sm">
+                      <button id="adjust-mode" class="px-6 py-3 font-medium text-gray-300 rounded">Adjust Mode</button>
+                      <button id="drawing-mode" class="px-6 py-3 font-medium text-gray-300 rounded">Drawing Mode</button>
                     </div>
-                    -->
 
-                    <div id="color-options" class="flex flex-col py-12 mx-auto space-y-8">
-                        <div id="modal-button" class="flex flex-row mx-auto space-x-2 text-sm">
-                            <button id="drawing-mode"
-                                class="px-6 py-3 font-medium text-gray-300 rounded bg-darkgray">Drawing
-                                Mode</button>
-                            <button id="adjust-mode" class="px-6 py-3 font-medium text-gray-300 rounded bg-none">Adjust
-                                Mode</button>
+                    <!-- Typical colorpicker and color input for single selected object -->
+                    <div id="picker" class="flex flex-col space-y-8 justify-evenly">
+                      <!--Colorpicker; nothing here because it is rendered dynamically with JavaScript-->
+                      <!--Don't add anything inside of this div-->
+                      <div id="colorpicker" class="m-auto"></div>
+                      <!--Colorpicker inputs-->
+                      <div id="colorinputs" class="flex flex-row text-sm font-medium text-gray-200 justify-evenly">
+                        <!--Left button for choosing the type of color to input-->
+                        <div class="relative">
+                          <select id="colorChooser" name="colorChooser" class="block w-full px-4 py-3 leading-tight text-gray-200 border rounded border-deepgray bg-darkgray glow-outline">
+                            <!--Add option for stroke color in future-->
+                            <option selected>Fill color</option>
+                            <option>Brush color</option>
+                            <option>Canvas color</option>
+                          </select>
                         </div>
-                        <div id="picker" class="flex flex-col space-y-8 justify-evenly">
-
-                            <!--Colorpicker; nothing here because it is rendered dynamically with JavaScript-->
-                            <!--Don't add anything inside of this div-->
-                            <div id="colorpicker" class="m-auto">
-                            </div>
-
-                            <!--Colorpicker inputs-->
-                            <div id="colorinputs"
-                                class="flex flex-row text-sm font-medium text-gray-200 justify-evenly max-w-5/6 ">
-                                <!--Left button for choosing the type of color to input-->
-                                <div class="relative">
-                                    <select id="simple" name="colorChooser"
-                                        class="block w-full px-4 py-3 pr-8 leading-tight text-gray-200 border rounded appearance-none border-deepgray bg-darkgray glow-outline">
-                                        <option selected>
-                                            Line color
-                                        </option>
-                                        <option>Fill color</option>
-                                        <option>Brush color</option>
-                                        <option>Canvas color</option>
-
-                                        <!-- block w-full py-2 pl-8 pr-4 border rounded-md shadow-sm appearance-none border-deepgray bg-darkgray glow-outline -->
-                                    </select>
-                                    <div
-                                        class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
-                                        <!-- Heroicon name: solid/chevron-down -->
-                                        <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" class="w-8"
-                                            viewBox="0 0 20 20" fill="white" aria-hidden="true">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <!-- <button type="button" class="inline-flex justify-center py-2 pl-8 pr-4 border rounded-md shadow-sm border-deepgray bg-darkgray glow-outline" id="options-menu" aria-haspopup="true" aria-expanded="true">
-                                    Line color
-                                    Heroicon name: solid/chevron-down
-                                    <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" class="w-8" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                </button> -->
-                                <!--Right button for hex color code-->
-                                <div class="w-2/5 xl:w-1/3">
-                                    <input
-                                        class="w-full h-full px-3 text-center placeholder-gray-400 align-middle rounded shadow-sm appearance-none border-deepgray bg-darkgray focus:border-purple-500"
-                                        id="hexColorInputBox" type="text" placeholder="#384858">
-                                </div>
-                            </div>
+                        <!--Right button for hex color code-->
+                        <div class="relative w-2/5">
+                          <input class="block w-full px-4 py-3 leading-tight text-center placeholder-gray-400 align-middle rounded shadow-sm appearance-none border-deepgray bg-darkgray focus:border-purple-500" id="hexColorInputBox" type="text" placeholder="#384858" />
                         </div>
+                      </div>
                     </div>
-                    <!--END COLOR OPTIONS-->
 
-                    <div id="sliders" class="flex flex-col w-full p-5 space-y-12">
-
-                        <!--Line Width-->
-                        <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
-                            <!--Slider label-->
-                            <label class="block mb-2 font-medium text-md align-left font-gray-200"
-                                for="lineWidthSlider">Line
-                                Width</label>
-                            <!--Main slider-->
-                            <div class="w-full mx-auto" id="lineWidthSlider"></div>
-                            <!--Alternative Input box for line width-->
-                            <div>
-                                <input
-                                    class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline"
-                                    id="lineWidthInput" type="text" placeholder="50" oninput="linewidthInput(value)">
-                            </div>
-                        </div>
-
-                        <!--Shadow width-->
-                        <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
-                            <!--Slider label-->
-                            <label class="block mb-2 font-medium text-md align-left font-gray-200"
-                                for="shadowWidthSlider">Shadow
-                                Width</label>
-                            <!--Main slider-->
-                            <div class="w-full mx-auto" id="shadowWidthSlider"></div>
-                            <!--Alternative Input box for shadow width-->
-                            <div>
-                                <input
-                                    class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline"
-                                    id="shadowWidthInput" type="text" placeholder="10"
-                                    oninput="shadowWidthInput(value)">
-                            </div>
-                        </div>
-
-                        <!--Shadow width-->
-                        <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
-                            <!--Slider label-->
-                            <label class="block mb-2 font-medium text-md align-left font-gray-200"
-                                for="shadowOffsetSlider">Shadow
-                                Offset</label>
-                            <!--Main slider-->
-                            <div class="w-full mx-auto" id="shadowOffsetSlider"></div>
-                            <!--Alternative Input box for shadow width-->
-                            <div>
-                                <input
-                                    class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline"
-                                    id="shadowOffsetInput" type="text" placeholder="10"
-                                    oninput="shadowOffsetInput(value)">
-                            </div>
-                        </div>
+                    <!-- Multiselect menu for selecting multiple objects -->
+                    <div id="multiselect" class="flex flex-col w-full py-6 mx-auto space-y-4" hidden>
+                        <!-- This component is dynamically filled with js -->
                     </div>
-                    <!--END SLIDERS-->
+                  </div>
+                  <!--END COLOR OPTIONS-->
+
+                  <div id="sliders" class="flex flex-col w-full space-y-12">
+                    <!--Line Width-->
+                    <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
+                      <!--Slider label-->
+                      <label class="block mb-2 font-medium text-md align-left font-gray-200" for="lineWidthSlider">Line Width</label>
+                      <!--Main slider-->
+                      <div class="w-full mx-auto" id="lineWidthSlider"></div>
+                      <!--Alternative Input box for line width-->
+                      <div>
+                        <input class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline" id="lineWidthInput" type="text" placeholder="50" oninput="linewidthInput(value)" />
+                      </div>
+                    </div>
+
+                    <!--Shadow width-->
+                    <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
+                      <!--Slider label-->
+                      <label class="block mb-2 font-medium text-md align-left font-gray-200" for="shadowWidthSlider">Shadow Width</label>
+                      <!--Main slider-->
+                      <div class="w-full mx-auto" id="shadowWidthSlider"></div>
+                      <!--Alternative Input box for shadow width-->
+                      <div>
+                        <input class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline" id="shadowWidthInput" type="text" placeholder="10" oninput="shadowWidthInput(value)" />
+                      </div>
+                    </div>
+
+                    <!--Shadow width-->
+                    <div class="flex flex-col w-5/6 mx-auto space-y-6 text-gray-200">
+                      <!--Slider label-->
+                      <label class="block mb-2 font-medium text-md align-left font-gray-200" for="shadowOffsetSlider">Shadow Offset</label>
+                      <!--Main slider-->
+                      <div class="w-full mx-auto" id="shadowOffsetSlider"></div>
+                      <!--Alternative Input box for shadow width-->
+                      <div>
+                        <input class="float-right w-20 h-10 text-center placeholder-gray-400 rounded shadow-sm border-deepgray bg-darkgray glow-outline" id="shadowOffsetInput" type="text" placeholder="10" oninput="shadowOffsetInput(value)" />
+                      </div>
+                    </div>
+                  </div>
+                  <!--END SLIDERS-->
                 </div>
-            </div>
+              </section>
             <!--END PROPERTIES EDITOR-->
         </main>
     </div>
@@ -326,8 +275,8 @@
     <!--For checkbox hack-->
     <input type="checkbox" name="modal-close-button" id="modal-closing-trick">
     <!--NOSCRIPT-->
-    <!-- Uses TailwindUI modal with modifcations, 
-        source available at https://tailwindui.com/components/application-ui/overlays/modals 
+    <!-- Uses TailwindUI modal with modifcations,
+        source available at https://tailwindui.com/components/application-ui/overlays/modals
     -->
     <noscript class="fixed bottom-0 left-0 z-50 flex items-center justify-center w-full h-full">
         <div class="w-1/2 bg-white rounded-lg shadow-xl">
@@ -346,13 +295,13 @@
         </div>
     </noscript>
 
-    <!--Essential JavaScript for the UI is placed here-->
+    <!--Essential JavaScript for the UI/app function is placed here-->
+    <!--A few polyfills that allow for a consistent experience on old browsers-->
+    <script src="./libs/min-polyfills.js"></script>
     <!--Uses iro.js as a dependency for the colorpicker, so this must go first-->
     <script src="./libs/iro.min.js"></script>
     <!--Uses range-slider.js as dependency for accessible and cross-platform sliders-->
     <script src="./libs/range-slider.js"></script>
-    <!--Uses a custom micro-library for app menu functions-->
-    <script src="./libs/appmenus.js"></script>
     <!--Script used for modifying the DOM and setting variables for debugging-->
     <script src="./libs/debug/debug.js"></script>
     <!--Uses a custom resize script for resizable properties panel-->
@@ -363,11 +312,15 @@
     <script src="./libs/fabric.min.js"></script>
     <!--Uses toasts.js (a custom micro library) for simple toasts-->
     <script src="./libs/toasts.js"></script>
-    <!--Script for managing color conversions-->
+    <!--Script for managing color conversions
+        I however don't really think this is necessary anymore
+        because using fabric.js's native color conversion system
+        is probably both faster and more reliable
+    -->
     <script src="./libs/colorutils.js"></script>
-    <!--Script for assigning functions to selected objects-->
-    <script src="./libs/onselect.js"></script>
     <script src="./libs/mousetrap.js"></script>
+    <!--Uses a custom micro-library for app menu functions-->
+    <script src="./libs/appmenus.js"></script>
     <!--Entry point for app-->
     <script src="./app.js"></script>
     <!--Script for error-logging (this integrates with Rust for detailed backtraces)-->

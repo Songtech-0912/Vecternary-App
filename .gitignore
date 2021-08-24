@@ -3,6 +3,8 @@
 
 legacy/*
 Vecternary-Picasso/app/target/*
+Vecternary-Picasso/node_modules/*
+Vecternary-Picasso/package-lock.json
 
 # Prerequisites
 *.d

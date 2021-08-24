@@ -2,7 +2,7 @@
 "use strict";
 // Dropdown menu handling, show/hide based on menu state, and other things
 
-/* 
+/*
  * Note to the lucky soul reading this comment - the utter existence
  * of this library is a procurement of the dark arts. It took me ages
  * to finish this, likely selling half of my soul to the developers of
@@ -12,6 +12,235 @@
  * repeat this experience. Good luck.
 */
 
+// Menu API:
+// Each menu bar element has an id as well as a label, represented as an object
+// The ID is the unique JavaScript id of the element, while the label is the the text displayed for that particular element on the user interface
+// These have to be kept separate because ID names are often short for verbose code
+// while label names have spaces for readability
+
+let appMenu = [{
+    role: "fileMenu",
+    submenu: [
+        [
+            {
+                label: "New illustration",
+                id: "newDrawing",
+                keybinding: "CTRL N",
+                tooltip: "Creates a blank new drawing"
+            },
+            {
+                label: "Import",
+                id: "importDrawing",
+                keybinding: "SHIFT I",
+                tooltip: "Imports a SVG file, Fabric.js JSON or PNG"
+            },
+            {
+                label: "Export",
+                id: "exportDrawing",
+                keybinding: "SHIFT E",
+                tooltip: "Exports a PNG or SVG"
+            }
+        ],
+        [
+            {
+                label: "Open file",
+                id: "openFile",
+                keybinding: "CTRL O"
+            },
+            {
+                label: "Save file",
+                id: "saveFile",
+                keybinding: "CTRL S"
+                // This only has to be done for the 1st time
+                // Once the file is saved as a .vect file
+                // at a local directory the first time
+                // autosaving kicks into action, so
+                // every next time pressing CTRL S will
+                // just show a toast that says something like
+                // "Autosaving saves for you! ;)"
+                // Future TODO: If user is working on a blank
+                // new illustration and doesn't save after a while,
+                // alert them!
+            }
+        ],
+        [
+            {
+                label: "Quit",
+                id: "quitTrigger",
+                keybinding: "CTRL Q"
+            }
+        ],
+        [
+            {
+                label: "Force quit",
+                id: "forceQuit",
+                keybinding: "CTRL K Q"
+                // Note that the force quit button shows you a dialogue asking you if you really want to force quit
+                // For the "true" instant kill switch for Vecternary, use the keyboard command CTRL + B + K + F and hold for 3 seconds
+            }
+        ]
+        // We will temporarily leave out these options from the file menu:
+        // - Open recent file
+        // - Restore last session
+        // - Rename file
+        // - Settings
+        // - Reload UI
+    ]
+}, {
+    role: "editMenu",
+    submenu: [
+        // Temporarily left-out options:
+        // - Select all
+        // - Deselect all
+        // - Select inverse
+        // - Select by type
+        // - Command palette
+        [
+            {
+                label: "Undo",
+                id: "undoTrigger",
+                keybinding: "CTRL Z"
+            },
+            {
+                label: "Redo",
+                id: "redoTrigger",
+                keybinding: "CTRL SHIFT Z"
+            }
+        ],
+        [
+            {
+                label: "Copy",
+                id: "copyTrigger",
+                keybinding: "CTRL C"
+            },
+            {
+                label: "Paste",
+                id: "pasteTrigger",
+                keybinding: "CTRL V"
+            },
+            {
+                label: "Duplicate",
+                id: "duplicateTrigger",
+                keybinding: "SHIFT D"
+            }
+        ],
+        [
+            {
+                label: "Zoom in",
+                id: "zoomIn",
+                keybinding: "SHIFT 0",
+            },
+            {
+                label: "Zoom out",
+                id: "zoomOut",
+                keybinding: "SHIFT 9"
+            },
+            {
+                label: "Default zoom",
+                id: "zoomDefault",
+                keybinding: "SHIFT 0 9"
+            }
+        ]
+    ]
+}, {
+    role: "arrangeMenu",
+    submenu: [
+        [
+            {
+                label: "Send to top",
+                id: "sendToTop",
+                keybinding: "SHIFT T T"
+            },
+            {
+                label: "Send 1 level up",
+                id: "sendOneUp",
+                keybinding: "SHIFT T"
+            },
+            {
+                label: "Send 1 level down",
+                id: "sendOneDown",
+                keybinding: "SHIFT D"
+            },
+            {
+                label: "Send to bottom",
+                id: "sendToBottom",
+                keybinding: "SHIFT D D"
+            }
+        ]
+    ]
+}, {
+    role: "prefsMenu",
+    submenu: [
+        [
+            {
+                label: "Full screen",
+                id: "fullScreenTrigger",
+                keybinding: "CTRL F"
+            },
+            {
+                label: "Open config",
+                id: "openPrefsFile",
+                keybinding: "CTRL O C"
+            }
+            // Items temporarily not added
+            // Zen mode
+            // Show guides
+            // Show grid
+            // Enable snapping
+            // Add plugins
+            // Customize keyboard shortcuts
+        ]
+    ]
+}, {
+    role: "developerMenu",
+    submenu: [
+        [
+            // Items temporarily not added
+            // Open inspector
+            // Debugger
+            // Errors stacktrace
+            // Developer extras
+            // App console
+            {
+                label: "Run local script",
+                id: "runCustomScriptTrigger",
+                keybinding: "CTRL SHIFT R"
+            },
+            {
+                label: "Show logs",
+                id: "showLogsTrigger",
+                keybinding: "SHIFT S L"
+            }
+        ]
+    ]
+}, {
+    role: "aboutMenu",
+    submenu: [
+        [
+            // Items temporarily not added
+            // Report issue
+            // Interface guide
+            // Full documentation
+            // Github
+            // License
+            // Privacy & Security
+            // Search help...
+            {
+                label: "About",
+                id: "aboutTrigger",
+                keybinding: ""
+            }
+        ],
+        [
+            {
+                label: "Quick start",
+                id: "quickStartTrigger",
+                keybinding: ""
+            }
+        ]
+    ]
+}];
+
 
 // Entering: "transition ease-out duration-100"
 //   From: "transform opacity-0 scale-95"
@@ -20,289 +249,65 @@
 //   From: "transform opacity-100 scale-100"
 //   To: "transform opacity-0 scale-95"
 
-
-// API should be like this:
-// createMenuDropDown("fileMenu", "newDrawing", "New illustration")
-// ==> Creates a dropdown for 
-
-// Create list of top-level menus
-// Here the list is of the IDs not of the actual labels
-let topLevelMenuIDs = ["fileButton", "editButton", "formatButton", "prefsButton", "developerButton", "aboutButton"];
-
-// Create definitions for each menu item
-//  Menu bar elements are the buttons/items in a dropdown
-// In the file menu there are 12 of them! And in total
-// there might be thirty or more!
-
-// Each menu bar element has an id as well as a label, represented as an object
-// The ID is the unique JavaScript id of the element, while the label is the the text displayed for that particular element on the user interface
-// These have to be kept separate because ID names are often short for verbose code
-// while label names have spaces for readability
-let newDrawingButton = {
-    menu: "fileMenu",
-    id: "newDrawing",
-    label: "New illustration",
-    tooltip: "Creates a blank new drawing",
-    keybinding: "CTRL N"
-};
-let importDrawingButton = {
-    menu: "fileMenu",
-    id: "importDrawing",
-    label: "Import",
-    tooltip: "Imports a SVG file, Fabric.js JSON or PNG"
-};
-let exportDrawingButton = {
-    menu: "fileMenu",
-    id: "exportDrawing",
-    label: "Export",
-    tooltip: "Exports a PNG, JPG, or SVG"
-};
-let openFileButton = {
-    menu: "fileMenu",
-    id: "openFile",
-    label: "Open file"
-};
-let openRecentFileButton = {
-    menu: "fileMenu",
-    id: "openRecentFile",
-    label: "Open recent file"
-};
-let restoreLastSessionButton = {
-    menu: "fileMenu",
-    id: "restoreLastSession",
-    label: "Restore last session"
-};
-let saveFileButton = {
-    menu: "fileMenu",
-    id: "saveFile",
-    label: "Save file"
-};
-let saveFileAsButton = {
-    menu: "fileMenu",
-    id: "saveFileAs",
-    label: "Save file as"
-};
-let renameFileButton = {
-    menu: "fileMenu",
-    id: "renameFile",
-    label: "Rename file"
-};
-let settingsButton = {
-    menu: "fileMenu",
-    id: "adjustSettings",
-    label: "Settings"
-};
-let reloadUIButton = {
-    menu: "fileMenu",
-    id: "reloadUITrigger",
-    label: "Reload UI"
-};
-let quitButton = {
-    menu: "fileMenu",
-    id: "quitTrigger",
-    label: "Quit"
-};
-let forceQuitButton = {
-    menu: "fileMenu",
-    id: "forceQuitTrigger",
-    label: "Force quit"
-};
-let tempOtherButton = {
-    menu: "otherMenu",
-    id: "tempOther",
-    label: "Random menu item"
+function createMenu(menuObject) {
+    let menu = generateElement(`<div data-menu-name="${menuObject.role}" class="absolute -left-8 top-6 w-full mt-2 origin-top-left rounded-md shadow-lg w-60 md:w-52 z-30 font-base text-sm divide-y divide-darkgray bg-deepgray border-darkgray border transition ease-out duration-300"></div>`);
+    let menuDropdownItems = menuObject.submenu;
+    menuDropdownItems.forEach(function (element) {
+        // Deal with groups
+        let menuDropdownGroup = generateElement(`<div class="py-1"></div>`);
+        element.forEach(function (subelement) {
+            let tooltip = "";
+            if (isInObject("tooltip", subelement)) {
+                tooltip = subelement.tooltip;
+            }
+            let menuDropDownItem = generateElement(`
+            <a href="#" class="text-gray-100 block pl-8 pr-4 py-2 text-sm" role="menuitem" id="${subelement.id}" data-tooltip="${tooltip}">
+                <div class="flex flex-row justify-between">
+                    <label for="${subelement.id}">${subelement.label}</label>
+                    <div class="block opacity-50">
+                        <kbd class="leading-wide font-sans text-xs text-gray-100 rounded-md p-1">${subelement.keybinding}</kbd>
+                    </div>
+                </div>
+            </a>`);
+            menuDropdownGroup.appendChild(menuDropDownItem);
+        })
+        // Append groups to menu dropdown
+        menu.appendChild(menuDropdownGroup);
+    })
+    // Finally append the menu dropdown to the main menu
+    return menu;
 }
 
-// Usage: createMenuDropDown(id of menu: str) => returns HTML element
-function createMenuDropDown(menuID) {
-    // The dropDownContainer is the top-level div that
-    // houses all of the rest of the dropdown code
-    let dropDownContainer = document.createElement("div");
-    dropDownContainer.className = "absolute z-50 mt-2 text-sm origin-top-left border divide-y rounded-md shadow-lg w-60 -left-8 top-6 font-base divide-darkgray bg-deepgray border-darkgray"
+// Add each dropdown menu to the big main menu
+appMenu.forEach(function (element) {
+    let dropDown = createMenu(element);
+    // We want to make the dropdown hidden by default
+    dropDown.classList.add("hidden")
+    let dropDownID = dropDown.dataset.menuName;
+    let dropDownParent = document.getElementById(dropDownID).parentElement;
+    dropDownParent.appendChild(dropDown)
+})
 
-    // The 12 file dropdown menu items are combined here
-    // into one big array called menuBarElements
-    switch(menuID) {
-        case "fileButton":
-            // Do something
-            break;
-    };
-    
-    let menuBarElements = [
-        newDrawingButton,
-        importDrawingButton,
-        exportDrawingButton,
-        openFileButton,
-        openRecentFileButton,
-        restoreLastSessionButton,
-        saveFileButton,
-        saveFileAsButton,
-        renameFileButton,
-        settingsButton,
-        reloadUIButton,
-        quitButton,
-        forceQuitButton
-    ];
+let dropDownTriggers = ["fileMenu", "editMenu", "arrangeMenu", "prefsMenu", "developerMenu", "aboutMenu"]
 
-    // Menu bar groups are a container that contains several menu items -
-    // they are separated from each other by a divider visually
-    // There are 5 such groups in the file dropdown, some have less, some have none at all
-    let firstGroup = [
-        newDrawingButton,
-        importDrawingButton,
-        exportDrawingButton
-    ];
-    let secondGroup = [
-        openFileButton,
-        openRecentFileButton,
-        restoreLastSessionButton
-    ];
-    let thirdGroup = [
-        saveFileButton,
-        saveFileAsButton,
-        renameFileButton,
-    ];
-    let forthGroup = [
-        settingsButton,
-        reloadUIButton,
-    ];
-    let fifthGroup = [
-        quitButton,
-        forceQuitButton
-    ];
-    let menuBarGroups = [firstGroup, secondGroup, thirdGroup, forthGroup, fifthGroup];
-
-    // We use this array to store the menu item variables
-    // before we designate them to specific groups
-    let menuTempContainer = [];
-
-    // We create the HTML markup for each of the menu items
-    menuBarElements.forEach(function(element) {
-        // Generate a new variable name as a STRING
-        // This is JUST the name, the generated variable
-        // doesn't exist yet!
-        let tempVariableName = "var_" + element["id"];
-        // To actually make the generated variable exist it has 
-        // to be linked with the window object
-        // The window[] notation converts strings to the
-        // matching variables of the same name
-        // E.g. window['hello'] would return the variable $hello
-
-        // A way to think of this is that generatedVariable
-        // is basically like a pointer to the dynamically
-        // generated variable
-
-        // So if the dynamically generated variable
-        // was named $var_newDrawing then generatedVariable
-        // would act as a pointer to $var_newDrawing
-        let generatedVariable = window[tempVariableName];
-        generatedVariable = document.createElement("a");
-        generatedVariable.innerText = element["label"];
-        generatedVariable.id = element["id"];
-        // TODO This checking for whether the tooltip key
-        // exists should be removed in the future once the tooltips
-        // have all been written down
-        if (element.hasOwnProperty("tooltip")) {
-            generatedVariable.dataset.toolip = element["tooltip"];
+// Show the dropdowns on click
+// Should be refactored with info from https://sebastiandedeyne.com/javascript-framework-diet/dropdowns/
+dropDownTriggers.forEach(function(element){
+    let dropDown = document.getElementById(element).parentElement.lastChild;
+    document.getElementById(element).onclick = function(){
+        // If the dropdown menu is not visible
+        if (dropDown.classList.contains("hidden")) {
+            // Then we make it visible
+            dropDown.classList.remove("hidden");
+            // If the dropdown menu is visible
+        } else {
+            // Then we hide it and make it invisible
+            dropDown.classList.add("hidden")
         }
-
-        /* TailwindCSS classes to style the menu buttons */
-        generatedVariable.className = "block py-2 pl-8 pr-4 text-sm text-gray-100";
-
-        // This produces the code to generate the dynamic variable
-        // E.g. it might produce: let var_quitTrigger_Generated = menuElement;
-        // let generatedVariable = "var_" + element["id"];
-        menuTempContainer.push(generatedVariable);
-    });
-
-    // We sort each of the menu items into groups
-    // and append the child elements to the group markup
-    menuBarGroups.forEach(function(element) {
-        // As stated previously each group is a <div>
-        // that contains several menu item buttons
-        let groupMarkup = document.createElement("div");
-        groupMarkup.className = "py-1";
-        // Each group contains several buttons with
-        // HTML markup we added previously so
-        // we need to add it to the group markup
-        // as well
-        menuTempContainer.forEach(function(groupItemNode) {
-            let tempGroupItemID = groupItemNode.id; // e.g. var_newDrawing => newDrawing
-            tempGroupItemID.replace("var_", "");
-            // element = [newDrawingButton, importDrawingButton, ...]
-            // so we loop over it
-            element.forEach(function(elementButton) {
-                let elementButtonID = elementButton.id;
-                if (elementButtonID == tempGroupItemID) {
-                    groupMarkup.appendChild(groupItemNode);
-                }
-            })
-        });
-        // Append the completed group to the top-level dropdown container
-        dropDownContainer.appendChild(groupMarkup);
-
-        // Finish!
-        return dropDownContainer;
-
-        // E.g. append the completed file dropdown to the "file" menu
-        // document.getElementById("fileButton").parentNode.appendChild(dropDownContainer);
-    });
-};
-
-// toggleMenu function
-// item is the header menu item
-// dropdown is the dropdown menu associated with the menu item
-// function toggleMenu(item, dropdown) {
-//     document.getElementById(item).onclick = function() {
-//         var el = document.getElementById(dropdown);
-//         // If the dropdown menu is not visible
-//         if (el.classList.contains("hidden")) {
-//             // Then we make it visible
-//             el.classList.remove("hidden");
-//             // If the dropdown menu is visible
-//         } else {
-//             // Then we hide it and make it invisible
-//             el.classList.add("hidden")
-//         }
-//         // If focus to the dropdown menu is lost
-//         document.getElementById(item).onblur = function() {
-//             // Then we hide the dropdown menu as well
-//             el.classList.add("hidden")
-//         }
-//     }
-// 
-// }
-
-// for (buttonID in topLevelMenuIDs) {
-//     createFileDropDown(buttonID);
-// }
-
-// Note that the force quit button shows you a dialogue asking you if you really want to force quit
-// For the "true" instant kill switch for Vecternary, use the keyboard command CTRL + B + K + F and hold for 3 seconds
-
-
-// Some event delegation to catch events
-
-// menuRoot is the catcher for events; it corresponds to the <nav>
-// DOM element in the markup
-var menuRoot = document.getElementById("menuRoot");
-menuRoot.addEventListener("click", function(event) {
-    let target = event.target;
-    let targetID = target.id;
-    let targetParent = target.parentNode;
-    // Though this is not entirely necessary,
-    // I set it to verify that the returned ID would
-    // be one of the 6 menus hard-coded in the HTML
-    // and to warn by a toast if that isn't the case
-    if (targetID in topLevelMenuIDs === false) {
-        // The error names are based on the dates they were made
-        // Error 815 was created on August 15, 2021 which gives it that name
-        log("Error 815: invalid dropdown ID received!")
-        throw new console.warn(`Dropdown id ${targetID} is invalid!`);
-    };
-    // Creates the menu markup BUT we don't show that markup yet!
-    let dropDownMarkup = createMenuDropDown(targetID);
-    // Handle the logic of opening, closing, and enter/leave transitions
-    // They show on both hover and focus
-    targetParent.appendChild(dropDownMarkup);
-});
+    }
+    // If focus to the dropdown menu is lost
+    document.getElementById(element).onblur = function() {
+        // Then we hide the dropdown menu as well
+        dropDown.classList.add("hidden")
+    }
+})

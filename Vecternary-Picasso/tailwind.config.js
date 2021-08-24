@@ -1,6 +1,10 @@
 module.exports = {
     purge: {
-        content: ["*.html", "*.js"],
+        // We only want to purge classes from app.js
+        // to avoid mistakenly purging e.g. classes
+        // from fabric.js and iro.js which would result
+        // in long processing times and erroneous results
+        content: ["*.html", "app.js", 'libs/appmenus.js'],
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
@@ -20,5 +24,7 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        // require('@tailwindcss/forms')
+    ],
 };

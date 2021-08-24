@@ -9,26 +9,25 @@
 ** DONE Move the stuff from TODO.txt to here
 ** DONE Improve noscript - put the javascript licenses somewhere else, and instead make it a short succint message like CodePen's noscript
 ** TODO Rewrite the Makefile using python and the ~termcolors~ package to ensure that it works equally well on Windows which cannot use ANSI escape sequences
-*** TODO The improved noscript should still allow the user to close the noscript warning window and try to use the app with no javascript (it won't work but whatever)
-*** TODO The noscript should also be in a lightbox-style modal window like CodePen's so it does not obscure the UI behind it (the noscript modal can be closed and has a close button, it uses the CSS modal trick)
-** TODO Change the purge options in ~tailwind.config.js~ to purge classes in JS files as well as HTML markup
-** TODO (Maybe?) Splash screen
-** TODO Begin cleaning up markup of UI with vanilla javascript UI components based on [[https://jack.ofspades.com/developing-small-javascript-components-without-frameworks/index.html]]
-*** TODO These components should also support the transition-enter and transition leave methods as per the vanilla enter/leave transitions
-*** TODO Make an isolated component for dropdown menus
-**** TODO This allows us to only need the menu items markup instead of all of the complex dropdown markup
-*** TODO Make an isolated component for the state (mode) buttons
-*** TODO Make an isolated component for the sliders (which are already a javascript component but could be simplified)
-*** TODO Make an icon stylesheet so that instead of including complicated markup to embed SVGs directly, I can just use something like `<button class="my-icon" alt="something"></i>` and it displays the svg icon using CSS ::before
-*** TODO Learn how to do UI component transitions on that codepen
-*** TODO Separate these UI components:
-**** TODO Menu bar
-**** TODO Sidebar
-**** TODO Dropdowns
-*** TODO Make sure that the UI components retain good performance
-*** TODO Also make sure that enough basic HTML markup remains to make the UI work even without JS enabled
-*** TODO Update the tailwind.config.js file to include tree-shaking styles from all JS files
-*** TODO Make sure that all the code is ES2015 compliant and works with just a ~<script>~ tag (i.e. no use of modules or imports)
+*** DONE The improved noscript should still allow the user to close the noscript warning window and try to use the app with no javascript (it won't work but whatever)
+*** DONE The noscript should also be in a lightbox-style modal window like CodePen's so it does not obscure the UI behind it (the noscript modal can be closed and has a close button, it uses the CSS modal trick)
+** DONE Change the purge options in ~tailwind.config.js~ to purge classes in JS files as well as HTML markup
+** DONE Begin cleaning up markup of UI with vanilla javascript UI components based on [[https://jack.ofspades.com/developing-small-javascript-components-without-frameworks/index.html]]
+*** DONE These components should also support the transition-enter and transition leave methods as per the vanilla enter/leave transitions
+*** DONE Make an isolated component for dropdown menus
+**** DONE This allows us to only need the menu items markup instead of all of the complex dropdown markup
+*** DONE Make an isolated component for the state (mode) buttons
+*** DONE Make an isolated component for the sliders (which are already a javascript component but could be simplified)
+*** DONE Make an icon stylesheet so that instead of including complicated markup to embed SVGs directly, I can just use something like `<button class="my-icon" alt="something"></i>` and it displays the svg icon using CSS ::before
+*** DONE Learn how to do UI component transitions on that codepen
+*** DONE Separate these UI components:
+**** DONE Menu bar
+**** DONE Sidebar
+**** DONE Dropdowns
+*** DONE Make sure that the UI components retain good performance
+*** DONE Also make sure that enough basic HTML markup remains to make the UI work even without JS enabled
+*** DONE Update the tailwind.config.js file to include tree-shaking styles from all JS files
+*** DONE Make sure that all the code is ES2015 compliant and works with just a ~<script>~ tag (i.e. no use of modules or imports)
 ** DONE Abstract the menu bar code so that it isn't the mess of convoluted HTML markup
 ** TODO Make the items of the menu bar actually work
 ** TODO Write the file specification for the .vect format and for Vecternary to efficiently load/save files
@@ -97,7 +96,7 @@
 ** DONE First test with Rust's web-view library
 ** TODO Fix bugs
 *** DONE Bug #1: square sliders on webkit and chrome
-*** TODO Bug #2: multiselect is broken due to colorpicker being overwhelmed with multiple objects - fix with the new multiselect attribute UI
+*** DONE Bug #2: multiselect is broken due to colorpicker being overwhelmed with multiple objects - fix with the new multiselect attribute UI
 ** TODO Adding autosaving via the "canvas:onmodified" event and show an icon and a toast to indicate that autosaving is active to the user
 ** TODO Full width canvas with a floating left toolbar
 ** TODO True cross-platform support on Mac, Linux, and Windows with correct UI rendering using webview on each
@@ -106,7 +105,7 @@
 ** TODO Finish color controls
 *** DONE Let colorpicker's color auto-change to selected object color
 *** DONE Allow selected object color to change via colorpicker
-*** TODO Fix the color corrector bug
+*** DONE Fix the color corrector bug
 ** DONE Add a custom NoScript tag that is more semantic and better communicates Vecternary Picasso
 ** TODO Finish the Rust backend (save/load SVG files, etc.)
 *** TODO Be able to export as PNG image
@@ -119,11 +118,11 @@
 *** TODO Limit Vecternary to use no more than 500 MB of RAM or more than 10% of CPU (but the user should be able to customize this through a preferences file)
 **** TODO Work on a system built into the Rust engine that continuously monitors CPU usage from another thread and warns the user if Vecternary uses too much system resources
 **** Work making sure the UI thread is separate from the engine thread
+** TODO Fully-accessible tooltips
 ** TODO Final checks before deployment
 *** TODO Check responsiveness on screens of all sizes and check responsiveness in Lighthouse as well
 **** TODO At all screen sizes less than 800px, hide main application UI and instead show a "screen size too small" alert that encourages the user to resize the window to something bigger
 *** DONE As a production run, create /that/ design with Vecternary Picasso
-[[/home/songtech/Pictures/Screenshot_20210521_172949.png]]
 *** TODO Create a lightweight but awesome example SVG in Inkscape that Vecternary loads at startup to be the default startup file (something like [[https://static.vecteezy.com/system/resources/previews/000/225/476/original/vector-beautiful-landscape-illustration.jpg]])
 *** TODO Run full strength linters to find every possible JS mistake
 *** TODO Run full strength linters on Rust code as well
@@ -135,9 +134,11 @@
 **** TODO Test 4: Stress-test with 1000 objects on canvas, as well as loading Blender's big SVG icon sheet
 **** TODO Test 5: Multi-metric tests with 5 hours of continuous operation
 *** TODO Do cross-platform testing
+*** TODO Add in Babel to compile the app JavaScript to ES5-compatible syntax
 *** DONE Deliver Vecternary Picasso 0.1.0 to Elisa and also send her a video of a design being made in Vecternary
 
 * Vecternary Mondrian
+** TODO (Maybe?) Splash screen
 ** TODO Add a button to disable/enable javascript in the menubar
 ** TODO Implement help system:
 *** TODO Search through menus feature for vecternary - like macos, it searches through menu items
@@ -240,7 +241,8 @@
 * Vecternary Monet
 ** TODO Add in a community templates/plugins marketplace like Figma community
 ** TODO add in proper color management
-** TODO Add in keyboard-driven workflow inspired by vim
+** TODO Instead of fabric.js implement a custom HTML canvas library
+** TODO Add in keyboard-driven workflow inspired by vim and the modal workflow of Uivonim/Veonim/Oni2
 ** TODO Add in all tools and programmable interface from [[https://github.com/baku89/pentool]]
 ** TODO Add in scripting/plugins capability - scripts are in a custom scripting language called VecScript and are designed to be easy to learn and understand. VecScript is based off of Python, but made simpler to understand
 ** Vecternary Monet will be the last release that will add a lot of major features. Future updates will only add 1 or 2 updates at a time, and only rarely, to prevent feature bloat

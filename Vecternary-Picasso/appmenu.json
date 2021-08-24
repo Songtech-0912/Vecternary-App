@@ -1,0 +1,184 @@
+[
+    {
+        "role": "fileMenu",
+        "submenu": [
+            [
+                {
+                    "label": "New illustration",
+                    "id": "newDrawing",
+                    "keybinding": "CTRL N",
+                    "tooltip": "Creates a blank new drawing"
+                },
+                {
+                    "label": "Import",
+                    "id": "importDrawing",
+                    "keybinding": "SHIFT I",
+                    "tooltip": "Imports a SVG file, Fabric.js JSON or PNG"
+                },
+                {
+                    "label": "Export",
+                    "id": "exportDrawing",
+                    "keybinding": "SHIFT E",
+                    "tooltip": "Exports a PNG or SVG"
+                }
+            ],
+            [
+                {
+                    "label": "Open file",
+                    "id": "openFile",
+                    "keybinding": "CTRL O"
+                },
+                {
+                    "label": "Save file",
+                    "id": "saveFile",
+                    "keybinding": "CTRL S"
+                }
+            ],
+            [
+                {
+                    "label": "Quit",
+                    "id": "quitTrigger",
+                    "keybinding": "CTRL Q"
+                }
+            ],
+            [
+                {
+                    "label": "Force quit",
+                    "id": "forceQuit",
+                    "keybinding": "CTRL K Q"
+                }
+            ]
+        ]
+    },
+    {
+        "role": "editMenu",
+        "submenu": [
+            [
+                {
+                    "label": "Undo",
+                    "id": "undoTrigger",
+                    "keybinding": "CTRL Z"
+                },
+                {
+                    "label": "Redo",
+                    "id": "redoTrigger",
+                    "keybinding": "CTRL SHIFT Z"
+                }
+            ],
+            [
+                {
+                    "label": "Copy",
+                    "id": "copyTrigger",
+                    "keybinding": "CTRL C"
+                },
+                {
+                    "label": "Paste",
+                    "id": "pasteTrigger",
+                    "keybinding": "CTRL V"
+                },
+                {
+                    "label": "Duplicate",
+                    "id": "duplicateTrigger",
+                    "keybinding": "SHIFT D"
+                }
+            ],
+            [
+                {
+                    "label": "Zoom in",
+                    "id": "zoomIn",
+                    "keybinding": "SHIFT 0"
+                },
+                {
+                    "label": "Zoom out",
+                    "id": "zoomOut",
+                    "keybinding": "SHIFT 9"
+                },
+                {
+                    "label": "Zoom to default",
+                    "id": "zoomDefault",
+                    "keybinding": "SHIFT 0 9"
+                }
+            ]
+        ]
+    },
+    {
+        "role": "arrangeMenu",
+        "submenu": [
+            [
+                {
+                    "label": "Send to top",
+                    "id": "sendToTop",
+                    "keybinding": "SHIFT T T"
+                },
+                {
+                    "label": "Send 1 level up",
+                    "id": "sendOneUp",
+                    "keybinding": "SHIFT T"
+                },
+                {
+                    "label": "Send 1 level down",
+                    "id": "sendOneDown",
+                    "keybinding": "SHIFT D"
+                },
+                {
+                    "label": "Send to bottom",
+                    "id": "sendToBottom",
+                    "keybinding": "SHIFT D D"
+                }
+            ]
+        ]
+    },
+    {
+        "role": "prefsMenu",
+        "submenu": [
+            [
+                {
+                    "label": "Full screen",
+                    "id": "fullScreenTrigger",
+                    "keybinding": "CTRL F"
+                },
+                {
+                    "label": "Open preferences config",
+                    "id": "openPrefsFile",
+                    "keybinding": "CTRL O C"
+                }
+            ]
+        ]
+    },
+    {
+        "role": "developerMenu",
+        "submenu": [
+            [
+                {
+                    "label": "Run custom script",
+                    "id": "runCustomScriptTrigger",
+                    "keybinding": "CTRL SHIFT R"
+                },
+                {
+                    "label": "Show logs",
+                    "id": "showLogsTrigger",
+                    "keybinding": "SHIFT S L"
+                }
+            ]
+        ]
+    },
+    {
+        "role": "aboutMenu",
+        "submenu": [
+            [
+                {
+                    "label": "About",
+                    "id": "aboutTrigger",
+                    "keybinding": ""
+                }
+            ],
+            [
+                {
+                    "label": "Quick start",
+                    "id": "quickStartTrigger",
+                    "keybinding": ""
+                }
+            ]
+        ]
+    }
+]

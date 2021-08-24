@@ -62,6 +62,12 @@
         line-height: 1.25rem;
     }
 
+    @media (min-width: 1280px) {
+        .xl\:min-w-editor {
+            min-width: 22rem;
+        }
+    }
+
     .transform {
         @apply transition duration-100 ease-out;
     }
