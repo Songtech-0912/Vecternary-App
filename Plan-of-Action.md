@@ -23,6 +23,7 @@ The backup plan, assuming all fails, is to simply have a basic app to distribute
 - [x] Rewrite the right sidebar code, it is very unclear and causes frequent headaches
 - [x] Then work on the multiselect color picker
 - [ ] Then make all of the UI actually work and implement all basic functionality of the original freehand draw demo at <https://fabricjs.com/demos/freedrawing> - this is also going to be the time to add the new UI paradigm, see `Project-Tasklist.org:57` for implementation details
+  - [ ] Fix the safari bug that causes the `onblur` event to not fire
 - [x] Delete, copy, paste, and duplicate objects should be implemented
 - [x] Next work on the menu and menu dropdowns
   - [ ] Implement the menu functions in `app.js` (e.g. about modal will correspond to a `showAboutModal()` function in `app.js` that is triggered on the click as well as bound to its keybinding with `Mousetrap.js`)
@@ -38,5 +39,6 @@ The backup plan, assuming all fails, is to simply have a basic app to distribute
 - [ ] Design `.vect` file type icon
 - [ ] Show file save status if current illustration is not saved (the `*Unsaved` label in the titlebar or something)
 - [ ] Linting and JavaScript cleanup
+- [ ] Finish a Vecternary demo/startup file to demonstrate its capabilites
 - [ ] Check that the javascript does not cause memory leaks
 - [ ] Assuming that all of this is done, we lastly can add in any other new desirable features (such as a pen tool)

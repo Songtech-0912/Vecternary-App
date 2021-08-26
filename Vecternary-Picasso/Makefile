@@ -25,6 +25,7 @@ installdeps:
 	@npm i -g tailwindcss-cli@latest
 	@npm i -g live-server@latest
 	@npm i -g inline-assets@latest
+	@npm i tailwindcss @tailwindcss/forms
 	@printf "%b" "$(COLOR)$(GREEN)$(DONE) All dependencies installed successfully! $(END_COLOR)$(ENDL)"
 build:
 	@printf "%b" "$(COLOR)$(BOLD)$(MAGENTA)$(INFO) Preparing CSS assets... $(END_COLOR)$(ENDL)"
