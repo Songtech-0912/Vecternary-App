@@ -1,28 +1,49 @@
+# ANSI escape sequences for colors
+COLOR = \033[
+BOLD = 1;
+MAGENTA = 35m
+CYAN = 36m
+GREEN = 32m
+END_COLOR = \033[0m
+ENDL = \n
+
+# Unicode symbols for prettier output
+# •
+INFO = \u2022
+# (✓)
+DONE = (\u2713)
+
 help:
 	@echo Options for make:
-	@echo -e "\t make build"
-	@echo -e "\t make serve"
-	@echo -e "\t make dist"
-	@echo -e "\t make bundle"
+	@printf "%b" "\t $(COLOR)$(CYAN) make installdeps $(END_COLOR)$(ENDL)";
+	@printf "%b" "\t $(COLOR)$(CYAN) make build $(END_COLOR)$(ENDL)";
+	@printf "%b" "\t $(COLOR)$(CYAN) make serve $(END_COLOR)$(ENDL)"
+	@printf "%b" "\t $(COLOR)$(CYAN) make dist $(END_COLOR)$(ENDL)"
+	@printf "%b" "\t $(COLOR)$(CYAN) make bundle $(END_COLOR)$(ENDL)"
+installdeps:
+	@printf "%b" "$(COLOR)$(BOLD)$(MAGENTA)$(INFO) Installing dependencies... $(END_COLOR)$(ENDL)"
+	@npm i -g tailwindcss-cli@latest
+	@npm i -g live-server@latest
+	@npm i -g inline-assets@latest
+	@npm i tailwindcss @tailwindcss/forms
+	@printf "%b" "$(COLOR)$(GREEN)$(DONE) All dependencies installed successfully! $(END_COLOR)$(ENDL)"
 build:
-	@echo -e "\033[1;35m• Preparing CSS assets...\033[0m"
-	@npx tailwindcss-cli@latest -i ./css/raw/tailwind.css -o ./css/build/tailwind.output.css
-	@echo -e "\033[32m(✓) Compilation finished successfully\033[0m"
+	@printf "%b" "$(COLOR)$(BOLD)$(MAGENTA)$(INFO) Preparing CSS assets... $(END_COLOR)$(ENDL)"
+	@tailwindcss-cli -i ./css/raw/tailwind.css -o ./css/build/tailwind.output.css
+	@printf "%b" "$(COLOR)$(GREEN)$(DONE) Compilation finished successfully! $(END_COLOR)$(ENDL)"
 
 serve:
-	@echo -e "\033[1;36m• Starting live development server...\033[0m"
-	@npx live-server
+	@printf "%b" "$(COLOR)$(BOLD)$(CYAN)$(INFO) Starting live development server... $(END_COLOR)$(ENDL)"
+	@live-server
 
 dist:
-	@echo -e "\033[1;35m• Bundling CSS assets...\033[0m"
-	@echo -e "\033[1;32m• Tree-shaking unused styles...\033[0m"
-	@export NODE_ENV='production' && npx tailwindcss-cli@latest build ./css/raw/tailwind.css -o ./css/build/tailwind.output.css
-	@echo -e "\033[32m(✓) Done! Preparing live server to serve assets.\033[0m"
-	@read -p "Press ENTER to start server, or CTRL C to stop: "
-	@npx live-server
+	@printf "%b" "$(COLOR)$(BOLD)$(MAGENTA)$(INFO) Bundling CSS assets... $(END_COLOR)$(ENDL)"
+	@printf "%b" "$(COLOR)$(BOLD)$(GREEN)$(INFO) Tree-shaking unused styles... $(END_COLOR)$(ENDL)"
+	@export NODE_ENV='production' && tailwindcss-cli -i ./css/raw/tailwind.css -o ./css/build/tailwind.output.css
+	@printf "%b" "$(COLOR)$(BOLD)$(GREEN)$(DONE) Done! CSS assets are now optimized for production. $(END_COLOR)$(ENDL)"
 bundle:
-	@echo -e "\033[1;35m• Bundling assets into one file...\033[0m"
-	@npx html-onefile ./index.html ./app/src/index.html
-	@echo -e "\033[1;32m• Running \`cargo build --release\` in directory 'app'...\033[0m"
+	@printf "%b" "$(COLOR)$(BOLD)$(MAGENTA)$(INFO) Bundling assets into one file... $(END_COLOR)$(ENDL)"
+	@inline-assets ./index.html ./app/src/index.html
+	@printf "%b" "$(COLOR)$(BOLD)$(GREEN)$(INFO) Running \`cargo build --release\` in directory 'app'... $(END_COLOR)$(ENDL)"
 	@make -C app build
-	@echo -e "\033[32m(✓) Done! Compiled app at ./app/target/release/app\033[0m"
+	@printf "%b" "$(COLOR)$(GREEN)$(DONE) Done! Compiled app at ./app/target/release/app $(END_COLOR)$(ENDL)"

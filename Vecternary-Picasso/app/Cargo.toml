@@ -3,8 +3,21 @@ name = "app"
 version = "0.1.0"
 authors = ["Songtech-0912 <dixinlily@hotmail.com>"]
 edition = "2018"
+description = "An open-source design tool built with minimalism in mind."
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 web-view = { version = "0.7", features = ["edge"] }
+
+[package.metadata.bundle]
+name = "Vecternary Picasso"
+identifier = "io.github.songtech-0912.vecternary-app"
+icon = ["icon.icns"]
+version = "0.1.0-alpha"
+category = "Graphics and Design"
+short_description = "A design tool built with minimalism in mind."
+long_description = """
+Vecternary is a creative design application that aims to bring professional
+vector editing and painting in a performant, fast, minimal package.
+"""

@@ -3,6 +3,12 @@
 
 legacy/*
 Vecternary-Picasso/app/target/*
+Vecternary-Picasso/node_modules/*
+Vecternary-Picasso/package-lock.json
+Vecternary-Picasso/releases
+
+# System artifacts
+.DS_Store
 
 # Prerequisites
 *.d

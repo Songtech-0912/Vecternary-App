@@ -28,6 +28,7 @@
         -o-animation: fadeIn ease-in 1s;
         -ms-animation: fadeIn ease-in 1s;
         animation: fadeIn ease-in 1s;
+        overflow: hidden;
     }
 
     @keyframes fadeIn {
@@ -61,6 +62,12 @@
         line-height: 1.25rem;
     }
 
+    @media (min-width: 1280px) {
+        .xl\:min-w-editor {
+            min-width: 22rem;
+        }
+    }
+
     .transform {
         @apply transition duration-100 ease-out;
     }
@@ -71,5 +78,9 @@
 	}
     td {
         @apply px-8 py-4;
+    }
+
+    .sidebar-btn {
+        @apply w-full px-3 py-3 mx-auto border-r-4 border-gray-400 border-solid rounded glow-outline;
     }
 }

@@ -1,0 +1,43 @@
+/* 
+    Custom stylesheet and icons for Vecternary
+    Big thanks to the Heroicons team (https://heroicons.com/)
+    for providing many of the icons I used
+*/
+
+.icon {
+    display: block;
+    padding-left: 2rem;
+    width: 2rem;
+    height: 2rem;
+  }
+.icon:before {
+    content: "";
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    margin-left: -2rem;
+}
+
+.drawicon::before {
+    background: url("icons/draw.svg");
+}
+
+.eraseicon::before {
+    background: url("icons/erase.svg");
+}
+
+.circicon::before {
+    background: url("icons/circle.svg");
+}
+
+.recticon::before {
+    background: url("icons/rect.svg");
+}
+
+.trigicon::before {
+    background: url("icons/triangle.svg");
+}
+
+.texticon::before {
+    background: url("icons/text.svg");
+}
