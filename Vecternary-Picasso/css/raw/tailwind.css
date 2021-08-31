@@ -40,6 +40,17 @@
         }
     }
 
+    /* Basic enter/leave classes for JavaScript transitions */
+    .fade-enter,
+    .fade-leave {
+        transition: all 0.15s ease;
+    }
+
+    .fade-enter-start,
+    .fade-leave-end {
+        opacity: 0;
+    }
+
     /* Apply basic accesibility outlines with some better styles*/
     .glow-outline {
         @apply focus:ring focus:ring-opacity-50 focus:ring-indigo-300;
@@ -51,12 +62,12 @@
     }
 
     .transform {
-        @apply transition ease-out duration-100;
+        @apply transition duration-100 ease-out;
     }
 
     /* Some other basic styles to make tables look nicer by default */
 	th {
-		@apply text-left px-8 py-4;
+		@apply px-8 py-4 text-left;
 	}
     td {
         @apply px-8 py-4;

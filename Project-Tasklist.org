@@ -8,9 +8,10 @@
 ** DONE Finish design of Vecternary Icon
 ** DONE Move the stuff from TODO.txt to here
 ** DONE Improve noscript - put the javascript licenses somewhere else, and instead make it a short succint message like CodePen's noscript
+** TODO Rewrite the Makefile using python and the ~termcolors~ package to ensure that it works equally well on Windows which cannot use ANSI escape sequences
 *** TODO The improved noscript should still allow the user to close the noscript warning window and try to use the app with no javascript (it won't work but whatever)
 *** TODO The noscript should also be in a lightbox-style modal window like CodePen's so it does not obscure the UI behind it (the noscript modal can be closed and has a close button, it uses the CSS modal trick)
-** TODO Change the purge options in ~tailwind.config.js~ to purge classes in CSS files as well as HTML markup
+** TODO Change the purge options in ~tailwind.config.js~ to purge classes in JS files as well as HTML markup
 ** TODO (Maybe?) Splash screen
 ** TODO Begin cleaning up markup of UI with vanilla javascript UI components based on [[https://jack.ofspades.com/developing-small-javascript-components-without-frameworks/index.html]]
 *** TODO These components should also support the transition-enter and transition leave methods as per
@@ -28,7 +29,7 @@
 *** TODO Also make sure that enough basic HTML markup remains to make the UI work even without JS enabled
 *** TODO Update the tailwind.config.js file to include tree-shaking styles from all JS files
 *** TODO Make sure that all the code is ES2015 compliant and works with just a ~<script>~ tag (i.e. no use of modules or imports)
-** TODO Abstract the menu bar code so that it isn't the mess of convoluted HTML markup
+** DONE Abstract the menu bar code so that it isn't the mess of convoluted HTML markup
 ** TODO Make the items of the menu bar actually work
 ** TODO Write the file specification for the .vect format and for Vecternary to efficiently load/save files
 ** TODO (Mirrored on Sleek) For the opening/closing file capabilities of Vecternary, use the [[rfd][https://lib.rs/crates/rfd]] crate instead of the default web browser dialogue to read `.vect` files, and while each file is loading display a fun little loading animation and the user is asked whether the current file they have open should be saved
@@ -62,12 +63,12 @@
 *** TODO Package both a default dark and light theme as well as a high-contrast theme by default
 *** TODO Write a few other themes in Vecternary's CSS theme syntax and make them downloadable on Vecternary's website (as well as letting Elisa try them out to see which ones she likes)
 ** TODO Make inputs outlined in red if an invalid input is detected and remember the last used input
-** TODO Finish the colorpicker dropdown (for choosing fill color/stroke color) based on TailwindUI's dropdowns
+** DONE Finish the colorpicker dropdown (for choosing fill color/stroke color) based on TailwindUI's dropdowns
 *** This should NOT use the native ~select~ element, instead it should be made accessible via aria attributes and tabindex
 *** Add in these selection options - prerequisite is full page canvas
-**** TODO Line color
+**** DONE Line color
 **** TODO Shadow color
-**** TODO Fill color
+**** DONE Fill color
 **** TODO Canvas background color - set canvas background color / set canvas background to checkboard background alpha
 ** TODO Finish the resizable properties editor and the dragging button for that panel
 ** TODO Better-looking placeholders for the canvas (something like Atom's startup/welcome screen would be nicer), via overlaying a div with z-depth 1 (showing recent files list for instance)

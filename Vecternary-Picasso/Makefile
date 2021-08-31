@@ -6,7 +6,7 @@ help:
 	@echo -e "\t make bundle"
 build:
 	@echo -e "\033[1;35m• Preparing CSS assets...\033[0m"
-	@npx tailwindcss-cli@latest build ./css/raw/tailwind.css -o ./css/build/tailwind.output.css
+	@npx tailwindcss-cli@latest -i ./css/raw/tailwind.css -o ./css/build/tailwind.output.css
 	@echo -e "\033[32m(✓) Compilation finished successfully\033[0m"
 
 serve:
