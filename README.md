@@ -1,6 +1,6 @@
 # The Vecternary Project
 
-<image here>
+<screenshot image here>
 
 Vecternary is a project to build a open-source and minimalist design tool. It's also meant to be an alternative to Adobe Illustrator, and a lighter alternative to Inkscape. Vecternary is capable of working well with both vector and raster design workflows.
 
@@ -32,6 +32,20 @@ Vecternary should **avoid** the following issues:
 - Customization bloat (opinionated is good, we don't want 1000 ways of doing the same thing)
 - Overuse of plugins (Vecternary should be completely usable without plugins)
 - Security vulnerabilities (e.g. mitigated with sandboxing and denial of injected script execution)
+
+## Structure & Governance
+
+I develop Vecternary with a small but dedicated team. The main project develops Vecternary itself, creates tutorials, provides community support, and fixes user-reported bugs. It also deals with the website, provides update notes, sends news posts, and manages project finance.
+
+Vecternary's plugins and themes are all community-developed, with the exception of the basic plugins which are developed by the Vecternary team. The Vecternary marketplace allows you to download and share plugins we have reviewed and approved; however, nothing stops you from creating plugins and using them in Vecternary on your own.
+
+Vecternary's installer and its GUI are developed by the Vecternary team. The installer installs Vecternary, its supporting libraries, and manages themes and plugins. It also allows fo r the installation of developer tools. The installer will also have a GUI mode and use SDL2 for its GUI.
+
+The developer tools for Vecternary are highly recommended to be installed if you want to tweak Vecternary or join in its development. They are installable by either Vecternary's installer or (recommended) by `Vrench`. They are written in C/C++ for improved performance and greater portability as compared to Rust.
+
+Lastly, the Vecternary team also creates weekly showcases of their work using Vecternary, including free project files, illustrations, and assets for other designers using Vecternary to freely use. Community-created work is also curated and shown together with the showcases.
+
+## Compiling and installing
 
 ## Roadmap
 
