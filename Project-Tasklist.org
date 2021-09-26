@@ -30,6 +30,7 @@
 *** DONE Make sure that all the code is ES2015 compliant and works with just a ~<script>~ tag (i.e. no use of modules or imports)
 ** DONE Abstract the menu bar code so that it isn't the mess of convoluted HTML markup
 ** TODO Make the items of the menu bar actually work
+** TODO Add in lock zoom feature for Vecternary
 ** TODO Write the file specification for the .vect format and for Vecternary to efficiently load/save files
 ** TODO (Mirrored on Sleek) For the opening/closing file capabilities of Vecternary, use the [[rfd][https://lib.rs/crates/rfd]] crate instead of the default web browser dialogue to read `.vect` files, and while each file is loading display a fun little loading animation and the user is asked whether the current file they have open should be saved
 ** TODO Implement saving files and let Rust backend do the heavy work
@@ -139,6 +140,10 @@
 
 * Vecternary Mondrian
 ** TODO (Maybe?) Splash screen
+** TODO Search through menus feature for vecternary - like macos, it searches through menu items
+** TODO Vecternary help system - built-in help which launches another webview for a help UI dashboard.
+*** TODO Design the help dashboard in Figma.
+** TODO Vecternary command palette feature for keyboard-centric workflow
 ** TODO Add a button to disable/enable javascript in the menubar
 ** TODO Implement help system:
 *** TODO Search through menus feature for vecternary - like macos, it searches through menu items
