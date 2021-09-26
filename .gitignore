@@ -3,6 +3,7 @@
 
 legacy/*
 Vecternary-Picasso/app/target/*
+Vecternary-Picasso/app/Makefile
 Vecternary-Picasso/node_modules/*
 Vecternary-Picasso/package-lock.json
 Vecternary-Picasso/releases
