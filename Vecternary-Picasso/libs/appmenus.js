@@ -24,36 +24,36 @@ let appMenu = [{
         [{
                 label: "New illustration",
                 id: "newDrawing",
-                keybinding: "CTRL N",
+                keybinding: "Ctrl N",
                 tooltip: "Creates a blank new drawing"
             },
             {
                 label: "Import",
                 id: "importDrawing",
-                keybinding: "SHIFT I",
+                keybinding: "Shift I",
                 tooltip: "Imports a SVG file, Fabric.js JSON or PNG"
             },
             {
                 label: "Export",
                 id: "exportDrawing",
-                keybinding: "SHIFT E",
+                keybinding: "Shift E",
                 tooltip: "Exports a PNG or SVG"
             }
         ],
         [{
                 label: "Open file",
                 id: "openFile",
-                keybinding: "CTRL O"
+                keybinding: "Ctrl O"
             },
             {
                 label: "Save file",
                 id: "saveFile",
-                keybinding: "CTRL S"
+                keybinding: "Ctrl S"
                 // This only has to be done for the 1st time
                 // Once the file is saved as a .vect file
                 // at a local directory the first time
                 // autosaving kicks into action, so
-                // every next time pressing CTRL S will
+                // every next time pressing Ctrl S will
                 // just show a toast that says something like
                 // "Autosaving saves for you! ;)"
                 // Future TODO: If user is working on a blank
@@ -64,14 +64,14 @@ let appMenu = [{
         [{
             label: "Quit",
             id: "quitTrigger",
-            keybinding: "CTRL Q"
+            keybinding: "Ctrl Q"
         }],
         [{
             label: "Force quit",
             id: "forceQuit",
-            keybinding: "CTRL K Q"
+            keybinding: "Ctrl K Q"
             // Note that the force quit button shows you a dialogue asking you if you really want to force quit
-            // For the "true" instant kill switch for Vecternary, use the keyboard command CTRL + B + K + F and hold for 3 seconds
+            // For the "true" instant kill switch for Vecternary, use the keyboard command Ctrl + B + K + F and hold for 3 seconds
         }]
         // We will temporarily leave out these options from the file menu:
         // - Open recent file
@@ -92,44 +92,44 @@ let appMenu = [{
         [{
                 label: "Undo",
                 id: "undoTrigger",
-                keybinding: "CTRL Z"
+                keybinding: "Ctrl Z"
             },
             {
                 label: "Redo",
                 id: "redoTrigger",
-                keybinding: "CTRL SHIFT Z"
+                keybinding: "Ctrl Shift Z"
             }
         ],
         [{
                 label: "Copy",
                 id: "copyTrigger",
-                keybinding: "CTRL C"
+                keybinding: "Ctrl C"
             },
             {
                 label: "Paste",
                 id: "pasteTrigger",
-                keybinding: "CTRL V"
+                keybinding: "Ctrl V"
             },
             {
                 label: "Duplicate",
                 id: "duplicateTrigger",
-                keybinding: "SHIFT D"
+                keybinding: "Shift D"
             }
         ],
         [{
                 label: "Zoom in",
                 id: "zoomIn",
-                keybinding: "SHIFT 0",
+                keybinding: "Shift 0",
             },
             {
                 label: "Zoom out",
                 id: "zoomOut",
-                keybinding: "SHIFT 9"
+                keybinding: "Shift 9"
             },
             {
                 label: "Default zoom",
                 id: "zoomDefault",
-                keybinding: "SHIFT 0 9"
+                keybinding: "Shift 0 9"
             }
         ]
     ]
@@ -139,22 +139,22 @@ let appMenu = [{
         [{
                 label: "Send to top",
                 id: "sendToTop",
-                keybinding: "SHIFT T T"
+                keybinding: "Shift T T"
             },
             {
                 label: "Send 1 level up",
                 id: "sendOneUp",
-                keybinding: "SHIFT T"
+                keybinding: "Shift T"
             },
             {
                 label: "Send 1 level down",
                 id: "sendOneDown",
-                keybinding: "SHIFT D"
+                keybinding: "Shift D"
             },
             {
                 label: "Send to bottom",
                 id: "sendToBottom",
-                keybinding: "SHIFT D D"
+                keybinding: "Shift D D"
             }
         ]
     ]
@@ -164,12 +164,12 @@ let appMenu = [{
         [{
                 label: "Full screen",
                 id: "fullScreenTrigger",
-                keybinding: "CTRL F"
+                keybinding: "Ctrl F"
             },
             {
                 label: "Open config",
                 id: "openPrefsFile",
-                keybinding: "CTRL O C"
+                keybinding: "Ctrl O C"
             }
             // Items temporarily not added
             // Zen mode
@@ -193,12 +193,12 @@ let appMenu = [{
             {
                 label: "Run local script",
                 id: "runCustomScriptTrigger",
-                keybinding: "CTRL SHIFT R"
+                keybinding: "Ctrl Shift R"
             },
             {
                 label: "Show logs",
                 id: "showLogsTrigger",
-                keybinding: "SHIFT S L"
+                keybinding: "Shift S L"
             }
         ]
     ]
