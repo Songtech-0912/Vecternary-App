@@ -2,6 +2,8 @@
 
 <screenshot image here>
 
+:warning: **Vecternary is having a major UI redesign and rewrite to use 100% Rust, and will be relicensed to public domain. Watch out for v2!**
+
 Vecternary is a project to build a open-source and minimalist design tool. It's also meant to be an alternative to Adobe Illustrator, and a lighter alternative to Inkscape. Vecternary is capable of working well with both vector and raster design workflows.
 
 As Vecternary is an open source project, it is provided for free, but you can support development by buying the app on Gumroad for a symbolic price. No subscriptions, ever.
